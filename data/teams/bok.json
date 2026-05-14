@@ -1,0 +1,723 @@
+{
+  "key": "bok",
+  "name": "Blades of Khaine",
+  "subtitle": "Oct '25 errata · 17 physical loadouts",
+  "intro": "1 Exarch (Dire Avenger, Howling Banshee, or Striking Scorpion) + 7 Warriors freely chosen from the three Warrior types. Warriors are the only repeatable operatives.",
+  "footnotes_html": "",
+  "faction_rules": [
+    {
+      "name": "Aspect Techniques",
+      "text": "Each Aspect (Dire Avenger / Howling Banshee / Striking Scorpion) has its own pool of techniques, usable only by operatives of that Aspect. No more than one per activation/counteraction, no more than once per turning point each (twice if all operatives share one Aspect keyword). Dire Avenger: The Slicing Hurricane, Death of a Thousand Blades, Vigilance of the Avenger, Unstinting Immovable, Raging Heat of the Dying Flame. Howling Banshee: The Woe, Rain of Tears, Acrobatic, Scream-That-Steals, Shriek-That-Kills. Striking Scorpion: Patient Stalk Sudden Blow, Strike and Fade, Scorpion's Eye, Merciless Strikes, One with the Gloom."
+    }
+  ],
+  "strategy_ploys": [
+    {"name": "Forewarned", "text": "Re-roll defence dice of one result vs a ready friendly."},
+    {"name": "Ruthless Poise", "text": "Melee Ceaseless vs ready operatives."},
+    {"name": "Khaine's Vengeance", "text": "Ranged Ceaseless vs expended operatives."},
+    {"name": "Dance of Death", "text": "Swap two operatives' positions."}
+  ],
+  "firefight_ploys": [
+    {"name": "Bladewind", "text": "Two Fight actions during activation."},
+    {"name": "Starfall", "text": "Two Shoot actions during activation."},
+    {"name": "Fading Light", "text": "Fall Back for 1 less AP."},
+    {"name": "Contempt", "text": "Opponent cannot re-roll attack dice while retaliating or shooting this operative."}
+  ],
+  "equipment": [
+    {"name": "Rune of Prophecy", "text": "±D3 to initiative roll-off."},
+    {"name": "Rune of Shielding", "text": "Once per battle ignore Normal Dmg."},
+    {"name": "Rune of Foresight", "text": "D3-turn +1 CP from Strategy phase."},
+    {"name": "Wraithbone Talisman", "text": "Once per turning point convert two fails to one normal success."}
+  ],
+  "max_shooting": 2,
+  "max_melee": 2,
+  "loadouts": [
+    {
+      "operative": "Dire Avenger Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken catapult",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Dire Avenger Exarch",
+      "weapons": [
+        {
+          "name": "Twin shuriken catapult",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Gun butts",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 2,
+              "crit_dmg": 3,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Dire Avenger Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Diresword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Lethal 5+",
+                "Rending"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Dire Avenger Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Dire Avenger Exarch",
+      "weapons": [
+        {
+          "name": "Diresword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Lethal 5+",
+                "Rending"
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Shimmershield instead of shuriken pistol — see Shimmershield ability."
+    },
+    {
+      "operative": "Dire Avenger Exarch",
+      "weapons": [
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Shimmershield instead of shuriken pistol — see Shimmershield ability."
+    },
+    {
+      "operative": "Dire Avenger Warrior",
+      "weapons": [
+        {
+          "name": "Shuriken catapult",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Howling Banshee Exarch",
+      "weapons": [
+        {
+          "name": "Mirrorswords",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Ceaseless",
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "No ranged weapon on this build."
+    },
+    {
+      "operative": "Howling Banshee Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Executioner",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 7,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Howling Banshee Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Howling Banshee Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triskele (throw)",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 3,
+              "rules": [
+                "Rng 8\"",
+                "Rending",
+                "Torrent 2\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triskele (slice)",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Rending"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Howling Banshee Exarch",
+      "weapons": [
+        {
+          "name": "Triskele (throw)",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 3,
+              "rules": [
+                "Rng 8\"",
+                "Rending",
+                "Torrent 2\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triskele (slice)",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Howling Banshee Warrior",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Striking Scorpion Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Biting blade",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 5,
+              "crit_dmg": 6,
+              "rules": [
+                "Rending"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Striking Scorpion Exarch",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scorpion's claw and chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Brutal",
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Striking Scorpion Exarch",
+      "weapons": [
+        {
+          "name": "Twin shuriken pistols",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Ceaseless",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Twin chainswords",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Ceaseless",
+                "Rending"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Striking Scorpion Warrior",
+      "weapons": [
+        {
+          "name": "Shuriken pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Rending"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Rending"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "operatives": {
+    "Dire Avenger Exarch": {
+      "apl": 3,
+      "move": 7,
+      "save": 3,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Defence Tactics",
+          "text": "Whenever this operative contests an objective marker or one of your mission markers, or whenever it's shooting an enemy operative that does, this operative's weapons have the Balanced weapon rule."
+        },
+        {
+          "name": "Exarch",
+          "text": "This operative can perform two <strong>Shoot</strong> or two <strong>Fight</strong> actions during its activation."
+        },
+        {
+          "name": "Shimmershield",
+          "text": "Whenever an operative is shooting a friendly <strong>BLADES OF KHAINE</strong> operative that's visible to and within 2\" of this operative, ignore the Piercing weapon rule. This operative only has this rule if you select the shimmershield weapon option."
+        }
+      ]
+    },
+    "Dire Avenger Warrior": {
+      "apl": 3,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Defence Tactics",
+          "text": "Whenever this operative contests an objective marker or one of your mission markers, or whenever it's shooting an enemy operative that does, this operative's weapons have the Balanced weapon rule."
+        }
+      ]
+    },
+    "Howling Banshee Exarch": {
+      "apl": 3,
+      "move": 7,
+      "save": 3,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Banshee Mask",
+          "text": "Whenever this operative is fighting, worsen the Hit stat of the enemy operative's melee weapons by 1. This isn't cumulative with being injured."
+        },
+        {
+          "name": "Exarch",
+          "text": "This operative can perform two <strong>Shoot</strong> or two <strong>Fight</strong> actions during its activation."
+        }
+      ]
+    },
+    "Howling Banshee Warrior": {
+      "apl": 3,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Banshee Mask",
+          "text": "Whenever this operative is fighting, worsen the Hit stat of the enemy operative's melee weapons by 1. This isn't cumulative with being injured."
+        }
+      ]
+    },
+    "Striking Scorpion Exarch": {
+      "apl": 3,
+      "move": 7,
+      "save": 3,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Mandiblasters",
+          "text": "Whenever this operative performs the <strong>Fight</strong> action, at the start of the Roll Attack Dice step, you can use this rule. If you do, inflict 2 damage on the enemy operative in that sequence."
+        },
+        {
+          "name": "Exarch",
+          "text": "This operative can perform two <strong>Shoot</strong> or two <strong>Fight</strong> actions during its activation."
+        }
+      ]
+    },
+    "Striking Scorpion Warrior": {
+      "apl": 3,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Mandiblasters",
+          "text": "Whenever this operative performs the <strong>Fight</strong> action, at the start of the Roll Attack Dice step, you can use this rule. If you do, inflict 2 damage on the enemy operative in that sequence."
+        }
+      ]
+    }
+  }
+}

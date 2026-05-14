@@ -1,0 +1,472 @@
+{
+  "key": "dw",
+  "name": "Deathwatch",
+  "subtitle": "Errata January '26 · 11 operatives",
+  "intro": "5 DEATHWATCH operatives selected from 11 specialists — each at most once, with at most one GRAVIS operative (Bombard, Breacher, or Horde-Slayer). Pick and choose to counter your specific opponent.",
+
+  "faction_rules": [
+    {
+      "name": "Veteran Astartes",
+      "text": "During each friendly DEATHWATCH operative's activation, it can perform either two Shoot actions or two Fight actions. If it's two Shoot actions and an auxiliary grenade launcher, frag cannon, heavy plasma incinerator, infernus heavy bolter, plasma pistol or stalker bolt rifle is selected for both, or if a melta bomb is selected for either, 1 additional AP must be spent for the second action. Each friendly DEATHWATCH operative can counteract regardless of its order. Whenever it does, it can perform an additional 1AP action for free during that counteraction, but both actions must be different and you cannot perform a Fight and Shoot action during the same counteraction."
+    },
+    {
+      "name": "Special Issue Ammunition",
+      "text": "Once per turning point, when a friendly DEATHWATCH operative is performing the Shoot action, in the Select Weapon step, you can use this rule. If you do, select one of the following weapon rules for that operative's ranged weapons to have until the end of the action. This rule cannot be used with explosive grenades (see universal equipment) or melta bombs: Blast 1\" (cannot select if the weapon profile has the Torrent weapon rule), Devastating 1, Lethal 5+, Piercing Crits 1, Rending, Severe."
+    }
+  ],
+
+  "strategy_ploys": [
+    {
+      "name": "Mission Tactics",
+      "text": "Select Conceal or Engage. Whenever a friendly DEATHWATCH operative is shooting against or fighting against an enemy operative that has that order, that friendly operative's weapons have the Balanced weapon rule."
+    },
+    {
+      "name": "The Long Vigil",
+      "text": "Whenever an operative is shooting a friendly DEATHWATCH operative that's wholly within your territory, you can re-roll one of your defence dice."
+    },
+    {
+      "name": "The Shield That Slays",
+      "text": "Whenever a friendly DEATHWATCH operative is wholly within your opponent's territory, Normal and Critical Dmg of 4 or more inflicts 1 less damage on it."
+    },
+    {
+      "name": "And They Shall Know No Fear",
+      "text": "You can ignore any changes to the stats of friendly DEATHWATCH operatives from being injured (including their weapons' stats)."
+    }
+  ],
+
+  "firefight_ploys": [
+    {
+      "name": "Suffer Not the Alien",
+      "text": "Use this firefight ploy after rolling your attack dice for a friendly DEATHWATCH operative, if it's shooting against or fighting against an operative that doesn't have the CHAOS or IMPERIUM keyword. You can re-roll any of your attack dice."
+    },
+    {
+      "name": "Auspicator Tracking",
+      "text": "Use this firefight ploy when a friendly DEATHWATCH operative is counteracting, before it performs any actions. You can change its order."
+    },
+    {
+      "name": "Advanced Auspex Scan",
+      "text": "Use this firefight ploy when a friendly DEATHWATCH operative performs the Shoot action. Until the end of the activation/counteraction, its ranged weapons have the Saturate weapon rule and enemy operatives cannot be obscured."
+    },
+    {
+      "name": "Transhuman Physiology",
+      "text": "Use this firefight ploy when an operative is shooting a friendly DEATHWATCH operative, in the Roll Defence Dice step. You can retain one of your normal successes as a critical success instead."
+    }
+  ],
+
+  "equipment": [
+    {
+      "name": "Digital Weapons",
+      "text": "Once per turning point, when a friendly DEATHWATCH operative performs the Fight action, at the start of the Roll Attack Dice step, you can use this rule. If you do, inflict 1 damage on the enemy operative in that sequence."
+    },
+    {
+      "name": "Scrutavore Servo-Thrall",
+      "text": "Once per turning point, during a friendly DEATHWATCH operative's activation, you can use this rule. If you do, during that activation, that operative can perform a mission action for 1 less AP. Having an enemy operative within its control range doesn't prevent that friendly operative from performing that mission action. However, in such an instance, after it does so, you and your opponent roll-off. If your opponent wins, you cannot use this equipment for the rest of the battle."
+    },
+    {
+      "name": "Sanctus-V Bioscryer Cuffs",
+      "text": "Once during each friendly DEATHWATCH operative's activation, before or after it performs an action, if it's not within control range of enemy operatives, you can use this rule. If you do, select one of the following: that friendly operative regains up to D3 lost wounds; remove any changes to that friendly operative's APL stat; remove one of the following tokens that friendly operative has (before that token's activation effects are resolved, if relevant): Neutron Fragment, Poison, Terrorchem."
+    },
+    {
+      "name": "Ammunition Reserve",
+      "text": "Once per battle, you can use the Special Issue Ammunition faction rule for up to two Shoot actions during one turning point, but you must select different weapon rules for both uses. This takes precedence over the normal Special Issue Ammunition rules."
+    }
+  ],
+
+  "max_shooting": 3,
+  "max_melee": 1,
+
+  "loadouts": [
+    {
+      "operative": "Watch Sergeant",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            { "name": "standard",    "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Range 8\"", "Piercing 1"] },
+            { "name": "supercharge", "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Range 8\"", "Hot", "Lethal 5+", "Piercing 1"] }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Lethal 5+"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Aegis",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Range 8\""] }
+          ]
+        },
+        {
+          "name": "Power maul & storm shield",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Shock", "Shield"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Blademaster",
+      "weapons": [
+        {
+          "name": "Special issue bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Range 8\"", "Piercing 1"] }
+          ]
+        },
+        {
+          "name": "Xenophase blade",
+          "type": "melee",
+          "profiles": [
+            { "name": "duel",        "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Brutal", "Lethal 5+"] },
+            { "name": "phase sweep", "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Brutal", "Lethal 5+", "Phase Sweep"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Bombard",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Range 8\""] }
+          ]
+        },
+        {
+          "name": "Frag cannon",
+          "type": "shooting",
+          "profiles": [
+            { "name": "shell",     "atk": 4, "hit": 3, "normal_dmg": 5, "crit_dmg": 7, "rules": ["Piercing 1"] },
+            { "name": "shrapnel", "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Torrent 2\""] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Breacher",
+      "weapons": [
+        {
+          "name": "Auxiliary grenade launcher",
+          "type": "shooting",
+          "profiles": [
+            { "name": "frag", "atk": 4, "hit": 3, "normal_dmg": 2, "crit_dmg": 4, "rules": ["Blast 2\""] },
+            { "name": "krak", "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Piercing 1"] }
+          ]
+        },
+        {
+          "name": "Hellstorm bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Torrent 1\""] }
+          ]
+        },
+        {
+          "name": "Melta bomb",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 5, "crit_dmg": 3, "rules": ["Range 3\"", "Devastating 3", "Heavy (Reposition only)", "Limited 1", "Piercing 2"] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Demolisher",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Range 8\""] }
+          ]
+        },
+        {
+          "name": "Heavy thunder hammer",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 4, "normal_dmg": 6, "crit_dmg": 7, "rules": ["Shock", "Stun"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Disruptor",
+      "weapons": [
+        {
+          "name": "Marksman bolt carbine",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Lethal 5+"] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Gunner",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Range 8\""] }
+          ]
+        },
+        {
+          "name": "Heavy plasma incinerator",
+          "type": "shooting",
+          "profiles": [
+            { "name": "standard",    "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Piercing 1"] },
+            { "name": "supercharge", "atk": 5, "hit": 3, "normal_dmg": 5, "crit_dmg": 6, "rules": ["Hot", "Lethal 5+", "Piercing 1"] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Headtaker",
+      "weapons": [
+        {
+          "name": "Special issue bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Range 8\"", "Piercing 1"] }
+          ]
+        },
+        {
+          "name": "Combat knives",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Horde-Slayer",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Range 8\""] }
+          ]
+        },
+        {
+          "name": "Infernus heavy bolter",
+          "type": "shooting",
+          "profiles": [
+            { "name": "flame",        "atk": 5, "hit": 2, "normal_dmg": 3, "crit_dmg": 3, "rules": ["Range 8\"", "Saturate", "Torrent 2\""] },
+            { "name": "focused bolt", "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Piercing Crits 1"] },
+            { "name": "sweeping bolt","atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Piercing Crits 1", "Torrent 1\""] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Marksman",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            { "name": "mobile", "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] },
+            { "name": "heavy",  "atk": 4, "hit": 2, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Heavy (Dash only)", "Lethal 5+", "Piercing Crits 1"] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "operatives": {
+    "Watch Sergeant": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Adaptable Armoury",
+          "text": "You can select one additional equipment option."
+        },
+        {
+          "name": "Strategic Command",
+          "text": "You can do each of the following once per battle if this operative is in the killzone: use a DEATHWATCH strategy ploy for 0CP; use a DEATHWATCH firefight ploy for 0CP."
+        }
+      ]
+    },
+    "Aegis": {
+      "apl": 3,
+      "move": 6,
+      "save": 2,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Shield",
+          "text": "Whenever this operative is fighting or retaliating with its power maul & storm shield, each of your blocks can be allocated to block two unresolved successes (instead of one)."
+        },
+        {
+          "name": "Storm Shield",
+          "text": "Whenever an operative is shooting this operative, worsen the x of the Piercing weapon rule by 1 (if any). Note that Piercing 1 would therefore be ignored."
+        }
+      ]
+    },
+    "Blademaster": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Adaptive Swordsmanship",
+          "text": "You can ignore any changes to the Hit stat of this operative's xenophase blade. Whenever this operative is fighting or retaliating, you can resolve one of your successes before the normal order. If you do, that success must be used to block."
+        },
+        {
+          "name": "Phase Sweep",
+          "text": "Whenever this operative performs the Fight action with the xenophase blade (phase sweep) profile, if it isn't incapacitated, it can immediately perform a free Fight action afterwards, but you must select this weapon profile and it can only fight against each enemy operative within its control range once per activation or counteraction using this weapon profile. This takes precedence over action restrictions, and you can continue to perform free Fight actions until this operative is incapacitated or has fought against every enemy operative within its control range."
+        }
+      ]
+    },
+    "Bombard": {
+      "apl": 3,
+      "move": 5,
+      "save": 3,
+      "wounds": 18,
+      "abilities": []
+    },
+    "Breacher": {
+      "apl": 3,
+      "move": 5,
+      "save": 3,
+      "wounds": 18,
+      "abilities": []
+    },
+    "Demolisher": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Brutal Assault",
+          "text": "Whenever this operative is fighting, its heavy thunder hammer has the Brutal weapon rule. Whenever this operative performs the Charge action, its heavy thunder hammer has the Ceaseless weapon rule until the end of the activation/counteraction."
+        },
+        {
+          "name": "Aggressive Force",
+          "text": "Whenever this operative is fighting or retaliating, Normal and Critical Dmg of 3 or more inflicts 1 less damage on it. This isn't cumulative with the Shield that Slays strategy ploy."
+        }
+      ]
+    },
+    "Disruptor": {
+      "apl": 3,
+      "move": 7,
+      "save": 3,
+      "wounds": 13,
+      "abilities": [
+        {
+          "name": "Advanced Omni-Scrambler",
+          "tag": "STRATEGIC GAMBIT",
+          "text": "Select one enemy operative visible to or within 6\" of this operative, then roll one D6. In the Firefight phase of this turning point, that enemy operative cannot be activated or perform actions until one of the following is true: your opponent has activated a number of enemy operatives equal to the result of the D6; it's the last enemy operative to be activated."
+        },
+        {
+          "name": "Auspex Triangulation",
+          "text": "The Advanced Auspex Scan firefight ploy costs you 0CP when both of the following are true: this operative isn't within control range of enemy operatives; the target of that Shoot action (primary target, if relevant) is visible to this operative. Note that it doesn't have to be this operative performing the Shoot action, and that any subsequent Shoot actions during that activation/counteraction must meet these same requirements (or that ploy has no effect on those subsequent Shoot actions)."
+        }
+      ]
+    },
+    "Gunner": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": []
+    },
+    "Headtaker": {
+      "apl": 3,
+      "move": 7,
+      "save": 3,
+      "wounds": 13,
+      "abilities": [
+        {
+          "name": "Grav-chute and Grapnel Launcher",
+          "text": "Whenever this operative is climbing, treat the vertical distance as 2\" (regardless of how far the operative actually moves vertically). Whenever this operative is dropping, ignore the vertical distance."
+        },
+        {
+          "name": "Clandestine Headtaker",
+          "text": "This operative can perform the Charge action while it has a Conceal order. Whenever this operative is fighting against an operative it wasn't visible to at the start of the activation/counteraction, the first time you strike during that sequence, you can immediately resolve another of your successes as a strike (before your opponent)."
+        }
+      ]
+    },
+    "Horde-Slayer": {
+      "apl": 3,
+      "move": 5,
+      "save": 3,
+      "wounds": 18,
+      "abilities": []
+    },
+    "Marksman": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Vigilant Marksman",
+          "text": "This operative can perform the Guard action during its activation regardless of the killzone (see close quarters rules, Kill Team: Tomb World). When using the close quarters rules, once per turning point, after this operative performs a free Shoot action on guard, it can immediately perform a free Guard action. However, if it does, it cannot counteract during that turning point (nor Guard twice if it's counteracted)."
+        }
+      ]
+    }
+  }
+}

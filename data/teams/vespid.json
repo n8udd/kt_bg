@@ -1,0 +1,418 @@
+{
+  "key": "vespid",
+  "name": "Vespid Stingwings",
+  "subtitle": "Nov '25 errata · 7 physical loadouts",
+  "intro": "1 Strain Leader + 1 Oversight Drone + 9 from {Longsting, Shadestrain, Skyblast, Swarmguard, Warrior}. Only Warrior is repeatable. 11 operatives total.",
+  "footnotes_html": "",
+  "faction_rules": [
+    {"name": "Communion", "text": "Gain D3 CP each turning point (+1 if Oversight Drone is in the killzone). Spend to override instinctual targeting, charging, or mission actions, or re-roll one attack dice."},
+    {"name": "Neutron Charge", "text": "Neutron weapons gain Piercing 1 for the turning point whenever the operative moves or uses FLY."},
+    {"name": "FLY", "text": "Replace move with a set-up within the operative's Move stat, ignoring terrain and operatives."}
+  ],
+  "strategy_ploys": [],
+  "firefight_ploys": [],
+  "equipment": [
+    {"name": "Neurostimulant", "text": ""},
+    {"name": "Convergence Stimulant", "text": ""},
+    {"name": "Accelerant Stimulant", "text": ""},
+    {"name": "Aggression Stimulant", "text": ""}
+  ],
+  "max_shooting": 2,
+  "max_melee": 1,
+  "loadouts": [
+    {
+      "operative": "Vespid Strain Leader",
+      "weapons": [
+        {
+          "name": "Neutron blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Devastating 2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Claws",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Oversight Drone",
+      "weapons": [
+        {
+          "name": "Ram",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 5,
+              "normal_dmg": 1,
+              "crit_dmg": 2,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Vespid Longsting",
+      "weapons": [
+        {
+          "name": "Neutron rail rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 4,
+              "rules": [
+                "Devastating 2",
+                "Neutron Fragment*"
+              ],
+              "name": "Standard"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 4,
+              "rules": [
+                "Devastating 2",
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Neutron Fragment*"
+              ],
+              "name": "Aimed"
+            }
+          ],
+          "abilities": [
+            {
+              "name": "Neutron Fragment",
+              "text": "If the target of this weapon isn't incapacitated but you resolve any attack dice, the target gains one of your Neutron Fragment tokens. Whenever an operative that has one of your Neutron Fragment tokens is activated, inflict D3 damage on it for each token it has (rolled separately for each)."
+            }
+          ]
+        },
+        {
+          "name": "Claws",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Vespid Shadestrain",
+      "weapons": [
+        {
+          "name": "Neutron sting",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 8\"",
+                "Devastating 2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Neutron grenade",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 6\"",
+                "Blast 2\"",
+                "Devastating 2",
+                "Limited 1",
+                "Saturate"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Claws",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Vespid Skyblast",
+      "weapons": [
+        {
+          "name": "Neutron grenade launcher",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Blast 2\"",
+                "Devastating 2",
+                "Neutron Bombardment**"
+              ]
+            }
+          ],
+          "abilities": [
+            {
+              "name": "Neutron Bombardment",
+              "text": "Place one of your Neutron Fallout markers within the primary target's control range. Neutron Fallout: once during each enemy operative's activation, as soon as it's within 2\" of one of your Neutron Fallout markers, inflict D3 damage on that operative (multiple markers aren't cumulative)."
+            }
+          ]
+        },
+        {
+          "name": "Claws",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Vespid Swarmguard",
+      "weapons": [
+        {
+          "name": "Flamer",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 8\"",
+                "Saturate",
+                "Torrent 2\""
+              ],
+              "name": "Standard"
+            },
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Saturate",
+                "Torrent 0\"",
+                "Skytorch***"
+              ],
+              "name": "Skytorch"
+            }
+          ],
+          "abilities": [
+            {
+              "name": "Skytorch",
+              "text": "An operative can only use this weapon during the Skytorch Assault action. Don't select a target — instead shoot against each operative within the torch zone (the horizontal area between the operative's current and previous location), excluding those wholly underneath Vantage terrain; they aren't in cover or obscured. Roll each sequence separately, furthest to closest. Torrent 0\" means no secondary targets outside the torch zone, but the weapon retains Torrent for all other rules purposes."
+            }
+          ]
+        },
+        {
+          "name": "Claws",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Vespid Warrior",
+      "weapons": [
+        {
+          "name": "Neutron blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Devastating 2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Claws",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "operatives": {
+    "Vespid Strain Leader": {
+      "apl": 2,
+      "move": 6,
+      "save": 5,
+      "wounds": 10,
+      "abilities": [
+        {
+          "name": "Communion Helm",
+          "text": "Once during each of this operative's activations, you can spend 1 Communion point for free."
+        },
+        {
+          "name": "Commune",
+          "text": "When selecting your operatives for the battle, also select one VESPID STINGWING strategy ploy. Whenever this operative is in the killzone and isn't within control range of enemy operatives, that ploy costs you 0CP."
+        }
+      ]
+    },
+    "Oversight Drone": {
+      "apl": 2,
+      "move": 8,
+      "save": 2,
+      "wounds": 5,
+      "abilities": [
+        {
+          "name": "Evasive Drone",
+          "text": "<ul><li>This operative cannot perform any actions other than Aerial Guidance, Charge, Dash, Fall Back, Fight and Reposition.</li><li>Whenever determining control of an objective marker, treat this operative's APL stat as 1 lower. Note this isn't a change to its APL stat, so any changes are cumulative with this.</li><li>Whenever determining what's visible to this operative, the round disc at the top of the miniature is its head.</li><li>Whenever this operative has a Conceal order and is in cover, it cannot be selected as a valid target, taking precedence over all other rules (e.g. Seek, Vantage terrain) except being within 2\".</li><li>Whenever an operative is shooting this operative, ignore the Piercing weapon rule.</li></ul>"
+        },
+        {
+          "name": "Aerial Guidance",
+          "tag": "1AP",
+          "text": "SUPPORT. Until the start of this operative's next activation, whenever another friendly VESPID STINGWING operative within 6\" of this operative is shooting an enemy operative visible to this operative, that friendly operative's ranged weapons have the Lethal 5+ and Saturate weapon rules. This has no effect while this operative is within control range of an enemy operative.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "Vespid Longsting": {
+      "apl": 2,
+      "move": 6,
+      "save": 5,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Neutron Fragment (Neutron rail rifle)",
+          "text": "If the target of this weapon isn't incapacitated but you resolve any attack dice, the target gains one of your Neutron Fragment tokens. Whenever an operative that has one of your Neutron Fragment tokens is activated, inflict D3 damage on it for each Neutron Fragment token it has (roll separately for each)."
+        }
+      ]
+    },
+    "Vespid Shadestrain": {
+      "apl": 2,
+      "move": 6,
+      "save": 3,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Ghost Rig",
+          "text": "While this operative has a Conceal order, your opponent cannot select it as a valid target unless it's within 6\" of the operative trying to target it. Note that this rule has no effect if this operative isn't selected as the valid target, e.g. if it's a secondary target from the Blast weapon rule."
+        },
+        {
+          "name": "Camouflaged",
+          "text": "Whenever an operative is shooting this operative, ignore the Piercing weapon rule and all cover saves are retained as critical successes. This rule has no effect if this operative isn't selected as the valid target, e.g. if it's a secondary target from the Blast weapon rule."
+        }
+      ]
+    },
+    "Vespid Skyblast": {
+      "apl": 2,
+      "move": 6,
+      "save": 5,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Neutron Bombardment (Neutron grenade launcher)",
+          "text": "Place one of your Neutron Fallout markers within the primary target's control range."
+        },
+        {
+          "name": "Neutron Fallout",
+          "text": "Once during each enemy operative's activation, as soon as it's within 2\" of one of your Neutron Fallout markers, inflict D3 damage on that operative (multiple markers aren't cumulative)."
+        }
+      ]
+    },
+    "Vespid Swarmguard": {
+      "apl": 2,
+      "move": 6,
+      "save": 5,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Skytorch (Flamer skytorch profile)",
+          "text": "An operative can only use this weapon during the Skytorch Assault action. If it does, don't select a valid target. Instead, shoot against each operative within its torch zone (excluding operatives wholly underneath Vantage terrain); they aren't in cover or obscured. Roll each sequence separately in order of furthest operative to closest. The torch zone is the horizontal area between the operative's current and previous location. A 28mm round Skytorch marker can be temporarily placed underneath this operative before it moves to help determine this. Torrent 0\" means you cannot select secondary targets outside of its torch zone, but this weapon still has the Torrent weapon rule for all other rules purposes, e.g. the Condensed Stronghold rule."
+        },
+        {
+          "name": "Skytorch Assault",
+          "tag": "2AP",
+          "text": "Perform a free Reposition action with this operative. During that action, it must FLY and can move an additional 2\". Then perform a free Shoot action. You can only select a flamer (skytorch) for that Shoot action.<br><br>This operative cannot perform this action while it has a Conceal order, or while within control range of an enemy operative."
+        }
+      ]
+    },
+    "Vespid Warrior": {
+      "apl": 2,
+      "move": 6,
+      "save": 5,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Warrior Instincts",
+          "text": "Whenever this operative is shooting, if you don't spend Communion points during that sequence, its neutron blaster has the Accurate 1 weapon rule until the end of that sequence."
+        }
+      ]
+    }
+  }
+}

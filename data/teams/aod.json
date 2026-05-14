@@ -1,0 +1,1642 @@
+{
+  "key": "aod",
+  "name": "Angels of Death",
+  "subtitle": "Jan '26 errata · 35 physical loadouts",
+  "intro": "1 leader from {Assault Intercessor Sgt, Intercessor Sgt, Space Marine Captain} + 5 from {Assault Intercessor Grenadier, Assault Intercessor Warrior, Eliminator Sniper, Heavy Intercessor Gunner, Intercessor Gunner (with aux grenade launcher), Intercessor Warrior}. Non-Warrior operatives may only be included once.",
+  "footnotes_html": "",
+  "faction_rules": [
+    {
+      "name": "Chapter Tactics",
+      "text": "Select a primary and secondary Chapter Tactic. Multiple instances aren't cumulative. 1. Aggressive — melee weapons have Rending. 2. Dueller — normal successes can block crits (unless Brutal). 3. Resolute — ignore APL changes; not affected by Shock. 4. Stealthy — retain one additional cover save, or one as a crit. 5. Mobile — Fall Back for 1 less AP; Charge while in control range. 6. Hardy — defence 5+ are critical successes; first Normal Dmg 3+ in retaliation reduced by 1. 7. Sharpshooter — bolt weapons have Accurate 1 and Severe when not Charged/Fallen Back/Repositioned. 8. Siege Specialist — ranged weapons have Saturate; enemies can't assist in melee."
+    },
+    {
+      "name": "Astartes",
+      "text": "During each activation, can perform two Shoot or two Fight actions. For two Shoot actions, a bolt weapon must be selected for at least one; bolt sniper rifle or heavy bolter costs +1 AP for the second action if both use that weapon. Each friendly Angel of Death operative can counteract regardless of its order."
+    }
+  ],
+  "strategy_ploys": [
+    {"name": "Combat Doctrine", "text": "Select Devastator (shooting >6\"), Tactical (shooting within 6\"), or Assault (fighting/retaliating) — operatives in that situation gain Balanced on their weapons."},
+    {"name": "And They Shall Know No Fear", "text": "Ignore changes to stats of friendly Angel of Death operatives from being injured, including their weapons' stats."},
+    {"name": "Indomitus", "text": "Whenever an operative is shooting a friendly Angel of Death operative, if you roll two or more fails, discard one to retain another as a normal success."},
+    {"name": "Adaptive Tactics", "text": "Change your secondary Chapter Tactic until the end of the turning point, then it reverts."}
+  ],
+  "firefight_ploys": [
+    {"name": "Adjust Doctrine", "text": "During a friendly Angel of Death operative's activation, before or after an action: if Combat Doctrine was used this turning point, change the selected doctrine."},
+    {"name": "Transhuman Physiology", "text": "When an operative is shooting a friendly Angel of Death operative, in the Roll Defence Dice step: retain one normal success as a critical success."},
+    {"name": "Shock Assault", "text": "When a friendly Angel of Death operative performs Fight after Charging, at the start of Resolve Attack Dice: its melee weapon has Shock and the first strike inflicts +1 damage (max 7)."},
+    {"name": "Wrath of Vengeance", "text": "When a friendly Angel of Death operative is counteracting: it can perform one additional 1AP action for free — both actions must be different."}
+  ],
+  "equipment": [
+    {"name": "Purity Seals", "text": "Once per turning point when shooting, fighting, or retaliating: if you roll two or more fails, discard one to retain another as a normal success."},
+    {"name": "Auspex", "text": "Once per turning point when performing the Shoot action: until end of activation, enemy operatives within 8\" of the bearer cannot be obscured."},
+    {"name": "Chapter Reliquaries", "text": "You can use the Wrath of Vengeance firefight ploy for 0CP if the specified friendly operative has an Engage order."},
+    {"name": "Tilting Shields", "text": "Once per turning point when fighting or retaliating: after your opponent rolls attack dice but before re-rolls, they cannot retain results below 6 as critical successes."}
+  ],
+  "max_shooting": 2,
+  "max_melee": 1,
+  "loadouts": [
+    {
+      "operative": "Space Marine Captain",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Rng 8\"",
+                "Piercing 1"
+              ],
+              "name": "Standard"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Rng 8\"",
+                "Hot",
+                "Lethal 5+"
+              ],
+              "name": "Supercharge"
+            }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 5,
+              "crit_dmg": 7,
+              "rules": [
+                "Brutal"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Heavy bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Heavy bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 7,
+              "rules": [
+                "Brutal"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Heavy bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Heavy bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Thunder hammer",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 6,
+              "rules": [
+                "Shock",
+                "Stun"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Hand flamer",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Rng 6\"",
+                "Saturate",
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Hand flamer",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Rng 6\"",
+                "Saturate",
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 7,
+              "rules": [
+                "Brutal"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Hand flamer",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Rng 6\"",
+                "Saturate",
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Hand flamer",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Rng 6\"",
+                "Saturate",
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Thunder hammer",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 6,
+              "rules": [
+                "Shock",
+                "Stun"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Rng 8\"",
+                "Piercing 1"
+              ],
+              "name": "Standard"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Rng 8\"",
+                "Hot",
+                "Lethal 5+"
+              ],
+              "name": "Supercharge"
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Auto bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Auto bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Auto bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 7,
+              "rules": [
+                "Brutal"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Auto bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Auto bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Thunder hammer",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 6,
+              "rules": [
+                "Shock",
+                "Stun"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 7,
+              "rules": [
+                "Brutal"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Thunder hammer",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 6,
+              "rules": [
+                "Shock",
+                "Stun"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Piercing Crits 1"
+              ],
+              "name": "Heavy"
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Piercing Crits 1"
+              ],
+              "name": "Heavy"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Piercing Crits 1"
+              ],
+              "name": "Heavy"
+            }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 7,
+              "rules": [
+                "Brutal"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Piercing Crits 1"
+              ],
+              "name": "Heavy"
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Sgt",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Piercing Crits 1"
+              ],
+              "name": "Heavy"
+            }
+          ]
+        },
+        {
+          "name": "Thunder hammer",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 5,
+              "crit_dmg": 6,
+              "rules": [
+                "Shock",
+                "Stun"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Warrior",
+      "weapons": [
+        {
+          "name": "Heavy bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Assault Intercessor Grenadier",
+      "weapons": [
+        {
+          "name": "Heavy bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\"",
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        },
+        {
+          "name": "Grenades",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 6\"",
+                "Blast 2\"",
+                "Saturate"
+              ],
+              "name": "Frag"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Rng 6\"",
+                "Piercing 1",
+                "Saturate"
+              ],
+              "name": "Krak"
+            }
+          ],
+          "abilities": [
+            {
+              "name": "Grenadier",
+              "text": "These grenades are accessed via the Grenadier rule. The Assault Intercessor Grenadier can use universal-equipment frag and krak grenades with Hit improved by 1 (base 4+ → 3+). Using them this way doesn't count towards any limited uses from equipment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Warrior",
+      "weapons": [
+        {
+          "name": "Auto bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Warrior",
+      "weapons": [
+        {
+          "name": "Bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Warrior",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Piercing Crits 1"
+              ],
+              "name": "Heavy"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Gunner",
+      "weapons": [
+        {
+          "name": "Auto bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Torrent 1\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Aux grenade launcher",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Blast 2\""
+              ],
+              "name": "Frag"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Piercing 1"
+              ],
+              "name": "Krak"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Gunner",
+      "weapons": [
+        {
+          "name": "Bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Piercing Crits 1"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Aux grenade launcher",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Blast 2\""
+              ],
+              "name": "Frag"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Piercing 1"
+              ],
+              "name": "Krak"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Intercessor Gunner",
+      "weapons": [
+        {
+          "name": "Stalker bolt rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Piercing Crits 1"
+              ],
+              "name": "Heavy"
+            }
+          ]
+        },
+        {
+          "name": "Aux grenade launcher",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Blast 2\""
+              ],
+              "name": "Frag"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Piercing 1"
+              ],
+              "name": "Krak"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Eliminator Sniper",
+      "weapons": [
+        {
+          "name": "Bolt sniper rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Heavy (Dash only)",
+                "Silent",
+                "Saturate",
+                "Seek Light"
+              ],
+              "name": "Executioner"
+            },
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Heavy (Dash only)",
+                "Silent",
+                "Blast 1\""
+              ],
+              "name": "Hyperfrag"
+            },
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Heavy (Dash only)",
+                "Silent",
+                "Devastating 3",
+                "Piercing 1"
+              ],
+              "name": "Mortis"
+            }
+          ]
+        },
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Heavy Intercessor Gunner",
+      "weapons": [
+        {
+          "name": "Heavy bolter",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Piercing Crits 1"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Piercing Crits 1",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Rng 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "operatives": {
+    "Space Marine Captain": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Heroic Leader",
+          "text": "Once per turning point, you can do one of the following:<ul><li>Use a firefight ploy for 0CP if this is the specified ANGEL OF DEATH operative (excluding Command Re-roll).</li><li>Use the Combat Doctrine strategy ploy when you activate a friendly ANGEL OF DEATH operative if this operative is in the killzone and isn't within control range of enemy operatives (pay its CP cost as normal). Note that you cannot do so if you've already used that ploy during this turning point.</li><li>Use the Adjust Doctrine firefight ploy for 0CP if this operative is in the killzone and isn't within control range of enemy operatives.</li></ul>"
+        },
+        {
+          "name": "Iron Halo",
+          "text": "Once per battle, when an attack dice inflicts Normal Dmg on this operative, you can ignore that inflicted damage."
+        }
+      ]
+    },
+    "Assault Intercessor Sgt": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Doctrine Warfare",
+          "text": "You can do each of the following once per battle:<ul><li>Whenever you would use the Combat Doctrine strategy ploy and then select Assault, if this operative is in the killzone, it costs you 0CP.</li><li>Whenever you would use the Combat Doctrine strategy ploy and then select Tactical, if this operative is in the killzone, it costs you 0CP.</li></ul>"
+        },
+        {
+          "name": "Chapter Veteran",
+          "text": "At the end of the Select Operatives step, if this operative is selected for deployment, select one additional CHAPTER TACTIC for it to have for the battle. Unlike primary and secondary CHAPTER TACTICS, you don't have to select the same one for each battle in a campaign or tournament."
+        }
+      ]
+    },
+    "Intercessor Sgt": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Doctrine Warfare",
+          "text": "You can do each of the following once per battle:<ul><li>Whenever you would use the Combat Doctrine strategy ploy and then select Devastator, if this operative is in the killzone, it costs you 0CP.</li><li>Whenever you would use the Combat Doctrine strategy ploy and then select Tactical, if this operative is in the killzone, it costs you 0CP.</li></ul>"
+        },
+        {
+          "name": "Chapter Veteran",
+          "text": "At the end of the Select Operatives step, if this operative is selected for deployment, select one additional CHAPTER TACTIC for it to have for the battle. Unlike primary and secondary CHAPTER TACTICS, you don't have to select the same one for each battle in a campaign or tournament."
+        }
+      ]
+    },
+    "Assault Intercessor Warrior": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": []
+    },
+    "Assault Intercessor Grenadier": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Grenadier",
+          "text": "This operative can use frag and krak grenades (see universal equipment). Doing so doesn't count towards any limited uses you have (i.e. if you also select those grenades from equipment for other operatives). Whenever it's doing so, improve the Hit stat of that weapon by 1."
+        }
+      ]
+    },
+    "Intercessor Warrior": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": []
+    },
+    "Intercessor Gunner": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": []
+    },
+    "Eliminator Sniper": {
+      "apl": 3,
+      "move": 7,
+      "save": 3,
+      "wounds": 12,
+      "abilities": [
+        {
+          "name": "Camo Cloak",
+          "text": "Whenever an operative is shooting this operative, ignore the Saturate weapon rule. This operative has the Stealthy CHAPTER TACTIC. If you selected that CHAPTER TACTIC, you can do both of its options (i.e. retain two cover saves – one normal and one critical success)."
+        },
+        {
+          "name": "Optics",
+          "tag": "1AP",
+          "text": "Until the start of this operative's next activation, whenever it's shooting, enemy operatives cannot be obscured.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "Heavy Intercessor Gunner": {
+      "apl": 3,
+      "move": 5,
+      "save": 3,
+      "wounds": 18,
+      "abilities": []
+    }
+  }
+}

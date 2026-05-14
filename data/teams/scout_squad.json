@@ -1,0 +1,551 @@
+{
+  "key": "scout",
+  "name": "Scout Squad",
+  "subtitle": "Apr '26 errata · 11 physical loadouts",
+  "intro": "",
+  "footnotes_html": "",
+  "faction_rules": [],
+  "strategy_ploys": [],
+  "firefight_ploys": [],
+  "equipment": [
+    {"name": "Combat blade", "text": "ATK 3, Hit 3+, Dmg 4/5 (Hunter and Warrior versions are ATK 4)."},
+    {"name": "Targeting Oculars", "text": ""},
+    {"name": "Tactical Vox-link", "text": ""}
+  ],
+  "max_shooting": 2,
+  "max_melee": 1,
+  "loadouts": [
+    {
+      "operative": "Scout Sergeant",
+      "weapons": [
+        {
+          "name": "Astartes shotgun",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 4,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 6\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Sergeant",
+      "weapons": [
+        {
+          "name": "Boltgun",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Sergeant",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Heavy Gunner",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Heavy bolter",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Piercing Crits 1"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Piercing Crits 1",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Heavy Gunner",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Missile launcher",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Blast 2\"",
+                "Heavy (Dash only)"
+              ],
+              "name": "Frag"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 5,
+              "crit_dmg": 7,
+              "rules": [
+                "Heavy (Dash only)",
+                "Piercing 1"
+              ],
+              "name": "Krak"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Hunter",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Combat blade",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Sniper",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sniper rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [],
+              "name": "Mobile"
+            },
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 3,
+              "crit_dmg": 3,
+              "rules": [
+                "Devastating 3",
+                "Heavy (Dash only)",
+                "Silent"
+              ],
+              "name": "Stationary"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Tracker",
+      "weapons": [
+        {
+          "name": "Boltgun",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Warrior",
+      "weapons": [
+        {
+          "name": "Astartes shotgun",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 4,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 6\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Warrior",
+      "weapons": [
+        {
+          "name": "Boltgun",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Scout Warrior",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Combat blade",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "operatives": {
+    "Scout Sergeant": {
+      "apl": 3,
+      "move": 6,
+      "save": 4,
+      "wounds": 11,
+      "abilities": [
+        {
+          "name": "Guidance and Experience",
+          "text": "Once during each of this operative's activations, you can select one other friendly SCOUT SQUAD operative in the killzone. Until the end of that operative's next activation, add 1 to its APL stat."
+        },
+        {
+          "name": "Astartes",
+          "text": "During this operative's activation, it can perform either two Shoot actions or two Fight actions. If it's two Shoot actions, an Astartes shotgun, bolt pistol or boltgun must be selected for at least one of them. This operative can counteract regardless of its order."
+        }
+      ]
+    },
+    "Scout Heavy Gunner": {
+      "apl": 2,
+      "move": 6,
+      "save": 4,
+      "wounds": 10,
+      "abilities": [
+        {
+          "name": "Heavy Weapon Bipod",
+          "text": "Whenever this operative is shooting with a weapon from its datacard, if it hasn't moved during the activation, or if it's a counteraction, that weapon has the Ceaseless weapon rule; if the weapon already has that weapon rule (i.e. from the Ambush strategy ploy), it has the Relentless weapon rule instead. Note that this operative isn't restricted from moving after shooting."
+        }
+      ]
+    },
+    "Scout Hunter": {
+      "apl": 2,
+      "move": 6,
+      "save": 4,
+      "wounds": 10,
+      "abilities": [
+        {
+          "name": "Grapnel Launcher",
+          "text": "Whenever this operative is climbing up, you can treat the vertical distance as 2\" (regardless of how far the operative actually moves vertically)."
+        },
+        {
+          "name": "Grapnel Assault",
+          "text": "Whenever this operative performs the Charge action during its activation, if it climbs, drops, jumps or its base moves underneath Vantage terrain during that action, its melee weapons have the Lethal 3+ weapon rule until the end of that activation."
+        }
+      ]
+    },
+    "Scout Sniper": {
+      "apl": 2,
+      "move": 6,
+      "save": 4,
+      "wounds": 10,
+      "abilities": [
+        {
+          "name": "Camo Cloak",
+          "text": "Whenever an operative is shooting this operative:<ul><li>Ignore the Saturate weapon rule.</li><li>If you can retain any cover saves, you can retain one additional cover save, or you can retain one cover save as a critical success instead. This isn't cumulative with improved cover saves from Vantage terrain.</li></ul>"
+        },
+        {
+          "name": "Optics",
+          "tag": "1AP",
+          "text": "Until the start of this operative's next activation, whenever it's shooting, enemy operatives cannot be obscured.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "Scout Tracker": {
+      "apl": 2,
+      "move": 6,
+      "save": 4,
+      "wounds": 10,
+      "abilities": [
+        {
+          "name": "Track Enemy",
+          "text": "Select one enemy operative within 8\" of this operative. Until the end of the turning point, whenever a friendly SCOUT SQUAD operative is shooting that enemy operative, that friendly operative's ranged weapons have the Seek Light weapon rule."
+        },
+        {
+          "name": "Auspex Scan",
+          "tag": "1AP",
+          "text": "Until the start of this operative's next activation or until it's incapacitated (whichever comes first), whenever a friendly SCOUT SQUAD operative is shooting an enemy operative within 8\" of this operative, that enemy operative cannot be obscured; if that friendly operative is a SNIPER that's currently benefitting from the effects of its Optics action, its ranged weapons also have the Seek Light weapon rule.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "Scout Warrior": {
+      "apl": 2,
+      "move": 6,
+      "save": 4,
+      "wounds": 10,
+      "abilities": [
+        {
+          "name": "Adaptive Equipment",
+          "text": "You can do each of the following once per turning point:<ul><li>One friendly SCOUT SQUAD WARRIOR operative can perform the Smoke Grenade action.</li><li>One friendly SCOUT SQUAD WARRIOR operative can perform the Stun Grenade action.</li></ul>The rules for these actions are found in universal equipment. Performing these actions using this rule doesn't count towards their action limits (i.e. if you also select those grenades from equipment)."
+        }
+      ]
+    }
+  }
+}

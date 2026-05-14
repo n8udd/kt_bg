@@ -1,0 +1,813 @@
+{
+  "key": "xv26",
+  "name": "XV26 Stealth Battlesuits",
+  "subtitle": "Apr '26 errata · 14 physical loadouts",
+  "intro": "1 Shas'vre + 1 MV15 Gun Drone + 1 MV75 Marker Drone + 4 from {Designator, Infiltrator, Liberator, Lodestar, Neutraliser}. Infiltrator is the only repeatable operative. Maximum 2 fusion blasters.",
+  "footnotes_html": "<strong>Operative rules.</strong><br>Shas'vre — XV26 Drone Controller (STRATEGIC GAMBIT), For the Greater Good<br>Designator — Markerlight, Focused Markerlight 1AP<br>Infiltrator — Covert Protocols<br>Liberator — Grenadier (frag/krak/smoke/stun, +1 Hit on frag/krak)<br>Lodestar — Electrochaff Launcher, Homing Beacon<br>Neutraliser — Multispectrum Sensor Package (SUPPORT), System Jam 1/2AP<br>MV15 Gun Drone — Photon Grenade Launcher 1AP<br>MV75 Marker Drone — Markerlight",
+  "faction_rules": [],
+  "strategy_ploys": [],
+  "firefight_ploys": [],
+  "equipment": [],
+  "max_shooting": 2,
+  "max_melee": 1,
+  "loadouts": [
+    {
+      "operative": "XV26 Shas'vre",
+      "weapons": [
+        {
+          "name": "Pulse pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 8\""
+              ],
+              "name": "Ranged"
+            },
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Accurate 1"
+              ],
+              "name": "Point-blank"
+            }
+          ]
+        },
+        {
+          "name": "Burst cannon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Shas'vre",
+      "weapons": [
+        {
+          "name": "Pulse pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 8\""
+              ],
+              "name": "Ranged"
+            },
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Accurate 1"
+              ],
+              "name": "Point-blank"
+            }
+          ]
+        },
+        {
+          "name": "Fusion blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 6,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 6\"",
+                "Devastating 4",
+                "Piercing 2"
+              ],
+              "name": "Short range"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 12\"",
+                "Piercing 1"
+              ],
+              "name": "Long range"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Designator",
+      "weapons": [
+        {
+          "name": "Burst cannon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Designator",
+      "weapons": [
+        {
+          "name": "Fusion blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 6,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 6\"",
+                "Devastating 4",
+                "Piercing 2"
+              ],
+              "name": "Short range"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 12\"",
+                "Piercing 1"
+              ],
+              "name": "Long range"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Infiltrator",
+      "weapons": [
+        {
+          "name": "Burst cannon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Infiltrator",
+      "weapons": [
+        {
+          "name": "Fusion blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 6,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 6\"",
+                "Devastating 4",
+                "Piercing 2"
+              ],
+              "name": "Short range"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 12\"",
+                "Piercing 1"
+              ],
+              "name": "Long range"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Liberator",
+      "weapons": [
+        {
+          "name": "Burst cannon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "EMP bomb",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 2,
+              "rules": [
+                "Range 4\"",
+                "Blast 2\"",
+                "Devastating 1",
+                "Heavy (Reposition only)",
+                "Lethal 4+",
+                "Limited 1",
+                "Saturate"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Liberator",
+      "weapons": [
+        {
+          "name": "Fusion blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 6,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 6\"",
+                "Devastating 4",
+                "Piercing 2"
+              ],
+              "name": "Short range"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 12\"",
+                "Piercing 1"
+              ],
+              "name": "Long range"
+            }
+          ]
+        },
+        {
+          "name": "EMP bomb",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 2,
+              "rules": [
+                "Range 4\"",
+                "Blast 2\"",
+                "Devastating 1",
+                "Heavy (Reposition only)",
+                "Lethal 4+",
+                "Limited 1",
+                "Saturate"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Lodestar",
+      "weapons": [
+        {
+          "name": "Burst cannon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Lodestar",
+      "weapons": [
+        {
+          "name": "Fusion blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 6,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 6\"",
+                "Devastating 4",
+                "Piercing 2"
+              ],
+              "name": "Short range"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 12\"",
+                "Piercing 1"
+              ],
+              "name": "Long range"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Neutraliser",
+      "weapons": [
+        {
+          "name": "Burst cannon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Ceaseless",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "XV26 Neutraliser",
+      "weapons": [
+        {
+          "name": "Fusion blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 6,
+              "crit_dmg": 3,
+              "rules": [
+                "Range 6\"",
+                "Devastating 4",
+                "Piercing 2"
+              ],
+              "name": "Short range"
+            },
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 12\"",
+                "Piercing 1"
+              ],
+              "name": "Long range"
+            }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 4,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "MV15 Gun Drone",
+      "weapons": [
+        {
+          "name": "Twin pulse carbine",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Ceaseless"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ram",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 5,
+              "normal_dmg": 2,
+              "crit_dmg": 3,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "MV75 Marker Drone",
+      "weapons": [
+        {
+          "name": "Ram",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 5,
+              "normal_dmg": 2,
+              "crit_dmg": 3,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "operatives": {
+    "XV26 Shas'vre": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 13,
+      "abilities": [
+        {
+          "name": "XV26 Drone Controller",
+          "tag": "STRATEGIC GAMBIT",
+          "text": "Whenever this operative is in the killzone. Select one friendly XV26 STEALTH BATTLESUIT DRONE operative in the killzone. Until the end of that operative's next activation, ignore the first two bullet points of its Drone rule (this takes precedence over that rule)."
+        },
+        {
+          "name": "For the Greater Good",
+          "text": "Whenever determining the value of Accurate X for the Kauyon faction rule, if this operative is in the killzone, add 1 to the result if 2 or more friendly XV26 STEALTH BATTLESUIT operatives (excluding DRONE) are incapacitated (to a maximum of Accurate 3). Note that you must have a minimum of Accurate 1 to use this rule."
+        }
+      ]
+    },
+    "XV26 Designator": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 12,
+      "abilities": [
+        {
+          "name": "Markerlight",
+          "text": "Whenever an enemy operative is a valid target for this operative, or is visible to this operative and within 2\" of your Ambush marker (see Prepare Ambush strategy ploy), it's marked. Whenever a friendly XV26 STEALTH BATTLESUIT operative is shooting an operative that's marked, that friendly operative's ranged weapons have the Severe weapon rule. Note that an operative can be a valid target for this operative even if this operative isn't the active operative."
+        },
+        {
+          "name": "Focused Markerlight",
+          "tag": "1AP",
+          "text": "Select one enemy operative visible to this operative. Once during this turning point, when a friendly XV26 STEALTH BATTLESUIT operative is shooting that enemy operative, you can use this effect. If you do, improve the Hit stat of that friendly operative's ranged weapons by 1 until the end of that action.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "XV26 Infiltrator": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 12,
+      "abilities": [
+        {
+          "name": "Covert Protocols",
+          "text": "This operative can counteract regardless of its order, but if it has a Conceal order during that counteraction, it cannot perform any actions other than Pick Up Marker, Place Marker or mission actions."
+        }
+      ]
+    },
+    "XV26 Liberator": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 12,
+      "abilities": [
+        {
+          "name": "Grenadier",
+          "text": "This operative can use frag, krak, smoke and stun grenades (see universal equipment). Doing so doesn't count towards any limited uses you have (i.e. if you also select those grenades from equipment for other operatives). Whenever this operative is using a frag or krak grenade, improve the Hit stat of that weapon by 1."
+        }
+      ]
+    },
+    "XV26 Lodestar": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 12,
+      "abilities": [
+        {
+          "name": "Electrochaff Launcher",
+          "text": "Once per turning point, when an enemy operative is performing the Shoot action and your opponent selects a valid target (excluding DRONE), you can use this rule, providing this operative isn't within control range of enemy operatives. If you do, until the end of that action, whenever an enemy operative is shooting a friendly XV26 STEALTH BATTLESUIT operative that's both visible to and within 3\" of this operative and more than 2\" from that enemy operative:<ul><li>Ignore the Piercing weapon rule.</li><li>That friendly operative is obscured.</li></ul>"
+        },
+        {
+          "name": "Homing Beacon",
+          "text": "This operative is carrying your Homing Beacon marker. Operatives (excluding DRONE) can perform the Pick Up Marker action on that marker. The first time an enemy operative performs the Pick Up Marker action on your Homing Beacon marker, discard that marker (remove it from the battle).<br><br>In the Ready step of each Strategy phase, when you gain CP, if your Homing Beacon marker is in the killzone, roll one D6 if it's more than 6\" from your drop zone; roll two D6 instead if it's within your opponent's territory; roll three D6 instead if it's within 6\" of your opponent's drop zone. If any result is a 4+, you gain one additional CP."
+        }
+      ]
+    },
+    "XV26 Neutraliser": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 12,
+      "abilities": [
+        {
+          "name": "Multispectrum Sensor Package",
+          "tag": "SUPPORT",
+          "text": "Once per turning point, when an enemy operative within 8\" of this operative is activated, you can use this rule. If you do, each friendly XV26 STEALTH BATTLESUIT operative within 3\" of this operative can immediately do one of the following:<ul><li>Perform a free Dash action (in an order of your choice).</li><li>Change its order.</li></ul>Each friendly operative that performs the Dash action cannot end that move within 3\" of an enemy operative. Note that a Comms Device from universal equipment only affects the second distance of this rule."
+        },
+        {
+          "name": "System Jam",
+          "tag": "1/2AP",
+          "text": "Select one enemy operative visible to this operative. Until the end of that operative's next activation, subtract 1 from its APL stat. Whenever this operative has a Conceal order, you must spend 1 additional AP to perform this action.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "MV15 Gun Drone": {
+      "apl": 2,
+      "move": 6,
+      "save": 4,
+      "wounds": 7,
+      "abilities": [
+        {
+          "name": "Drone",
+          "text": "<ul><li>This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Photon Grenade Launcher, Reposition and Shoot.</li><li>Whenever determining control of an objective marker, treat this operative's APL stat as 1 lower. Note this isn't a change to its APL stat, so any changes are cumulative with this.</li><li>This operative cannot use any weapons that aren't on its datacard.</li><li>Whenever determining what's visible to this operative, the round disc at the top of the miniature is its head.</li><li>This operative is ignored for your opponent's kill/elimination op (when it's incapacitated, and when determining your starting number of operatives). It's also ignored for victory conditions and scoring VPs if either require operatives to 'escape', 'survive' or be incapacitated by enemy operatives.</li></ul>"
+        },
+        {
+          "name": "Photon Grenade Launcher",
+          "tag": "1AP",
+          "text": "Select one enemy operative visible to this operative and roll one D6: on a 3+, until the end of that operative's next activation, subtract 2\" from its Move stat.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "MV75 Marker Drone": {
+      "apl": 2,
+      "move": 6,
+      "save": 4,
+      "wounds": 7,
+      "abilities": [
+        {
+          "name": "Drone",
+          "text": "<ul><li>This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Reposition and Shoot.</li><li>Whenever determining control of an objective marker, treat this operative's APL stat as 1 lower. Note this isn't a change to its APL stat, so any changes are cumulative with this.</li><li>This operative cannot use any weapons that aren't on its datacard.</li><li>Whenever determining what's visible to this operative, the round disc at the top of the miniature is its head.</li><li>This operative is ignored for your opponent's kill/elimination op (when it's incapacitated, and when determining your starting number of operatives). It's also ignored for victory conditions and scoring VPs if either require operatives to 'escape', 'survive' or be incapacitated by enemy operatives.</li></ul>"
+        },
+        {
+          "name": "Markerlight",
+          "text": "Whenever an enemy operative is a valid target for this operative, or is visible to this operative and within 2\" of your Ambush marker (see Prepare Ambush strategy ploy), it's marked. Whenever a friendly XV26 STEALTH BATTLESUIT operative is shooting an operative that's marked, that friendly operative's ranged weapons have the Severe weapon rule."
+        }
+      ]
+    }
+  }
+}

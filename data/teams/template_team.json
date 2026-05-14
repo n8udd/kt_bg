@@ -1,0 +1,131 @@
+{
+  "key": "shortcode",
+  "name": "Display Name",
+  "subtitle": "Errata month/year · N physical loadouts",
+  "intro": "Plain text shown above the table. Team selection rules only.",
+  "footnotes_html": "<p>Miscellaneous HTML-formatted notes that don't fit elsewhere.</p>",
+  "faction_rules": [
+    {"name": "Rule Name", "text": "Plain text description of the faction rule."}
+  ],
+  "strategy_ploys": [
+    {"name": "Ploy Name", "text": "Brief description. Leave empty string if not documented."}
+  ],
+  "firefight_ploys": [
+    {"name": "Ploy Name", "text": "Brief description. Leave empty string if not documented."}
+  ],
+  "equipment": [
+    {"name": "Item Name", "text": "Brief description. Leave empty string if not documented."}
+  ],
+
+  "max_shooting": 2,
+  "max_melee": 1,
+
+  "loadouts": [
+    {
+      "operative": "Operative Name",
+      "weapons": [
+        {
+          "name": "Single-profile shooting weapon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": ["Range 8\"", "Lethal 5+"]
+            }
+          ]
+        },
+        {
+          "name": "Multi-profile shooting weapon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": ["Heavy (Dash only)", "Lethal 5+"],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": ["Heavy (Dash only)", "Lethal 5+", "Torrent 1\""],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Melee weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": ["Lethal 4+"]
+            }
+          ]
+        }
+      ],
+      "note": "Optional inline note shown below this loadout's rules cell."
+    },
+
+    {
+      "operative": "Operative Name",
+      "weapons": [
+        {
+          "name": "Different weapon set for the same operative",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Piercing 2"] }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            { "atk": 3, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "operatives": {
+    "Operative Name": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Passive ability",
+          "text": "Plain passive ability text. HTML is fine here: <ul><li>bullet one</li><li>bullet two</li></ul>"
+        },
+        {
+          "name": "Action ability",
+          "tag": "1AP",
+          "text": "Action ability text. The <code>tag</code> field renders as an orange badge — common values: 1AP, 2AP, 1/2AP, STRATEGIC GAMBIT, SUPPORT."
+        },
+        {
+          "name": "Multi-paragraph ability",
+          "text": "First paragraph.<br><br>Second paragraph after a line break."
+        }
+      ]
+    },
+
+    "Operative With No Card-Specific Abilities": {
+      "apl": 2,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": []
+    }
+  }
+}

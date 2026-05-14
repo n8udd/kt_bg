@@ -1,0 +1,740 @@
+{
+  "key": "hota",
+  "name": "Hand of the Archon",
+  "subtitle": "Jan '26 errata · 15 physical loadouts",
+  "intro": "1 Archsybarite + 8 from {Agent, Crimson Duellist, Disciple of Yaelindra, Elixicant, Flayer, Gunner, Heavy Gunner, Skysplinter Assassin}. Only Agent is repeatable. Up to two darklight weapons (blast pistol, blaster, dark lance).",
+  "footnotes_html": "",
+  "faction_rules": [
+    {"name": "Power from Pain", "text": "Generate Pain tokens from injuring (1) or incapacitating (1, or 2 if target is Wounds 12+) enemy operatives. Spend on invigorations: Dark Animus (+1 APL), Accelerated Rejuvenation (regain D3+1 wounds), Vitalised Surge (free Dash after incap), Stimulated Senses (re-roll one dice result). Only Stimulated Senses can combine with another invigoration per activation."},
+    {"name": "Rifles", "text": "Splinter rifles gain Accurate 1 in activations where the wielder hasn't Charged, Fallen Back, or Repositioned."}
+  ],
+  "strategy_ploys": [
+    {"name": "Blade Artists", "text": "Friendly HAND OF THE ARCHON operatives' melee weapons have the Rending weapon rule."},
+    {"name": "Merciless Sadists", "text": "Whenever a friendly HAND OF THE ARCHON operative is shooting against or fighting against a wounded enemy operative, that friendly operative's weapons have the Balanced weapon rule."},
+    {"name": "From Darkness, Death", "text": "Whenever a friendly HAND OF THE ARCHON operative is activated, before you determine its order, you can select one enemy operative that friendly operative isn't a valid target for. Until the end of that activation, the first time that friendly operative is shooting against or fighting against that enemy operative, you can retain one of your normal successes as a critical success instead."},
+    {"name": "Denizens of Night", "text": "Whenever an enemy operative is shooting a friendly HAND OF THE ARCHON operative that's more than 2\" from enemy operatives, if Heavy or Light terrain is intervening, or any part of that friendly operative's base is underneath Vantage terrain, you can re-roll one of your defence dice."}
+  ],
+  "firefight_ploys": [
+    {"name": "Cruel Deception", "text": "Use during a friendly HAND OF THE ARCHON operative's activation, before or after it performs an action. During that activation, that operative can perform the Fall Back action for 1 less AP."},
+    {"name": "Devious Scheme", "text": "Use after an opponent uses a firefight ploy (excluding one that costs 0CP). The next time they would use that ploy, they must spend 1 additional CP to do so (at which point this effect ends). You cannot use this ploy again during the battle until its effect has ended."},
+    {"name": "Heinous Arrogance", "text": "Use when it's your turn to activate a friendly operative. You can skip that activation."},
+    {"name": "Prey on the Wounded", "text": "Use after rolling your attack dice for a friendly HAND OF THE ARCHON operative, if it's shooting against or fighting against a wounded enemy operative. You can re-roll any of your attack dice."}
+  ],
+  "equipment": [
+    {"name": "Chain Snare", "text": "Whenever an enemy operative would perform the Fall Back action while within control range of a friendly HAND OF THE ARCHON operative, if no other enemy operatives are within that friendly operative's control range, you can use this rule. Roll two D6, or one D6 if that enemy operative has a higher Wounds stat than that friendly operative. If any result is a 4+, that enemy operative cannot perform that action during that activation/counteraction (no AP are spent on it), and you cannot use this rule again during this turning point."},
+    {"name": "Wicked Blades", "text": "Add 1 to the Atk stat of friendly HAND OF THE ARCHON operatives' array of blades."},
+    {"name": "Toxin Coating", "text": "Up to twice per turning point, whenever a friendly HAND OF THE ARCHON operative is fighting or retaliating and you're selecting a melee weapon, you can use this rule. If you do, until the end of that sequence, that operative's melee weapon has the Lethal 5+ weapon rule."},
+    {"name": "Refined Poison", "text": "Up to twice per turning point, whenever a friendly HAND OF THE ARCHON operative is performing the Shoot action and you select a shardcarbine, splinter cannon, splinter pistol, splinter rifle or stinger pistol, you can use this rule. If you do, until the end of that action, add 1 to the Normal Dmg stat of that weapon."}
+  ],
+  "max_shooting": 2,
+  "max_melee": 1,
+  "loadouts": [
+    {
+      "operative": "Kabalite Archsybarite",
+      "weapons": [
+        {
+          "name": "Blast pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\"",
+                "Piercing 2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Venom blade",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Lethal 4+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Archsybarite",
+      "weapons": [
+        {
+          "name": "Splinter pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\"",
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Venom blade",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Lethal 4+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Archsybarite",
+      "weapons": [
+        {
+          "name": "Splinter pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\"",
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Agoniser",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Brutal",
+                "Lethal 5+",
+                "Shock"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Archsybarite",
+      "weapons": [
+        {
+          "name": "Splinter pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\"",
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 6,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Archsybarite",
+      "weapons": [
+        {
+          "name": "Splinter rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Agent",
+      "weapons": [
+        {
+          "name": "Splinter rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Crimson Duellist",
+      "weapons": [
+        {
+          "name": "Splinter pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Range 8\"",
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Razorflail",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Brutal",
+                "Tangle**"
+              ]
+            }
+          ],
+          "abilities": [
+            {
+              "name": "Tangle",
+              "text": "Whenever this operative is fighting or retaliating with this weapon, each of your blocks can be allocated to block two unresolved successes (instead of one)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Disciple of Yaelindra",
+      "weapons": [
+        {
+          "name": "Stinger pistol",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Range 8\"",
+                "Lethal 5+",
+                "Stinger*"
+              ]
+            }
+          ],
+          "abilities": [
+            {
+              "name": "Stinger",
+              "text": "Whenever an enemy operative is incapacitated by this weapon, before it's removed from the killzone, inflict D3 damage on each other operative visible to and within 2\" of it (rolled separately for each). Each operative subsequently incapacitated as a result of this weapon rule will cause this to happen again."
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Elixicant",
+      "weapons": [
+        {
+          "name": "Splinter rifle",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 2,
+              "crit_dmg": 4,
+              "rules": [
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stim-needler",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 0,
+              "crit_dmg": 0,
+              "rules": [
+                "Range 3\"",
+                "Lethal 3+",
+                "Stun"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Flayer",
+      "weapons": [
+        {
+          "name": "Pain sculptors",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Ceaseless",
+                "Flay***"
+              ]
+            }
+          ],
+          "abilities": [
+            {
+              "name": "Flay",
+              "text": "Whenever this operative is using this weapon, the first time you strike with a critical success during that sequence, you can select one friendly HAND OF THE ARCHON operative within 6\" of it to gain one of your Pain tokens."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Gunner",
+      "weapons": [
+        {
+          "name": "Blaster",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Piercing 2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Gunner",
+      "weapons": [
+        {
+          "name": "Shredder",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 4,
+              "crit_dmg": 5,
+              "rules": [
+                "Rending",
+                "Torrent 2\""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Heavy Gunner",
+      "weapons": [
+        {
+          "name": "Dark lance",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 6,
+              "crit_dmg": 7,
+              "rules": [
+                "Heavy (Dash only)",
+                "Piercing 2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Heavy Gunner",
+      "weapons": [
+        {
+          "name": "Splinter cannon",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 5,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+"
+              ],
+              "name": "Focused"
+            },
+            {
+              "atk": 4,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 5,
+              "rules": [
+                "Heavy (Dash only)",
+                "Lethal 5+",
+                "Torrent 1\""
+              ],
+              "name": "Sweeping"
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Kabalite Skysplinter Assassin",
+      "weapons": [
+        {
+          "name": "Razorwing",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 4,
+              "normal_dmg": 1,
+              "crit_dmg": 2,
+              "rules": [
+                "Saturate",
+                "Seek",
+                "Silent"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Shardcarbine",
+          "type": "shooting",
+          "profiles": [
+            {
+              "atk": 4,
+              "hit": 2,
+              "normal_dmg": 2,
+              "crit_dmg": 2,
+              "rules": [
+                "Devastating 2",
+                "Lethal 5+"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Array of blades",
+          "type": "melee",
+          "profiles": [
+            {
+              "atk": 3,
+              "hit": 3,
+              "normal_dmg": 3,
+              "crit_dmg": 4,
+              "rules": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "operatives": {
+    "Kabalite Archsybarite": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 9,
+      "abilities": [
+        {
+          "name": "Cunning",
+          "text": "In the Gambit step of each Strategy phase, if this operative is in the killzone and you pass at the first opportunity, you gain 1CP. Ignore each STRATEGIC GAMBIT from the mission pack (if any) when determining this."
+        },
+        {
+          "name": "Torturous Vision",
+          "text": "Once during each of this operative's activations, if it doesn't have any of your Pain tokens when it performs either the Fight or Shoot action, it can gain one of your Pain tokens when you select a valid target or an enemy operative to fight against."
+        }
+      ]
+    },
+    "Kabalite Agent": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Sadistic Competition",
+          "text": "Once per turning point, when a friendly HAND OF THE ARCHON operative gains one of your Pain tokens, one friendly HAND OF THE ARCHON AGENT operative that doesn't have one of your Pain tokens can also gain one."
+        }
+      ]
+    },
+    "Kabalite Crimson Duellist": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Brutal Display",
+          "text": "Once per turning point, when this operative incapacitates an enemy operative within its control range, you can select one other enemy operative visible to and within 6\" of either this operative or the incapacitated enemy operative. Until the start of the next turning point, that other enemy operative cannot control markers or perform the Pick Up Marker or mission actions."
+        },
+        {
+          "name": "Crimson Duellist",
+          "text": "This operative can perform two Fight actions during its activation."
+        },
+        {
+          "name": "Tangle (Razorflail)",
+          "text": "Whenever this operative is fighting or retaliating with this weapon, each of your blocks can be allocated to block two unresolved successes (instead of one)."
+        }
+      ]
+    },
+    "Kabalite Disciple of Yaelindra": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Stinger (Stinger pistol)",
+          "text": "Whenever an enemy operative is incapacitated by this weapon, before it's removed from the killzone, inflict D3 damage on each other operative visible to and within 2\" of it (roll separately for each). Each operative subsequently incapacitated as a result of this weapon rule will cause this to happen again."
+        },
+        {
+          "name": "Torment Grenade",
+          "tag": "1AP",
+          "text": "Select one enemy operative visible to and within 6\" of this operative. That operative and each other operative within 1\" of it takes a poison test.<br><br>For an operative to take a poison test, roll one D6, adding 1 to the result if that operative has a Save stat of 4+ or worse: on a 3+, inflict D3 damage on that operative and it gains one of your Poison tokens (if it doesn't already have one). Whenever an operative that has one of your Poison tokens is activated, inflict D3 damage on it.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "Kabalite Elixicant": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Combat Drugs",
+          "text": "At the end of the Select Operatives step, if this operative is selected for deployment, select one of the following COMBAT DRUG rules for friendly HAND OF THE ARCHON operatives to have for the battle:<ul><li><strong>Painbringer:</strong> Whenever an attack dice inflicts damage of 3 or more on this operative, roll one D6: on a 6, subtract 1 from that inflicted damage.</li><li><strong>Adrenalight:</strong> In the Ready step of each Strategy phase, you can select one friendly operative that has this COMBAT DRUG to gain one of your Pain tokens.</li><li><strong>Hypex:</strong> You can ignore any changes to this operative's Move stat from being injured.</li></ul>"
+        },
+        {
+          "name": "Administer Drug",
+          "tag": "1AP",
+          "text": "Select one friendly HAND OF THE ARCHON operative visible to and within 3\" of this operative, then select one of the following for that friendly operative:<ul><li>It regains up to 2D3 lost wounds.</li><li>Select a different COMBAT DRUG rule for it to have for the battle (this replaces its previous one).</li></ul>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    },
+    "Kabalite Flayer": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Insensible to Pain",
+          "text": "Normal and Critical Dmg of 3 or more inflicts 1 less damage on this operative."
+        },
+        {
+          "name": "Flay (Pain sculptors)",
+          "text": "Whenever this operative is using this weapon, the first time you strike with a critical success during that sequence, you can select one friendly HAND OF THE ARCHON operative within 6\" of it to gain one of your Pain tokens."
+        }
+      ]
+    },
+    "Kabalite Gunner": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": []
+    },
+    "Kabalite Heavy Gunner": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": []
+    },
+    "Kabalite Skysplinter Assassin": {
+      "apl": 2,
+      "move": 7,
+      "save": 4,
+      "wounds": 8,
+      "abilities": [
+        {
+          "name": "Merciless Hunter",
+          "text": "If this operative doesn't perform the Mark unique action during its activation, it can perform two Shoot actions during its activation, but a razorwing must be selected for one (and only one) of those actions."
+        },
+        {
+          "name": "Omen",
+          "text": "In the Select Operatives step, when you're selecting equipment, you can select one enemy operative or one other friendly HAND OF THE ARCHON operative (reveal your selection when you reveal equipment). Whenever attack or defence dice are rolled for that operative:<ul><li>If it's an enemy operative, your opponent must re-roll their dice results of 6.</li><li>If it's a friendly operative, you can re-roll any of your dice results of 1.</li></ul>"
+        },
+        {
+          "name": "Mark",
+          "tag": "1AP",
+          "text": "Select one enemy operative visible to this operative. Until the end of the turning point, whenever this operative is shooting that enemy operative you can use this effect. If you do:<ul><li>This operative's ranged weapons have the Seek Light weapon rule.</li><li>That enemy operative cannot be obscured.</li></ul>This operative cannot perform this action while within control range of an enemy operative."
+        }
+      ]
+    }
+  }
+}

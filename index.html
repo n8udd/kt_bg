@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kill Team — Build Guides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.12/dist/cdn.min.js"></script>
+</head>
+<body x-data="kt" x-cloak>
+
+<div class="container">
+
+<header>
+  <h1>Kill Team <span class="accent">— Build Guides</span></h1>
+</header>
+
+<div class="loading" x-show="loading">Loading team data…</div>
+
+<div class="error-banner" x-show="error" x-cloak>
+  <strong>Couldn't load team data.</strong>
+  <span x-text="error"></span>
+</div>
+
+<template x-if="!loading && !error && data.teams.length">
+  <div class="selector-row">
+    <label class="selector-label" for="team-select">Kill Team</label>
+    <select id="team-select" class="team-selector" x-model="selectedKey">
+      <template x-for="team in data.teams" :key="team.key">
+        <option :value="team.key" x-text="team.name"></option>
+      </template>
+    </select>
+  </div>
+</template>
+
+<template x-for="team in data.teams" :key="team.key">
+  <section class="team-section" :class="{ active: team.key === selectedKey }" @click="handleOpClick($event)">
+    <div class="team-subtitle" x-text="team.subtitle"></div>
+    <div class="intro" x-show="team.intro" x-text="team.intro"></div>
+
+    <div class="table-wrap">
+      <table :style="tableStyle(team)">
+        <thead>
+          <tr>
+            <template x-for="(h, hi) in headerCells(team)" :key="hi">
+              <th :class="h.cls" x-text="h.text"></th>
+            </template>
+          </tr>
+        </thead>
+        <tbody>
+          <template x-for="(row, rIdx) in allSubRows(team)" :key="rIdx">
+            <tr :class="row.cls">
+              <template x-for="(cell, ci) in row.cells" :key="ci">
+                <td :class="cell.cls" :rowspan="cell.rowspan" x-html="cell.html"></td>
+              </template>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+
+    <template x-if="team.faction_rules && team.faction_rules.length">
+      <div class="rules-section">
+        <div class="rules-section-title">Faction Rules</div>
+        <template x-for="(item, i) in team.faction_rules" :key="i">
+          <div class="rules-item">
+            <span class="rules-item-name" x-text="item.name"></span>
+            <template x-if="item.text">
+              <span class="rules-item-sep"> — </span>
+            </template>
+            <template x-if="item.text">
+              <span class="rules-item-text" x-text="item.text"></span>
+            </template>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <template x-if="team.strategy_ploys && team.strategy_ploys.length">
+      <div class="rules-section">
+        <div class="rules-section-title">Strategy Ploys</div>
+        <template x-for="(item, i) in team.strategy_ploys" :key="i">
+          <div class="rules-item">
+            <span class="rules-item-name" x-text="item.name"></span>
+            <template x-if="item.text">
+              <span class="rules-item-sep"> — </span>
+            </template>
+            <template x-if="item.text">
+              <span class="rules-item-text" x-text="item.text"></span>
+            </template>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <template x-if="team.firefight_ploys && team.firefight_ploys.length">
+      <div class="rules-section">
+        <div class="rules-section-title">Firefight Ploys</div>
+        <template x-for="(item, i) in team.firefight_ploys" :key="i">
+          <div class="rules-item">
+            <span class="rules-item-name" x-text="item.name"></span>
+            <template x-if="item.text">
+              <span class="rules-item-sep"> — </span>
+            </template>
+            <template x-if="item.text">
+              <span class="rules-item-text" x-text="item.text"></span>
+            </template>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <template x-if="team.equipment && team.equipment.length">
+      <div class="rules-section">
+        <div class="rules-section-title">Equipment</div>
+        <template x-for="(item, i) in team.equipment" :key="i">
+          <div class="rules-item">
+            <span class="rules-item-name" x-text="item.name"></span>
+            <template x-if="item.text">
+              <span class="rules-item-sep"> — </span>
+            </template>
+            <template x-if="item.text">
+              <span class="rules-item-text" x-text="item.text"></span>
+            </template>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <div class="footnotes" x-show="team.footnotes_html" x-html="team.footnotes_html"></div>
+  </section>
+</template>
+
+<!-- Operative modal -->
+<div class="op-modal-backdrop" x-show="openOperative" x-cloak @click="closeOperative()">
+  <div class="op-modal" @click.stop x-show="openOperative">
+    <button class="op-modal-close" @click="closeOperative()" aria-label="Close">×</button>
+    <h2 class="op-modal-title" x-text="openOperative && openOperative.name"></h2>
+    <div class="op-stats">
+      <div class="op-stat"><div class="op-stat-label">APL</div><div class="op-stat-value" x-text="openOperative && openOperative.apl"></div></div>
+      <div class="op-stat"><div class="op-stat-label">Move</div><div class="op-stat-value" x-text="openOperative && openOperative.move"></div></div>
+      <div class="op-stat"><div class="op-stat-label">Save</div><div class="op-stat-value" x-text="openOperative && openOperative.save"></div></div>
+      <div class="op-stat"><div class="op-stat-label">Wounds</div><div class="op-stat-value" x-text="openOperative && openOperative.wounds"></div></div>
+    </div>
+    <div class="op-abilities">
+      <template x-for="(ability, ai) in (openOperative && openOperative.abilities) || []" :key="ai">
+        <div class="ability">
+          <div class="ability-header">
+            <span class="ability-name" x-text="ability.name"></span>
+            <template x-if="ability.tag">
+              <span class="ability-tag" x-text="ability.tag"></span>
+            </template>
+          </div>
+          <div class="ability-text" x-html="ability.text"></div>
+        </div>
+      </template>
+      <div class="ability-empty"
+           x-show="openOperative && (!openOperative.abilities || openOperative.abilities.length === 0)">
+        Ability text hasn't been captured for this operative yet.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Weapon modal -->
+<div class="op-modal-backdrop" x-show="openWeapon" x-cloak @click="closeWeapon()">
+  <div class="op-modal" @click.stop x-show="openWeapon">
+    <button class="op-modal-close" @click="closeWeapon()" aria-label="Close">×</button>
+    <h2 class="op-modal-title" x-text="openWeapon && openWeapon.name"></h2>
+    <div class="op-abilities">
+      <template x-for="(ability, ai) in (openWeapon && openWeapon.abilities) || []" :key="ai">
+        <div class="ability">
+          <div class="ability-header">
+            <span class="ability-name" x-text="ability.name"></span>
+            <template x-if="ability.tag">
+              <span class="ability-tag" x-text="ability.tag"></span>
+            </template>
+          </div>
+          <div class="ability-text" x-html="ability.text"></div>
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
