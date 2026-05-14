@@ -66,6 +66,15 @@
     .error-banner strong { color: #d97a6a; }
     .ability-text ul { @apply mt-1.5 pl-[18px] list-disc; }
     .ability-text li { @apply mb-1; }
+    .op-label, .weapon-label {
+      @apply inline-flex items-center gap-2 cursor-pointer;
+    }
+    .op-info, .weapon-info {
+      @apply inline-flex items-center justify-center w-4 h-4 border border-ink-dim rounded-full font-sans text-[10px] font-bold italic text-ink-dim tracking-normal normal-case transition-colors duration-150 shrink-0;
+    }
+    .op-label:hover .op-info, .weapon-label:hover .weapon-info {
+      @apply text-accent border-accent;
+    }
   }
   @media print {
     body { background: white !important; color: black !important; padding: 8px !important; font-size: 8.5pt !important; }

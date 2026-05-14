@@ -121,11 +121,10 @@ document.addEventListener('alpine:init', () => {
         : badgeBase + ' bg-[rgba(232,90,28,0.18)] text-accent';
       const badgeHtml = '<span class="' + badgeCls + '" title="' + type + '">' + badge + '</span>';
       const nameEscaped = this.htmlEscape(weapon.name);
-      const infoIconCls = 'weapon-info group-hover:text-accent group-hover:border-accent inline-flex items-center justify-center w-4 h-4 border border-ink-dim rounded-full font-sans text-[10px] font-bold italic text-ink-dim tracking-normal normal-case transition-colors duration-150 shrink-0';
       if (weapon.abilities && weapon.abilities.length) {
-        return '<span class="weapon-label group inline-flex items-center gap-2 cursor-pointer" data-weapon="' + nameEscaped + '">'
+        return '<span class="weapon-label" data-weapon="' + nameEscaped + '">'
           + badgeHtml + nameEscaped
-          + '<span class="' + infoIconCls + '" aria-label="Weapon details">i</span>'
+          + '<span class="weapon-info" aria-label="Weapon details">i</span>'
           + '</span>';
       }
       return badgeHtml + nameEscaped;
@@ -200,8 +199,6 @@ document.addEventListener('alpine:init', () => {
       const wdmgEmptyCls    = emptyBase + ' w-[60px]';
       const wrulesEmptyCls  = emptyBase + ' text-xs';
 
-      const opInfoCls = 'op-info group-hover:text-accent group-hover:border-accent inline-flex items-center justify-center w-4 h-4 border border-ink-dim rounded-full font-sans text-[10px] font-bold italic text-ink-dim tracking-normal normal-case transition-colors duration-150 shrink-0';
-
       const subRows = [];
       for (let i = 0; i < N; i++) {
         const cells = [];
@@ -214,9 +211,9 @@ document.addEventListener('alpine:init', () => {
           const hasData = team.operatives && team.operatives[opName];
           const escaped = this.htmlEscape(opName);
           const opHtml = hasData
-            ? '<span class="op-label group inline-flex items-center gap-2 cursor-pointer" data-op="' + escaped + '">'
+            ? '<span class="op-label" data-op="' + escaped + '">'
                 + escaped
-                + '<span class="' + opInfoCls + '" aria-label="Operative details">i</span>'
+                + '<span class="op-info" aria-label="Operative details">i</span>'
               + '</span>'
             : escaped;
           cells.push({
