@@ -93,19 +93,19 @@ document.addEventListener('alpine:init', () => {
     headerCells(team) {
       const cells = [{ text: 'Operative', cls: '' }];
       for (let i = 0; i < (team.max_shooting || 0); i++) {
-        cells.push({ text: 'Shooting ' + (i + 1), cls: 'weapon-group shooting-group' });
-        cells.push({ text: 'Profile',             cls: 'wprofile-h' });
-        cells.push({ text: 'Atk',                 cls: 'wattk-h' });
-        cells.push({ text: 'Hit',                 cls: 'whit-h' });
-        cells.push({ text: 'Dmg',                 cls: 'wdmg-h' });
+        cells.push({ text: 'Shooting ' + (i + 1), cls: 'border-l border-l-accent-dim pl-[14px]' });
+        cells.push({ text: 'Profile',             cls: 'text-left w-[100px]' });
+        cells.push({ text: 'Atk',                 cls: 'text-center w-[50px]' });
+        cells.push({ text: 'Hit',                 cls: 'text-center w-[50px]' });
+        cells.push({ text: 'Dmg',                 cls: 'text-center w-[60px]' });
         cells.push({ text: 'Rules',               cls: '' });
       }
       for (let i = 0; i < (team.max_melee || 0); i++) {
-        cells.push({ text: 'Melee ' + (i + 1), cls: 'weapon-group melee-group' });
-        cells.push({ text: 'Profile',          cls: 'wprofile-h' });
-        cells.push({ text: 'Atk',              cls: 'wattk-h' });
-        cells.push({ text: 'Hit',              cls: 'whit-h' });
-        cells.push({ text: 'Dmg',              cls: 'wdmg-h' });
+        cells.push({ text: 'Melee ' + (i + 1), cls: 'text-melee border-l border-l-[rgba(184,176,160,0.4)] pl-[14px]' });
+        cells.push({ text: 'Profile',          cls: 'text-left w-[100px]' });
+        cells.push({ text: 'Atk',              cls: 'text-center w-[50px]' });
+        cells.push({ text: 'Hit',              cls: 'text-center w-[50px]' });
+        cells.push({ text: 'Dmg',              cls: 'text-center w-[60px]' });
         cells.push({ text: 'Rules',            cls: '' });
       }
       return cells;
@@ -115,12 +115,17 @@ document.addEventListener('alpine:init', () => {
     nameCellHtml(weapon) {
       const type = weapon.type || 'shooting';
       const badge = type === 'melee' ? 'M' : 'S';
-      const badgeHtml = '<span class="wtype ' + type + '" title="' + type + '">' + badge + '</span>';
+      const badgeBase = 'inline-block font-display text-[9px] tracking-[0.1em] uppercase py-px px-[5px] rounded-sm mr-2 align-[1px] min-w-[14px] text-center';
+      const badgeCls = type === 'melee'
+        ? badgeBase + ' bg-[rgba(184,176,160,0.12)] text-melee'
+        : badgeBase + ' bg-[rgba(232,90,28,0.18)] text-accent';
+      const badgeHtml = '<span class="' + badgeCls + '" title="' + type + '">' + badge + '</span>';
       const nameEscaped = this.htmlEscape(weapon.name);
+      const infoIconCls = 'weapon-info group-hover:text-accent group-hover:border-accent inline-flex items-center justify-center w-4 h-4 border border-ink-dim rounded-full font-sans text-[10px] font-bold italic text-ink-dim tracking-normal normal-case transition-colors duration-150 shrink-0';
       if (weapon.abilities && weapon.abilities.length) {
-        return '<span class="weapon-label" data-weapon="' + nameEscaped + '">'
+        return '<span class="weapon-label group inline-flex items-center gap-2 cursor-pointer" data-weapon="' + nameEscaped + '">'
           + badgeHtml + nameEscaped
-          + '<span class="weapon-info" aria-label="Weapon details">i</span>'
+          + '<span class="' + infoIconCls + '" aria-label="Weapon details">i</span>'
           + '</span>';
       }
       return badgeHtml + nameEscaped;
@@ -179,6 +184,24 @@ document.addEventListener('alpine:init', () => {
       const note = loadout.note || null;
       const noteOnIdx = weapons.length - 1;
 
+      const opCellCls = 'bg-black border-r-2 border-r-accent font-display text-[14px] tracking-[0.04em] uppercase text-ink whitespace-nowrap w-[200px]';
+      const wnameCls  = 'font-mono text-xs text-ink border-l border-l-rule pl-[14px] font-medium whitespace-nowrap';
+      const wprofileCls = 'font-sans text-xs text-ink font-medium w-[100px]';
+      const wattkCls  = 'font-mono font-semibold text-center text-ink w-[50px]';
+      const whitCls   = 'font-mono font-semibold text-center text-ink w-[50px]';
+      const wdmgCls   = 'font-mono font-semibold text-center text-ink w-[60px]';
+      const wrulesCls = 'text-ink-dim text-xs';
+
+      const emptyBase = 'font-mono text-ink-empty text-center';
+      const wnameEmptyCls   = emptyBase + ' text-xs border-l border-l-rule pl-[14px] whitespace-nowrap';
+      const wprofileEmptyCls = emptyBase + ' w-[100px]';
+      const wattkEmptyCls   = emptyBase + ' w-[50px]';
+      const whitEmptyCls    = emptyBase + ' w-[50px]';
+      const wdmgEmptyCls    = emptyBase + ' w-[60px]';
+      const wrulesEmptyCls  = emptyBase + ' text-xs';
+
+      const opInfoCls = 'op-info group-hover:text-accent group-hover:border-accent inline-flex items-center justify-center w-4 h-4 border border-ink-dim rounded-full font-sans text-[10px] font-bold italic text-ink-dim tracking-normal normal-case transition-colors duration-150 shrink-0';
+
       const subRows = [];
       for (let i = 0; i < N; i++) {
         const cells = [];
@@ -191,13 +214,13 @@ document.addEventListener('alpine:init', () => {
           const hasData = team.operatives && team.operatives[opName];
           const escaped = this.htmlEscape(opName);
           const opHtml = hasData
-            ? '<span class="op-label" data-op="' + escaped + '">'
+            ? '<span class="op-label group inline-flex items-center gap-2 cursor-pointer" data-op="' + escaped + '">'
                 + escaped
-                + '<span class="op-info" aria-label="Operative details">i</span>'
+                + '<span class="' + opInfoCls + '" aria-label="Operative details">i</span>'
               + '</span>'
             : escaped;
           cells.push({
-            cls: 'op',
+            cls: opCellCls,
             html: opHtml,
             rowspan: opRowspan,
           });
@@ -209,12 +232,12 @@ document.addEventListener('alpine:init', () => {
           if (!entry) {
             // Empty weapon slot: emit 5 dashes on the first sub-row, rowspanned to fill.
             if (i === 0) {
-              cells.push({ cls: 'wname empty',    html: '—', rowspan: N });
-              cells.push({ cls: 'wprofile empty', html: '—', rowspan: N });
-              cells.push({ cls: 'wattk empty',    html: '—', rowspan: N });
-              cells.push({ cls: 'whit empty',     html: '—', rowspan: N });
-              cells.push({ cls: 'wdmg empty',     html: '—', rowspan: N });
-              cells.push({ cls: 'wrules empty',   html: '—', rowspan: N });
+              cells.push({ cls: wnameEmptyCls,    html: '—', rowspan: N });
+              cells.push({ cls: wprofileEmptyCls, html: '—', rowspan: N });
+              cells.push({ cls: wattkEmptyCls,    html: '—', rowspan: N });
+              cells.push({ cls: whitEmptyCls,     html: '—', rowspan: N });
+              cells.push({ cls: wdmgEmptyCls,     html: '—', rowspan: N });
+              cells.push({ cls: wrulesEmptyCls,   html: '—', rowspan: N });
             }
             continue;
           }
@@ -224,7 +247,7 @@ document.addEventListener('alpine:init', () => {
 
           // Weapon NAME cell on first sub-row only, rowspanning all profile sub-rows.
           if (i === 0) {
-            cells.push({ cls: 'wname', html: this.nameCellHtml(weapon), rowspan: N });
+            cells.push({ cls: wnameCls, html: this.nameCellHtml(weapon), rowspan: N });
           }
 
           // Emit profile cells if profile i exists for this weapon.
@@ -235,14 +258,14 @@ document.addEventListener('alpine:init', () => {
             const profileName = profile.name ? this.htmlEscape(profile.name) : '—';
             let rulesHtml = this.rulesForProfile(profile);
             if (note && entry.origIdx === noteOnIdx && i === X - 1) {
-              rulesHtml += '<div class="note">↳ ' + this.htmlEscape(note) + '</div>';
+              rulesHtml += '<div class="mt-1 py-1 px-2 border-l-2 border-l-accent bg-[rgba(232,90,28,0.06)] text-ink text-[11.5px] italic">↳ ' + this.htmlEscape(note) + '</div>';
             }
             const dmgHtml = this.htmlEscape(profile.normal_dmg) + '/' + this.htmlEscape(profile.crit_dmg);
-            cells.push({ cls: 'wprofile', html: profileName,                        rowspan: profileRowspan });
-            cells.push({ cls: 'wattk',    html: this.htmlEscape(profile.atk),       rowspan: profileRowspan });
-            cells.push({ cls: 'whit',     html: this.htmlEscape(profile.hit) + '+', rowspan: profileRowspan });
-            cells.push({ cls: 'wdmg',     html: dmgHtml,                            rowspan: profileRowspan });
-            cells.push({ cls: 'wrules',   html: rulesHtml,                          rowspan: profileRowspan });
+            cells.push({ cls: wprofileCls, html: profileName,                        rowspan: profileRowspan });
+            cells.push({ cls: wattkCls,    html: this.htmlEscape(profile.atk),       rowspan: profileRowspan });
+            cells.push({ cls: whitCls,     html: this.htmlEscape(profile.hit) + '+', rowspan: profileRowspan });
+            cells.push({ cls: wdmgCls,     html: dmgHtml,                            rowspan: profileRowspan });
+            cells.push({ cls: wrulesCls,   html: rulesHtml,                          rowspan: profileRowspan });
           }
           // If i >= X, no cells for this weapon in this sub-row — they were already rowspanned.
         }

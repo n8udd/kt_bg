@@ -4,32 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kill Team — Build Guides</title>
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg:           '#0c0c0e',
+          panel:        '#16161a',
+          'panel-alt':  '#1c1c22',
+          ink:          '#e9e7e2',
+          'ink-dim':    '#8a8780',
+          'ink-empty':  '#3a3a42',
+          rule:         '#25252c',
+          'rule-strong':'#3d3d48',
+          accent:       '#e85a1c',
+          'accent-dim': '#6b2a12',
+          melee:        '#b8b0a0',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          sans:    ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+          mono:    ['IBM Plex Mono', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style type="text/tailwindcss">
+  @layer base {
+    [x-cloak] { display: none !important; }
+    body {
+      background: radial-gradient(ellipse at top, #1a1a20 0%, #0c0c0e 60%) no-repeat, #0c0c0e;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    tbody td { @apply py-2 px-3 border-b border-rule align-middle; }
+    tr.new-op > td { border-top: 2px solid #3d3d48; }
+  }
+  @layer components {
+    thead th { @apply bg-black text-accent font-display font-normal tracking-[0.1em] uppercase text-[11.5px] py-[11px] px-3 text-left border-b-2 border-b-accent whitespace-nowrap; }
+    .team-selector {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23e85a1c' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 12px 8px;
+    }
+    .team-selector:hover, .team-selector:focus { @apply border-accent outline-none; }
+    .team-selector option { background-color: #000; color: #e9e7e2; }
+    .intro strong { @apply text-ink; }
+    .intro code { @apply font-mono text-ink text-xs bg-white/[0.04] px-1 rounded-sm; }
+    .op-modal { border: 1px solid #3d3d48; border-top: 3px solid #e85a1c; }
+    .footnotes strong { @apply text-ink; }
+    .footnotes .marker { @apply text-accent font-semibold; }
+    .error-banner strong { color: #d97a6a; }
+    .ability-text ul { @apply mt-1.5 pl-[18px] list-disc; }
+    .ability-text li { @apply mb-1; }
+  }
+  @media print {
+    body { background: white !important; color: black !important; padding: 8px !important; font-size: 8.5pt !important; }
+    .selector-row { display: none !important; }
+    .team-section { display: block !important; page-break-before: always; }
+    .team-section:first-of-type { page-break-before: auto; }
+    tbody td, thead th { border-color: #ccc !important; color: black !important; }
+    thead th { background: #eee !important; }
+    table { min-width: 0 !important; }
+  }
+</style>
 <script src="script.js" defer></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.12/dist/cdn.min.js"></script>
 </head>
-<body x-data="kt" x-cloak>
+<body x-data="kt" x-cloak class="m-0 px-6 pt-10 pb-20 text-ink font-sans">
 
-<div class="container">
+<div class="mx-auto">
 
-<header>
-  <h1>Kill Team <span class="accent">— Build Guides</span></h1>
+<header class="border-b-2 border-accent pb-4 mb-6">
+  <h1 class="font-display text-[56px] font-normal tracking-[0.04em] m-0 uppercase leading-none">Kill Team <span class="text-accent">— Build Guides</span></h1>
 </header>
 
-<div class="loading" x-show="loading">Loading team data…</div>
+<div class="py-[60px] px-5 text-center text-ink-dim text-[13px] tracking-[0.06em]" x-show="loading">Loading team data…</div>
 
-<div class="error-banner" x-show="error" x-cloak>
+<div class="error-banner bg-panel border-l-[3px] border-[#b94a3a] text-ink py-[14px] px-5 mb-6 font-mono text-xs" x-show="error" x-cloak>
   <strong>Couldn't load team data.</strong>
   <span x-text="error"></span>
 </div>
 
 <template x-if="!loading && !error && data.teams.length">
-  <div class="selector-row">
-    <label class="selector-label" for="team-select">Kill Team</label>
-    <select id="team-select" class="team-selector" x-model="selectedKey">
+  <div class="selector-row flex items-center gap-4 mb-8 py-[14px] px-[18px] bg-panel border-l-[3px] border-accent">
+    <label class="font-display uppercase text-accent text-[14px] tracking-[0.12em]" for="team-select">Kill Team</label>
+    <select id="team-select" class="team-selector bg-black text-ink border border-accent-dim py-[9px] pr-10 pl-[14px] font-display uppercase text-base tracking-[0.06em] cursor-pointer transition-colors duration-150" x-model="selectedKey">
       <template x-for="team in data.teams" :key="team.key">
         <option :value="team.key" x-text="team.name"></option>
       </template>
@@ -38,12 +107,12 @@
 </template>
 
 <template x-for="team in data.teams" :key="team.key">
-  <section class="team-section" :class="{ active: team.key === selectedKey }" @click="handleOpClick($event)">
-    <div class="team-subtitle" x-text="team.subtitle"></div>
-    <div class="intro" x-show="team.intro" x-text="team.intro"></div>
+  <section class="team-section" x-show="team.key === selectedKey" @click="handleOpClick($event)">
+    <div class="text-ink-dim mb-4 text-xs tracking-[0.08em] uppercase" x-text="team.subtitle"></div>
+    <div class="intro bg-panel border-l-[3px] border-accent py-[14px] px-5 mb-7 text-[13px] text-ink-dim" x-show="team.intro" x-text="team.intro"></div>
 
-    <div class="table-wrap">
-      <table :style="tableStyle(team)">
+    <div class="overflow-x-auto border border-rule-strong">
+      <table :style="tableStyle(team)" class="w-full border-collapse bg-panel text-[12.5px]">
         <thead>
           <tr>
             <template x-for="(h, hi) in headerCells(team)" :key="hi">
@@ -64,101 +133,97 @@
     </div>
 
     <template x-if="team.faction_rules && team.faction_rules.length">
-      <div class="rules-section">
-        <div class="rules-section-title">Faction Rules</div>
+      <div class="mt-5 py-3 px-[18px] bg-panel border-l-[3px] border-rule-strong text-xs leading-[1.65]">
+        <div class="font-display uppercase text-[10.5px] tracking-[0.12em] text-ink-dim mb-2">Faction Rules</div>
         <template x-for="(item, i) in team.faction_rules" :key="i">
-          <div class="rules-item">
-            <span class="rules-item-name" x-text="item.name"></span>
-            <template x-if="item.text">
-              <span class="rules-item-sep"> — </span>
-            </template>
-            <template x-if="item.text">
-              <span class="rules-item-text" x-text="item.text"></span>
-            </template>
+          <div class="mb-1 last:mb-0">
+            <span class="font-semibold text-ink" x-text="item.name"></span>
+            <template x-if="item.text"><span class="text-ink-dim"> — </span></template>
+            <template x-if="item.text"><span class="text-ink-dim" x-text="item.text"></span></template>
           </div>
         </template>
       </div>
     </template>
 
     <template x-if="team.strategy_ploys && team.strategy_ploys.length">
-      <div class="rules-section">
-        <div class="rules-section-title">Strategy Ploys</div>
+      <div class="mt-5 py-3 px-[18px] bg-panel border-l-[3px] border-rule-strong text-xs leading-[1.65]">
+        <div class="font-display uppercase text-[10.5px] tracking-[0.12em] text-ink-dim mb-2">Strategy Ploys</div>
         <template x-for="(item, i) in team.strategy_ploys" :key="i">
-          <div class="rules-item">
-            <span class="rules-item-name" x-text="item.name"></span>
-            <template x-if="item.text">
-              <span class="rules-item-sep"> — </span>
-            </template>
-            <template x-if="item.text">
-              <span class="rules-item-text" x-text="item.text"></span>
-            </template>
+          <div class="mb-1 last:mb-0">
+            <span class="font-semibold text-ink" x-text="item.name"></span>
+            <template x-if="item.text"><span class="text-ink-dim"> — </span></template>
+            <template x-if="item.text"><span class="text-ink-dim" x-text="item.text"></span></template>
           </div>
         </template>
       </div>
     </template>
 
     <template x-if="team.firefight_ploys && team.firefight_ploys.length">
-      <div class="rules-section">
-        <div class="rules-section-title">Firefight Ploys</div>
+      <div class="mt-5 py-3 px-[18px] bg-panel border-l-[3px] border-rule-strong text-xs leading-[1.65]">
+        <div class="font-display uppercase text-[10.5px] tracking-[0.12em] text-ink-dim mb-2">Firefight Ploys</div>
         <template x-for="(item, i) in team.firefight_ploys" :key="i">
-          <div class="rules-item">
-            <span class="rules-item-name" x-text="item.name"></span>
-            <template x-if="item.text">
-              <span class="rules-item-sep"> — </span>
-            </template>
-            <template x-if="item.text">
-              <span class="rules-item-text" x-text="item.text"></span>
-            </template>
+          <div class="mb-1 last:mb-0">
+            <span class="font-semibold text-ink" x-text="item.name"></span>
+            <template x-if="item.text"><span class="text-ink-dim"> — </span></template>
+            <template x-if="item.text"><span class="text-ink-dim" x-text="item.text"></span></template>
           </div>
         </template>
       </div>
     </template>
 
     <template x-if="team.equipment && team.equipment.length">
-      <div class="rules-section">
-        <div class="rules-section-title">Equipment</div>
+      <div class="mt-5 py-3 px-[18px] bg-panel border-l-[3px] border-rule-strong text-xs leading-[1.65]">
+        <div class="font-display uppercase text-[10.5px] tracking-[0.12em] text-ink-dim mb-2">Equipment</div>
         <template x-for="(item, i) in team.equipment" :key="i">
-          <div class="rules-item">
-            <span class="rules-item-name" x-text="item.name"></span>
-            <template x-if="item.text">
-              <span class="rules-item-sep"> — </span>
-            </template>
-            <template x-if="item.text">
-              <span class="rules-item-text" x-text="item.text"></span>
-            </template>
+          <div class="mb-1 last:mb-0">
+            <span class="font-semibold text-ink" x-text="item.name"></span>
+            <template x-if="item.text"><span class="text-ink-dim"> — </span></template>
+            <template x-if="item.text"><span class="text-ink-dim" x-text="item.text"></span></template>
           </div>
         </template>
       </div>
     </template>
 
-    <div class="footnotes" x-show="team.footnotes_html" x-html="team.footnotes_html"></div>
+    <div class="footnotes mt-6 py-3 px-[18px] bg-panel border-l-[3px] border-accent-dim text-ink-dim text-[11.5px] leading-[1.7]" x-show="team.footnotes_html" x-html="team.footnotes_html"></div>
   </section>
 </template>
 
 <!-- Operative modal -->
-<div class="op-modal-backdrop" x-show="openOperative" x-cloak @click="closeOperative()">
-  <div class="op-modal" @click.stop x-show="openOperative">
-    <button class="op-modal-close" @click="closeOperative()" aria-label="Close">×</button>
-    <h2 class="op-modal-title" x-text="openOperative && openOperative.name"></h2>
-    <div class="op-stats">
-      <div class="op-stat"><div class="op-stat-label">APL</div><div class="op-stat-value" x-text="openOperative && openOperative.apl"></div></div>
-      <div class="op-stat"><div class="op-stat-label">Move</div><div class="op-stat-value" x-text="openOperative && openOperative.move"></div></div>
-      <div class="op-stat"><div class="op-stat-label">Save</div><div class="op-stat-value" x-text="openOperative && openOperative.save"></div></div>
-      <div class="op-stat"><div class="op-stat-label">Wounds</div><div class="op-stat-value" x-text="openOperative && openOperative.wounds"></div></div>
+<div class="fixed inset-0 bg-black/[0.78] flex items-center justify-center z-[1000] p-5" x-show="openOperative" x-cloak @click="closeOperative()">
+  <div class="op-modal bg-panel w-full max-w-[640px] max-h-[88vh] overflow-y-auto py-7 px-8 relative" @click.stop x-show="openOperative">
+    <button class="absolute top-[10px] right-[14px] bg-transparent border-none text-ink-dim text-[30px] leading-none px-2 py-1 cursor-pointer hover:text-accent" @click="closeOperative()" aria-label="Close">×</button>
+    <h2 class="font-display text-[26px] font-normal m-0 mb-[18px] text-ink uppercase tracking-[0.04em]" x-text="openOperative && openOperative.name"></h2>
+    <div class="flex gap-[22px] py-[14px] px-[18px] bg-panel-alt border-l-2 border-l-accent mb-[22px]">
+      <div class="flex flex-col items-start">
+        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">APL</div>
+        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.apl"></div>
+      </div>
+      <div class="flex flex-col items-start">
+        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">Move</div>
+        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.move"></div>
+      </div>
+      <div class="flex flex-col items-start">
+        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">Save</div>
+        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.save"></div>
+      </div>
+      <div class="flex flex-col items-start">
+        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">Wounds</div>
+        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.wounds"></div>
+      </div>
     </div>
-    <div class="op-abilities">
+    <div>
       <template x-for="(ability, ai) in (openOperative && openOperative.abilities) || []" :key="ai">
-        <div class="ability">
-          <div class="ability-header">
-            <span class="ability-name" x-text="ability.name"></span>
+        <div class="mb-[18px] pb-[18px] border-b border-rule last:border-b-0 last:mb-0 last:pb-0">
+          <div class="flex items-center flex-wrap gap-[10px] mb-1.5">
+            <span class="font-display text-[15px] text-ink uppercase tracking-[0.04em]" x-text="ability.name"></span>
             <template x-if="ability.tag">
-              <span class="ability-tag" x-text="ability.tag"></span>
+              <span class="font-display text-[10px] bg-accent text-black px-1.5 py-0.5 tracking-[0.08em] uppercase" x-text="ability.tag"></span>
             </template>
           </div>
-          <div class="ability-text" x-html="ability.text"></div>
+          <div class="ability-text text-[12.5px] text-ink-dim leading-[1.55]" x-html="ability.text"></div>
         </div>
       </template>
-      <div class="ability-empty"
+      <div class="text-ink-empty italic text-center p-4"
            x-show="openOperative && (!openOperative.abilities || openOperative.abilities.length === 0)">
         Ability text hasn't been captured for this operative yet.
       </div>
@@ -167,20 +232,20 @@
 </div>
 
 <!-- Weapon modal -->
-<div class="op-modal-backdrop" x-show="openWeapon" x-cloak @click="closeWeapon()">
-  <div class="op-modal" @click.stop x-show="openWeapon">
-    <button class="op-modal-close" @click="closeWeapon()" aria-label="Close">×</button>
-    <h2 class="op-modal-title" x-text="openWeapon && openWeapon.name"></h2>
-    <div class="op-abilities">
+<div class="fixed inset-0 bg-black/[0.78] flex items-center justify-center z-[1000] p-5" x-show="openWeapon" x-cloak @click="closeWeapon()">
+  <div class="op-modal bg-panel w-full max-w-[640px] max-h-[88vh] overflow-y-auto py-7 px-8 relative" @click.stop x-show="openWeapon">
+    <button class="absolute top-[10px] right-[14px] bg-transparent border-none text-ink-dim text-[30px] leading-none px-2 py-1 cursor-pointer hover:text-accent" @click="closeWeapon()" aria-label="Close">×</button>
+    <h2 class="font-display text-[26px] font-normal m-0 mb-[18px] text-ink uppercase tracking-[0.04em]" x-text="openWeapon && openWeapon.name"></h2>
+    <div>
       <template x-for="(ability, ai) in (openWeapon && openWeapon.abilities) || []" :key="ai">
-        <div class="ability">
-          <div class="ability-header">
-            <span class="ability-name" x-text="ability.name"></span>
+        <div class="mb-[18px] pb-[18px] border-b border-rule last:border-b-0 last:mb-0 last:pb-0">
+          <div class="flex items-center flex-wrap gap-[10px] mb-1.5">
+            <span class="font-display text-[15px] text-ink uppercase tracking-[0.04em]" x-text="ability.name"></span>
             <template x-if="ability.tag">
-              <span class="ability-tag" x-text="ability.tag"></span>
+              <span class="font-display text-[10px] bg-accent text-black px-1.5 py-0.5 tracking-[0.08em] uppercase" x-text="ability.tag"></span>
             </template>
           </div>
-          <div class="ability-text" x-html="ability.text"></div>
+          <div class="ability-text text-[12.5px] text-ink-dim leading-[1.55]" x-html="ability.text"></div>
         </div>
       </template>
     </div>
