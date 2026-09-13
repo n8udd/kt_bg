@@ -2,8 +2,8 @@
   "key": "mw",
   "name": "Murderwing",
   "subtitle": "Aug '26 errata · 21 physical loadouts",
-  "intro_html": "<p>One row per <strong>physical model build</strong>. The kill team is <strong>1 Chaos Lord</strong> plus <strong>5 operatives</strong> chosen from the list below; other than <strong>Raptors</strong>, each operative can only be included once, so the Raptor is the only repeatable model.</p><p>Four operatives carry weapon choices — the <strong>Chaos Lord</strong> (7 builds), the <strong>Champion</strong> (4), the <strong>Raptor</strong> (2) and the <strong>Skysear</strong> (3). <strong>Plasma pistol</strong> and <strong>plasma gun</strong> are multi-profile weapons (standard / supercharge) and carry both profiles in a nested array. Two builds have <strong>no ranged weapon</strong>: the Chaos Lord's relic lightning claws option and the Warp Talon.</p><p>Loadouts marked <span class=\"marker\">*</span> carry a weapon subject to the <strong>two-operative special weapon cap</strong> — see the notes below the table.</p>",
-  "footnotes_html": "<strong>Stats.</strong> All operatives are APL 3, Move 6\", Save 3+. The Chaos Lord is Wounds 15; every other operative is Wounds 14.<br><br><strong>Team selection.</strong> 1 CHAOS LORD (leader) + 5 operatives chosen from Champion, Curseclaw, Depredator, Huntmaster, Raptor, Shrieker, Skysear and Warp Talon. Other than RAPTOR operatives, each operative on that list can only be included once — the Raptor is the only repeatable model.<br><br><span class=\"marker\">*</span> <strong>Special weapon cap.</strong> You cannot select more than two operatives with these weapons combined: <em>plasma pistol</em> (Chaos Lord, Champion, Raptor), <em>meltagun</em> and <em>plasma gun</em> (Skysear). Affected loadouts are marked in the table.<br><br><strong>Weapon notes.</strong> Three different claw profiles share similar names: the Chaos Lord's <em>lightning claw</em> (4/5, Lethal 5+, Rending), the Chaos Lord's <em>relic lightning claws</em> (4/6, Ceaseless, Lethal 5+, Rending), and the Warp Talon's <em>lightning claws</em> (4/5, Ceaseless, Lethal 5+, Rending). The Chaos Lord's relic lightning claws option replaces <em>both</em> of the other choices, so that build has no pistol. The Skysear's meltagun is Dmg 6/3 — the critical value is genuinely lower than the normal value, offset by Devastating 4.<br><br><strong>Faction rules.</strong> <em>Jump Pack</em> — during Charge, Fall Back or Reposition, an operative not under Vantage terrain can BOOST for a straight-line increment, being removed and set back up within <em>x</em>\" horizontally (added to the move distance; move allowance capped at 6\" if boosting during a Charge). <em>Boost Actions</em> — actions performed during another action when a BOOST is used, limited to one per activation, mostly affecting enemies in the operative's BOOST ZONE (the horizontal area between where it boosted from and where it landed). <em>Astartes</em> — each operative can perform two <strong>Shoot</strong> or two <strong>Fight</strong> actions per activation (if two Shoot, a bolt pistol must be selected for at least one), and can counteract regardless of order.<br><br><strong>Strategy ploys.</strong> Predators Above (Balanced when 2\" higher than the killzone floor or after a BOOST), Cull the Weak (Punishing against lower, APL-reduced or wounded targets), Nightmare on High (defence dice re-roll when elevated or after boosting), Instil Fear (Normal Dmg of 3+ inflicts 1 less when fighting).<br><br><strong>Firefight ploys.</strong> Malicious Narcissism (delay a sole ready operative's activation), Murderous Descent (interrupt and free Charge on an enemy ending a move below you), Long Forgotten Honour (trade a critical success for a free 3\" Fall Back), Wings of Darkness (+3\" on a BOOST, but no Shoot / Fight / Carving Blow until the next turning point; not usable in turning point 1).<br><br><strong>Equipment.</strong> Bladefins (Slice from Above, 1AP BOOST action, D3+1 damage in the BOOST ZONE), Clawed Armour (Clawed Charge, 0AP BOOST action, 1 damage then the Charge ends), Warp Fuel (once per TP, free 3\" Reposition or Charge when an enemy falls back out of control range), Vox-casters (Vox-Cry, 1AP, stun test on each enemy within 2\").<br><br><strong>Tokens.</strong> Damnation Points, Warp marker, Challenge Token, Warp Fuel token, Vox-casters token.<br><br><span class=\"marker\">**</span> <strong>Extraction note.</strong> The Warp Talon's <em>Slice the Veil</em> text below is transcribed verbatim from the operative card in this document. The Previous Erratas page of the same document gives a different wording for that passage (\"you cannot spend more than 2AP for it\", with the obscured sentence struck out). The card text and the errata text disagree; verify against the current online rules before relying on it.",
+  "intro": "1 Chaos Lord + 5 from {Champion, Curseclaw, Depredator, Huntmaster, Raptor, Shrieker, Skysear, Warp Talon}. Only Raptor is repeatable. Up to two operatives with special weapons (plasma pistol, meltagun, plasma gun).",
+  "footnotes_html": "<strong>Builds.</strong> One row per physical model build. Four operatives carry weapon choices — the <strong>Chaos Lord</strong> (7 builds), the <strong>Champion</strong> (4), the <strong>Raptor</strong> (2) and the <strong>Skysear</strong> (3). <strong>Plasma pistol</strong> and <strong>plasma gun</strong> are multi-profile weapons (standard / supercharge) and carry both profiles in a nested array. Two builds have <strong>no ranged weapon</strong>: the Chaos Lord's relic lightning claws option and the Warp Talon.<br><br><strong>Stats.</strong> All operatives are APL 3, Move 6\", Save 3+. The Chaos Lord is Wounds 15; every other operative is Wounds 14.<br><br><strong>Team selection.</strong> 1 CHAOS LORD (leader) + 5 operatives chosen from Champion, Curseclaw, Depredator, Huntmaster, Raptor, Shrieker, Skysear and Warp Talon. Other than RAPTOR operatives, each operative on that list can only be included once — the Raptor is the only repeatable model.<br><br><strong>Special weapon cap.</strong> You cannot select more than two operatives with these weapons combined: <em>plasma pistol</em> (Chaos Lord, Champion, Raptor), <em>meltagun</em> and <em>plasma gun</em> (Skysear). Affected loadouts carry a note in the table.<br><br><strong>Weapon notes.</strong> Three different claw profiles share similar names: the Chaos Lord's <em>lightning claw</em> (4/5, Lethal 5+, Rending), the Chaos Lord's <em>relic lightning claws</em> (4/6, Ceaseless, Lethal 5+, Rending), and the Warp Talon's <em>lightning claws</em> (4/5, Ceaseless, Lethal 5+, Rending). The Chaos Lord's relic lightning claws option replaces <em>both</em> of the other choices, so that build has no pistol. The Skysear's meltagun is Dmg 6/3 — the critical value is genuinely lower than the normal value, offset by Devastating 4.<br><br><strong>Faction rules.</strong> <em>Jump Pack</em> — during Charge, Fall Back or Reposition, an operative not under Vantage terrain can BOOST for a straight-line increment, being removed and set back up within <em>x</em>\" horizontally (added to the move distance; move allowance capped at 6\" if boosting during a Charge). <em>Boost Actions</em> — actions performed during another action when a BOOST is used, limited to one per activation, mostly affecting enemies in the operative's BOOST ZONE (the horizontal area between where it boosted from and where it landed). <em>Astartes</em> — each operative can perform two <strong>Shoot</strong> or two <strong>Fight</strong> actions per activation (if two Shoot, a bolt pistol must be selected for at least one), and can counteract regardless of order.<br><br><strong>Strategy ploys.</strong> Predators Above (Balanced when 2\" higher than the killzone floor or after a BOOST), Cull the Weak (Punishing against lower, APL-reduced or wounded targets), Nightmare on High (defence dice re-roll when elevated or after boosting), Instil Fear (Normal Dmg of 3+ inflicts 1 less when fighting).<br><br><strong>Firefight ploys.</strong> Malicious Narcissism (delay a sole ready operative's activation), Murderous Descent (interrupt and free Charge on an enemy ending a move below you), Long Forgotten Honour (trade a critical success for a free 3\" Fall Back), Wings of Darkness (+3\" on a BOOST, but no Shoot / Fight / Carving Blow until the next turning point; not usable in turning point 1).<br><br><strong>Equipment.</strong> Bladefins (Slice from Above, 1AP BOOST action, D3+1 damage in the BOOST ZONE), Clawed Armour (Clawed Charge, 0AP BOOST action, 1 damage then the Charge ends), Warp Fuel (once per TP, free 3\" Reposition or Charge when an enemy falls back out of control range), Vox-casters (Vox-Cry, 1AP, stun test on each enemy within 2\").<br><br><strong>Tokens.</strong> Damnation Points, Warp marker, Challenge Token, Warp Fuel token, Vox-casters token.<br><br><span class=\"marker\">*</span> <strong>Extraction note.</strong> The Warp Talon's <em>Slice the Veil</em> text (marked * in its operative details) is transcribed verbatim from the operative card in this document. The Previous Erratas page of the same document gives a different wording for that passage (\"you cannot spend more than 2AP for it\", with the obscured sentence struck out). The card text and the errata text disagree; verify against the current online rules before relying on it.",
   "max_shooting": 2,
   "max_melee": 1,
   "loadouts": [
@@ -83,7 +83,7 @@
           ]
         }
       ],
-      "note": "* Plasma pistol counts towards the two-operative special weapon cap."
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Chaos Lord",
@@ -104,7 +104,7 @@
           ]
         }
       ],
-      "note": "* Plasma pistol counts towards the two-operative special weapon cap."
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Chaos Lord",
@@ -125,7 +125,7 @@
           ]
         }
       ],
-      "note": "* Plasma pistol counts towards the two-operative special weapon cap."
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Chaos Lord",
@@ -197,7 +197,7 @@
           ]
         }
       ],
-      "note": "* Plasma pistol counts towards the two-operative special weapon cap."
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Champion",
@@ -218,7 +218,7 @@
           ]
         }
       ],
-      "note": "* Plasma pistol counts towards the two-operative special weapon cap."
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Curseclaw",
@@ -315,7 +315,7 @@
           ]
         }
       ],
-      "note": "* Plasma pistol counts towards the two-operative special weapon cap."
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Shrieker",
@@ -340,17 +340,17 @@
       "operative": "Skysear",
       "weapons": [
         {
-          "name": "Flamer",
-          "type": "shooting",
-          "profiles": [
-            { "atk": 4, "hit": 2, "normal_dmg": 3, "crit_dmg": 3, "rules": ["Rng 8\"", "Saturate", "Torrent 2\""] }
-          ]
-        },
-        {
           "name": "Bolt pistol",
           "type": "shooting",
           "profiles": [
             { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Flamer",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 2, "normal_dmg": 3, "crit_dmg": 3, "rules": ["Rng 8\"", "Saturate", "Torrent 2\""] }
           ]
         },
         {
@@ -366,17 +366,17 @@
       "operative": "Skysear",
       "weapons": [
         {
-          "name": "Meltagun",
-          "type": "shooting",
-          "profiles": [
-            { "atk": 4, "hit": 3, "normal_dmg": 6, "crit_dmg": 3, "rules": ["Rng 6\"", "Devastating 4", "Piercing 2"] }
-          ]
-        },
-        {
           "name": "Bolt pistol",
           "type": "shooting",
           "profiles": [
             { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Meltagun",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 6, "crit_dmg": 3, "rules": ["Rng 6\"", "Devastating 4", "Piercing 2"] }
           ]
         },
         {
@@ -387,11 +387,18 @@
           ]
         }
       ],
-      "note": "* Meltagun counts towards the two-operative special weapon cap."
+      "note": "Meltagun counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Skysear",
       "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
         {
           "name": "Plasma gun",
           "type": "shooting",
@@ -401,13 +408,6 @@
           ]
         },
         {
-          "name": "Bolt pistol",
-          "type": "shooting",
-          "profiles": [
-            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
-          ]
-        },
-        {
           "name": "Fists",
           "type": "melee",
           "profiles": [
@@ -415,7 +415,7 @@
           ]
         }
       ],
-      "note": "* Plasma gun counts towards the two-operative special weapon cap."
+      "note": "Plasma gun counts towards the two-operative special weapon cap."
     },
     {
       "operative": "Warp Talon",
@@ -559,7 +559,7 @@
       "wounds": 14,
       "abilities": [
         {
-          "name": "Slice the Veil",
+          "name": "Slice the Veil*",
           "text": "When setting up this operative before the battle, you can set it up in the warp instead: place it to one side instead of in the killzone. In the first Firefight phase, when this operative is activated, place one of your Warp markers wholly within your territory, then expend this operative.<br><br>In the second Firefight phase, when this operative is activated, set it up with an order of your choice in a location it can be placed either wholly within your drop zone, or wholly within your territory contesting your Warp marker. Continue its activation as normal, but during that activation it cannot perform more than two actions and cannot use more than 4\" of move distance. Until the Ready step of the next Strategy phase, this operative is obscured to operatives more than 3\" from it.<br><br>Whenever this operative is in the warp, it cannot be the ready friendly <strong>MURDERWING</strong> operative for the Malicious Narcissism firefight ploy."
         }
       ]
