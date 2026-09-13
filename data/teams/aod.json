@@ -1,13 +1,13 @@
 {
   "key": "aod",
   "name": "Angels of Death",
-  "subtitle": "Jan '26 errata · 35 physical loadouts",
+  "subtitle": "Aug '26 errata · 35 physical loadouts",
   "intro": "1 leader from {Assault Intercessor Sgt, Intercessor Sgt, Space Marine Captain} + 5 from {Assault Intercessor Grenadier, Assault Intercessor Warrior, Eliminator Sniper, Heavy Intercessor Gunner, Intercessor Gunner (with aux grenade launcher), Intercessor Warrior}. Non-Warrior operatives may only be included once.",
   "footnotes_html": "",
   "faction_rules": [
     {
       "name": "Chapter Tactics",
-      "text": "Select a primary and secondary Chapter Tactic. Multiple instances aren't cumulative. 1. Aggressive — melee weapons have Rending. 2. Dueller — normal successes can block crits (unless Brutal). 3. Resolute — ignore APL changes; not affected by Shock. 4. Stealthy — retain one additional cover save, or one as a crit. 5. Mobile — Fall Back for 1 less AP; Charge while in control range. 6. Hardy — defence 5+ are critical successes; first Normal Dmg 3+ in retaliation reduced by 1. 7. Sharpshooter — bolt weapons have Accurate 1 and Severe when not Charged/Fallen Back/Repositioned. 8. Siege Specialist — ranged weapons have Saturate; enemies can't assist in melee."
+      "text": "Select a primary and secondary Chapter Tactic. Multiple instances aren't cumulative. 1. Aggressive — melee weapons have Rending. 2. Dueller — normal successes can block crits (unless Brutal). 3. Resolute — ignore APL changes; not affected by Shock. 4. Stealthy — retain one additional cover save, or one as a crit. 5. Mobile — Fall Back for 1 less AP; Charge while in control range. 6. Hardy — when being shot, defence 5+ are critical successes. 7. Sharpshooter — bolt weapons have Accurate 1 and Severe when not Charged/Fallen Back/Repositioned. 8. Siege Specialist — ranged weapons have Saturate; enemies can't assist in melee."
     },
     {
       "name": "Astartes",
@@ -61,7 +61,8 @@
               "rules": [
                 "Rng 8\"",
                 "Hot",
-                "Lethal 5+"
+                "Lethal 5+",
+                "Piercing 1"
               ],
               "name": "Supercharge"
             }
@@ -400,7 +401,8 @@
               "rules": [
                 "Rng 8\"",
                 "Hot",
-                "Lethal 5+"
+                "Lethal 5+",
+                "Piercing 1"
               ],
               "name": "Supercharge"
             }
@@ -477,7 +479,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -649,7 +651,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -843,7 +845,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1119,7 +1121,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1152,7 +1154,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1196,7 +1198,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1255,7 +1257,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1314,7 +1316,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1384,7 +1386,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1461,7 +1463,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,
@@ -1521,7 +1523,7 @@
           "type": "melee",
           "profiles": [
             {
-              "atk": 3,
+              "atk": 4,
               "hit": 3,
               "normal_dmg": 3,
               "crit_dmg": 4,

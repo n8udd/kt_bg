@@ -1,7 +1,7 @@
 {
   "key": "bok",
   "name": "Blades of Khaine",
-  "subtitle": "Oct '25 errata · 17 physical loadouts",
+  "subtitle": "Apr '26 errata · 17 physical loadouts",
   "intro": "1 Exarch (Dire Avenger, Howling Banshee, or Striking Scorpion) + 7 Warriors freely chosen from the three Warrior types. Warriors are the only repeatable operatives.",
   "footnotes_html": "",
   "faction_rules": [
@@ -14,7 +14,7 @@
     {"name": "Forewarned", "text": "Re-roll defence dice of one result vs a ready friendly."},
     {"name": "Ruthless Poise", "text": "Melee Ceaseless vs ready operatives."},
     {"name": "Khaine's Vengeance", "text": "Ranged Ceaseless vs expended operatives."},
-    {"name": "Dance of Death", "text": "Swap two operatives' positions."}
+    {"name": "Dance of Death", "text": "Swap the positions of two friendly operatives visible to and within 6\" of each other."}
   ],
   "firefight_ploys": [
     {"name": "Bladewind", "text": "Two Fight actions during activation."},
@@ -710,7 +710,7 @@
     "Striking Scorpion Warrior": {
       "apl": 3,
       "move": 7,
-      "save": 4,
+      "save": 3,
       "wounds": 8,
       "abilities": [
         {

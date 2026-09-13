@@ -1,5 +1,5 @@
 {
-  "key": "scout",
+  "key": "scout_squad",
   "name": "Scout Squad",
   "subtitle": "Apr '26 errata · 11 physical loadouts",
   "intro": "",
@@ -526,7 +526,8 @@
       "abilities": [
         {
           "name": "Track Enemy",
-          "text": "Select one enemy operative within 8\" of this operative. Until the end of the turning point, whenever a friendly SCOUT SQUAD operative is shooting that enemy operative, that friendly operative's ranged weapons have the Seek Light weapon rule."
+          "tag": "1AP",
+          "text": "Select one enemy operative within 8\" of this operative. Until the end of the turning point, whenever a friendly SCOUT SQUAD operative is shooting that enemy operative, that friendly operative's ranged weapons have the Seek Light weapon rule.<br><br>This operative cannot perform this action while within control range of an enemy operative."
         },
         {
           "name": "Auspex Scan",

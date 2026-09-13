@@ -1,7 +1,7 @@
 {
   "key": "xv26",
   "name": "XV26 Stealth Battlesuits",
-  "subtitle": "Apr '26 errata · 14 physical loadouts",
+  "subtitle": "Aug '26 errata · 14 physical loadouts",
   "intro": "1 Shas'vre + 1 MV15 Gun Drone + 1 MV75 Marker Drone + 4 from {Designator, Infiltrator, Liberator, Lodestar, Neutraliser}. Infiltrator is the only repeatable operative. Maximum 2 fusion blasters.",
   "footnotes_html": "<strong>Operative rules.</strong><br>Shas'vre — XV26 Drone Controller (STRATEGIC GAMBIT), For the Greater Good<br>Designator — Markerlight, Focused Markerlight 1AP<br>Infiltrator — Covert Protocols<br>Liberator — Grenadier (frag/krak/smoke/stun, +1 Hit on frag/krak)<br>Lodestar — Electrochaff Launcher, Homing Beacon<br>Neutraliser — Multispectrum Sensor Package (SUPPORT), System Jam 1/2AP<br>MV15 Gun Drone — Photon Grenade Launcher 1AP<br>MV75 Marker Drone — Markerlight",
   "faction_rules": [],
@@ -714,7 +714,7 @@
         {
           "name": "Focused Markerlight",
           "tag": "1AP",
-          "text": "Select one enemy operative visible to this operative. Once during this turning point, when a friendly XV26 STEALTH BATTLESUIT operative is shooting that enemy operative, you can use this effect. If you do, improve the Hit stat of that friendly operative's ranged weapons by 1 until the end of that action.<br><br>This operative cannot perform this action while within control range of an enemy operative."
+          "text": "Select one enemy operative visible to this operative. Once during this turning point, when a friendly XV26 STEALTH BATTLESUIT operative is shooting that enemy operative, you can use this effect. If you do, improve the Hit stat of ranged weapons on that friendly operative's datacard by 1 until the end of that action.<br><br>This operative cannot perform this action while within control range of an enemy operative."
         }
       ]
     },
@@ -754,7 +754,7 @@
         },
         {
           "name": "Homing Beacon",
-          "text": "This operative is carrying your Homing Beacon marker. Operatives (excluding DRONE) can perform the Pick Up Marker action on that marker. The first time an enemy operative performs the Pick Up Marker action on your Homing Beacon marker, discard that marker (remove it from the battle).<br><br>In the Ready step of each Strategy phase, when you gain CP, if your Homing Beacon marker is in the killzone, roll one D6 if it's more than 6\" from your drop zone; roll two D6 instead if it's within your opponent's territory; roll three D6 instead if it's within 6\" of your opponent's drop zone. If any result is a 4+, you gain one additional CP."
+          "text": "This operative is carrying your Homing Beacon marker. Operatives (excluding DRONE) can perform the Pick Up Marker action on that marker. The first time an enemy operative performs the Pick Up Marker action on your Homing Beacon marker, discard that marker (remove it from the battle).<br><br>In the Ready step of each Strategy phase, when you gain CP, if your Homing Beacon marker is placed in the killzone, roll one D6, adding 1 to the result for each objective marker your Homing Beacon marker is within 6\" of. If the result is 5+, you gain 1CP."
         }
       ]
     },
@@ -784,7 +784,7 @@
       "abilities": [
         {
           "name": "Drone",
-          "text": "<ul><li>This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Photon Grenade Launcher, Reposition and Shoot.</li><li>Whenever determining control of an objective marker, treat this operative's APL stat as 1 lower. Note this isn't a change to its APL stat, so any changes are cumulative with this.</li><li>This operative cannot use any weapons that aren't on its datacard.</li><li>Whenever determining what's visible to this operative, the round disc at the top of the miniature is its head.</li><li>This operative is ignored for your opponent's kill/elimination op (when it's incapacitated, and when determining your starting number of operatives). It's also ignored for victory conditions and scoring VPs if either require operatives to 'escape', 'survive' or be incapacitated by enemy operatives.</li></ul>"
+          "text": "<ul><li>This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Photon Grenade Launcher, Reposition and Shoot.</li><li>Whenever determining control of an objective marker, treat this operative's APL stat as 1 lower. Note this isn't a change to its APL stat, so any changes are cumulative with this.</li><li>This operative cannot use any weapons that aren't on its datacard.</li><li>Whenever determining what's visible to this operative, the round disc at the top of the miniature is its head.</li><li>This operative is ignored for your opponent's kill/elimination op (when it's incapacitated, and when determining your starting number of operatives). It's also ignored for victory conditions and scoring VPs if either require operatives to 'escape', 'survive' or be incapacitated by enemy operatives (if it escapes/survives/is incapacitated, determining how many operatives must escape/survive/be incapacitated, etc.).</li></ul>"
         },
         {
           "name": "Photon Grenade Launcher",
@@ -801,11 +801,11 @@
       "abilities": [
         {
           "name": "Drone",
-          "text": "<ul><li>This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Reposition and Shoot.</li><li>Whenever determining control of an objective marker, treat this operative's APL stat as 1 lower. Note this isn't a change to its APL stat, so any changes are cumulative with this.</li><li>This operative cannot use any weapons that aren't on its datacard.</li><li>Whenever determining what's visible to this operative, the round disc at the top of the miniature is its head.</li><li>This operative is ignored for your opponent's kill/elimination op (when it's incapacitated, and when determining your starting number of operatives). It's also ignored for victory conditions and scoring VPs if either require operatives to 'escape', 'survive' or be incapacitated by enemy operatives.</li></ul>"
+          "text": "<ul><li>This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Reposition and Shoot.</li><li>Whenever determining control of an objective marker, treat this operative's APL stat as 1 lower. Note this isn't a change to its APL stat, so any changes are cumulative with this.</li><li>This operative cannot use any weapons that aren't on its datacard.</li><li>Whenever determining what's visible to this operative, the round disc at the top of the miniature is its head.</li><li>This operative is ignored for your opponent's kill/elimination op (when it's incapacitated, and when determining your starting number of operatives). It's also ignored for victory conditions and scoring VPs if either require operatives to 'escape', 'survive' or be incapacitated by enemy operatives (if it escapes/survives/is incapacitated, determining how many operatives must escape/survive/be incapacitated, etc.).</li></ul>"
         },
         {
           "name": "Markerlight",
-          "text": "Whenever an enemy operative is a valid target for this operative, or is visible to this operative and within 2\" of your Ambush marker (see Prepare Ambush strategy ploy), it's marked. Whenever a friendly XV26 STEALTH BATTLESUIT operative is shooting an operative that's marked, that friendly operative's ranged weapons have the Severe weapon rule."
+          "text": "Whenever an enemy operative is a valid target for this operative, or is visible to this operative and within 2\" of your Ambush marker (see Prepare Ambush strategy ploy), it's marked. Whenever a friendly XV26 STEALTH BATTLESUIT operative is shooting an operative that's marked, that friendly operative's ranged weapons have the Severe weapon rule. Note that an operative can be a valid target for this operative even if this operative isn't the active operative."
         }
       ]
     }

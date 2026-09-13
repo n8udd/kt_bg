@@ -1,13 +1,13 @@
 {
   "key": "vespid",
   "name": "Vespid Stingwings",
-  "subtitle": "Nov '25 errata · 7 physical loadouts",
+  "subtitle": "Aug '26 errata · 7 physical loadouts",
   "intro": "1 Strain Leader + 1 Oversight Drone + 9 from {Longsting, Shadestrain, Skyblast, Swarmguard, Warrior}. Only Warrior is repeatable. 11 operatives total.",
   "footnotes_html": "",
   "faction_rules": [
     {"name": "Communion", "text": "Gain D3 CP each turning point (+1 if Oversight Drone is in the killzone). Spend to override instinctual targeting, charging, or mission actions, or re-roll one attack dice."},
     {"name": "Neutron Charge", "text": "Neutron weapons gain Piercing 1 for the turning point whenever the operative moves or uses FLY."},
-    {"name": "FLY", "text": "Replace move with a set-up within the operative's Move stat, ignoring terrain and operatives."}
+    {"name": "FLY", "text": "When performing an action in which it moves, the operative can FLY: instead of moving, remove it and set it back up wholly within its Move stat (or 3\" if it was a Dash) horizontally of its original location. It gains no additional distance when charging. It must be set up in a location it can be placed and, unless it's the Charge action, not within control range of an enemy operative. In close quarters, the distance can't be measured over or through Wall terrain and it can't FLY through an open hatchway."}
   ],
   "strategy_ploys": [],
   "firefight_ploys": [],
@@ -316,7 +316,7 @@
       "abilities": [
         {
           "name": "Communion Helm",
-          "text": "Once during each of this operative's activations, you can spend 1 Communion point for free."
+          "text": "Once during each of this operative's activations, you can do one of the following:<ul><li>Spend 1 Communion point for free.</li><li>Spend 1 Communion point and select one friendly VESPID STINGWING operative within 3\" of this operative. That other friendly operative can immediately perform a free 1AP mission action (you must still spend a Communion point for it to perform that action as normal, and this cannot be ignored using the Convergence Stimulant equipment).</li></ul>"
         },
         {
           "name": "Commune",

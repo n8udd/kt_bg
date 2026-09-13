@@ -1,7 +1,7 @@
 {
   "key": "dw",
   "name": "Deathwatch",
-  "subtitle": "Errata January '26 · 11 operatives",
+  "subtitle": "Errata August '26 · 11 operatives",
   "intro": "5 DEATHWATCH operatives selected from 11 specialists — each at most once, with at most one GRAVIS operative (Bombard, Breacher, or Horde-Slayer). Pick and choose to counter your specific opponent.",
 
   "faction_rules": [
@@ -18,7 +18,7 @@
   "strategy_ploys": [
     {
       "name": "Mission Tactics",
-      "text": "Select Conceal or Engage. Whenever a friendly DEATHWATCH operative is shooting against or fighting against an enemy operative that has that order, that friendly operative's weapons have the Balanced weapon rule."
+      "text": "Select Conceal or Engage. Whenever a friendly DEATHWATCH operative is shooting against, fighting against, or retaliating against an enemy operative that has that order, that friendly operative's weapons have the Balanced weapon rule."
     },
     {
       "name": "The Long Vigil",
@@ -37,7 +37,7 @@
   "firefight_ploys": [
     {
       "name": "Suffer Not the Alien",
-      "text": "Use this firefight ploy after rolling your attack dice for a friendly DEATHWATCH operative, if it's shooting against or fighting against an operative that doesn't have the CHAOS or IMPERIUM keyword. You can re-roll any of your attack dice."
+      "text": "Use this firefight ploy after rolling your attack dice for a friendly DEATHWATCH operative, if it's shooting against, fighting against, or retaliating against an operative that doesn't have the CHAOS or IMPERIUM keyword. You can re-roll any of your attack dice."
     },
     {
       "name": "Auspicator Tracking",
