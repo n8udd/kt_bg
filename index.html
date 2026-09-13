@@ -202,24 +202,6 @@
   <div class="op-modal bg-panel w-full max-w-[640px] max-h-[88vh] overflow-y-auto py-7 px-8 relative" @click.stop x-show="openOperative">
     <button class="absolute top-[10px] right-[14px] bg-transparent border-none text-ink-dim text-[30px] leading-none px-2 py-1 cursor-pointer hover:text-accent" @click="closeOperative()" aria-label="Close">×</button>
     <h2 class="font-display text-[26px] font-normal m-0 mb-[18px] text-ink uppercase tracking-[0.04em]" x-text="openOperative && openOperative.name"></h2>
-    <div class="flex gap-[22px] py-[14px] px-[18px] bg-panel-alt border-l-2 border-l-accent mb-[22px]">
-      <div class="flex flex-col items-start">
-        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">APL</div>
-        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.apl"></div>
-      </div>
-      <div class="flex flex-col items-start">
-        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">Move</div>
-        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.move"></div>
-      </div>
-      <div class="flex flex-col items-start">
-        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">Save</div>
-        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.save"></div>
-      </div>
-      <div class="flex flex-col items-start">
-        <div class="font-display text-[10px] text-accent tracking-[0.12em] uppercase">Wounds</div>
-        <div class="font-mono font-semibold text-[18px] text-ink mt-0.5" x-text="openOperative && openOperative.wounds"></div>
-      </div>
-    </div>
     <div>
       <template x-for="(ability, ai) in (openOperative && openOperative.abilities) || []" :key="ai">
         <div class="mb-[18px] pb-[18px] border-b border-rule last:border-b-0 last:mb-0 last:pb-0">
@@ -232,10 +214,6 @@
           <div class="ability-text text-[12.5px] text-ink-dim leading-[1.55]" x-html="ability.text"></div>
         </div>
       </template>
-      <div class="text-ink-empty italic text-center p-4"
-           x-show="openOperative && (!openOperative.abilities || openOperative.abilities.length === 0)">
-        Ability text hasn't been captured for this operative yet.
-      </div>
     </div>
   </div>
 </div>

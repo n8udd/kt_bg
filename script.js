@@ -130,6 +130,26 @@ document.addEventListener('alpine:init', () => {
       return badgeHtml + nameEscaped;
     },
 
+    // APL / Move / Save / Wounds row shown under the operative name.
+    // Stats are stored as integers, so the " and + suffixes are added here.
+    opStatsHtml(op) {
+      const withSuffix = (v, suffix) => (typeof v === 'number' ? v + suffix : v);
+      const stats = [
+        ['APL', op.apl],
+        ['Move', withSuffix(op.move, '"')],
+        ['Save', withSuffix(op.save, '+')],
+        ['Wounds', op.wounds],
+      ];
+      return '<div class="flex gap-3 mt-1.5">'
+        + stats.map(([label, value]) =>
+            '<div class="flex flex-col">'
+              + '<span class="font-display text-[9px] text-accent tracking-[0.12em]">' + label + '</span>'
+              + '<span class="font-mono font-semibold text-[12px] text-ink tracking-normal">' + this.htmlEscape(value) + '</span>'
+            + '</div>'
+          ).join('')
+        + '</div>';
+    },
+
     // Max profile count across the weapons in this loadout (min 1).
     loadoutHeight(loadout) {
       const profileCounts = (loadout.weapons || []).map(w => (w.profiles || []).length || 1);
@@ -208,14 +228,16 @@ document.addEventListener('alpine:init', () => {
         if (i === 0 && isFirstOfOperative) {
           cls = 'new-op';
           const opName = loadout.operative;
-          const hasData = team.operatives && team.operatives[opName];
+          const opData = team.operatives && team.operatives[opName];
           const escaped = this.htmlEscape(opName);
-          const opHtml = hasData
+          // The pop-up only lists abilities, so the ⓘ button is only offered when there are some.
+          const nameHtml = opData && opData.abilities && opData.abilities.length
             ? '<span class="op-label" data-op="' + escaped + '">'
                 + escaped
-                + '<span class="op-info" aria-label="Operative details">i</span>'
+                + '<span class="op-info" aria-label="Operative abilities">i</span>'
               + '</span>'
             : escaped;
+          const opHtml = nameHtml + (opData ? this.opStatsHtml(opData) : '');
           cells.push({
             cls: opCellCls,
             html: opHtml,

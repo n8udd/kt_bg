@@ -35,7 +35,7 @@ PDF tools (pdftotext, pdfplumber) live in the `tools` container and run on deman
 - `faction_rules` / `strategy_ploys` / `firefight_ploys` / `equipment` — arrays of `{name, text}` (plain text) rendered as panels below the table; a panel is hidden when its array is missing or empty
 - `max_shooting` / `max_melee` — controls how many weapon-group columns the table has; must equal the maximum number of weapons of each type any single loadout has
 - `loadouts` — ordered array of loadout objects, one per physical model build; multiple loadouts with the same `operative` name are grouped into a rowspanned operative cell
-- `operatives` — map from operative name to stat block (`apl`, `move`, `save`, `wounds` as integers, plus `abilities`: array of `{name, tag?, text}` where `text` is HTML); powers the click-to-open modal. An operative with no entry renders without the ⓘ button.
+- `operatives` — map from operative name to stat block (`apl`, `move`, `save`, `wounds` as integers, plus `abilities`: array of `{name, tag?, text}` where `text` is HTML). The stats render under the operative name in the table (`move` gets `"` and `save` gets `+` at render time). The ⓘ button, which opens the abilities modal, only appears when `abilities` is non-empty. An operative with no entry renders just its name.
 
 Loadout fields:
 - `operative` — must match a key in `operatives`; loadouts for the same operative must be consecutive
