@@ -2,6 +2,12 @@
 // Reads teams.json (index of team keys), then fetches one <key>.json per team
 // alongside index.html. Designed to be served as static files (GitHub Pages).
 
+// Heroicons "information-circle" (outline) for the ⓘ buttons. Uses currentColor,
+// so .op-info / .weapon-info control its colour and hover state.
+const INFO_ICON = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full" aria-hidden="true">'
+  + '<path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />'
+  + '</svg>';
+
 document.addEventListener('alpine:init', () => {
   Alpine.data('kt', () => ({
     data: { teams: [] },
@@ -124,10 +130,30 @@ document.addEventListener('alpine:init', () => {
       if (weapon.abilities && weapon.abilities.length) {
         return '<span class="weapon-label" data-weapon="' + nameEscaped + '">'
           + badgeHtml + nameEscaped
-          + '<span class="weapon-info" aria-label="Weapon details">i</span>'
+          + '<span class="weapon-info" aria-label="Weapon details">' + INFO_ICON + '</span>'
           + '</span>';
       }
       return badgeHtml + nameEscaped;
+    },
+
+    // APL / Move / Save / Wounds row shown under the operative name.
+    // Stats are stored as integers, so the " and + suffixes are added here.
+    opStatsHtml(op) {
+      const withSuffix = (v, suffix) => (typeof v === 'number' ? v + suffix : v);
+      const stats = [
+        ['APL', op.apl],
+        ['Move', withSuffix(op.move, '"')],
+        ['Save', withSuffix(op.save, '+')],
+        ['Wounds', op.wounds],
+      ];
+      return '<div class="flex gap-3 mt-1.5">'
+        + stats.map(([label, value]) =>
+            '<div class="flex flex-col">'
+              + '<span class="font-display text-[9px] text-accent tracking-[0.12em]">' + label + '</span>'
+              + '<span class="font-mono font-semibold text-[12px] text-ink tracking-normal">' + this.htmlEscape(value) + '</span>'
+            + '</div>'
+          ).join('')
+        + '</div>';
     },
 
     // Max profile count across the weapons in this loadout (min 1).
@@ -208,14 +234,16 @@ document.addEventListener('alpine:init', () => {
         if (i === 0 && isFirstOfOperative) {
           cls = 'new-op';
           const opName = loadout.operative;
-          const hasData = team.operatives && team.operatives[opName];
+          const opData = team.operatives && team.operatives[opName];
           const escaped = this.htmlEscape(opName);
-          const opHtml = hasData
+          // The pop-up only lists abilities, so the ⓘ button is only offered when there are some.
+          const nameHtml = opData && opData.abilities && opData.abilities.length
             ? '<span class="op-label" data-op="' + escaped + '">'
                 + escaped
-                + '<span class="op-info" aria-label="Operative details">i</span>'
+                + '<span class="op-info" aria-label="Operative abilities">' + INFO_ICON + '</span>'
               + '</span>'
             : escaped;
+          const opHtml = nameHtml + (opData ? this.opStatsHtml(opData) : '');
           cells.push({
             cls: opCellCls,
             html: opHtml,
