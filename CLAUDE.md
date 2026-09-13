@@ -64,3 +64,5 @@ Loadout fields:
 ### Damage and hit format
 
 Each profile stores damage as two integer fields, `normal_dmg` and `crit_dmg` (e.g. `"normal_dmg": 3, "crit_dmg": 5`), which `script.js` renders as `3/5` in the Dmg column. There is no combined `dmg` string — a profile that uses one renders as `/`. `hit` is also a bare integer; the `+` is added at render time, so write `"hit": 3`, not `"3+"`.
+
+Weapon range is a rule string in `rules`, written as `"Range 8\""` (never `Rng`), matching the rules PDFs.

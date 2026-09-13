@@ -111,7 +111,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -148,7 +148,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -282,7 +282,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -318,7 +318,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -354,7 +354,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -370,7 +370,7 @@
               "normal_dmg": 2,
               "crit_dmg": 3,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending",
                 "Torrent 2\""
               ]
@@ -407,7 +407,7 @@
               "normal_dmg": 2,
               "crit_dmg": 3,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending",
                 "Torrent 2\""
               ]
@@ -459,7 +459,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -495,7 +495,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -531,7 +531,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
@@ -568,7 +568,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Ceaseless",
                 "Rending"
               ]
@@ -606,7 +606,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Rending"
               ]
             }
