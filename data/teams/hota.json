@@ -5,7 +5,7 @@
   "intro": "1 Archsybarite + 8 from {Agent, Crimson Duellist, Disciple of Yaelindra, Elixicant, Flayer, Gunner, Heavy Gunner, Skysplinter Assassin}. Only Agent is repeatable. Up to two darklight weapons (blast pistol, blaster, dark lance).",
   "footnotes_html": "",
   "faction_rules": [
-    {"name": "Power from Pain", "text": "Generate Pain tokens from injuring (1) or incapacitating (1, or 2 if target is Wounds 12+) enemy operatives. Spend on invigorations: Dark Animus (+1 APL), Accelerated Rejuvenation (regain D3+1 wounds), Vitalised Surge (free Dash after incap), Stimulated Senses (re-roll one dice result). Only Stimulated Senses can combine with another invigoration per activation."},
+    {"name": "Power from Pain", "text": "Generate Pain tokens from injuring (1) or incapacitating (1, or 2 if target is Wounds 12+) enemy operatives. Spend on invigorations: Dark Animus (+1 APL), Accelerated Rejuvenation (regain D3+1 wounds), Vitalised Surge (free Dash after incap), Stimulated Senses (re-roll all of your dice showing one chosen result, e.g. every 2). Only Stimulated Senses can combine with another invigoration per activation."},
     {"name": "Rifles", "text": "Splinter rifles gain Accurate 1 in activations where the wielder hasn't Charged, Fallen Back, or Repositioned."}
   ],
   "strategy_ploys": [
