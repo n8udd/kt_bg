@@ -10,7 +10,15 @@ A static Kill Team build-guide site. No build step, no package manager, no tests
 
 The `fetch()` calls in `script.js` require HTTP — opening `index.html` directly as a `file://` URL will fail. Serve from the project root:
 
-Use the VS Code Live Server extension — right-click `index.html` and select **Open with Live Server**.
+Serve with Docker Compose from the project root (nothing is installed on the host):
+
+    docker compose up -d        # site at http://localhost:8020
+    docker compose down
+
+PDF tools (pdftotext, pdfplumber) live in the `tools` container and run on demand:
+
+    docker compose run --rm tools pdftotext -layout pdf/<file>.pdf -
+    docker compose run --rm tools python -c "import pdfplumber; ..."
 
 ## Architecture
 

@@ -1,0 +1,19 @@
+name: kt_bg
+
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - .:/usr/share/nginx/html:ro
+    ports:
+      - "8020:80"
+
+  tools:
+    build:
+      context: .
+      dockerfile: Dockerfile.tools
+    profiles: [tools]
+    user: "1000:1000"
+    working_dir: /work
+    volumes:
+      - .:/work
