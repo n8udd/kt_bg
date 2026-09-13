@@ -1,0 +1,568 @@
+{
+  "key": "mw",
+  "name": "Murderwing",
+  "subtitle": "Aug '26 errata · 21 physical loadouts",
+  "intro": "1 Chaos Lord + 5 from {Champion, Curseclaw, Depredator, Huntmaster, Raptor, Shrieker, Skysear, Warp Talon}. Only Raptor is repeatable. Up to two operatives with special weapons (plasma pistol, meltagun, plasma gun).",
+  "footnotes_html": "<strong>Builds.</strong> One row per physical model build. Four operatives carry weapon choices — the <strong>Chaos Lord</strong> (7 builds), the <strong>Champion</strong> (4), the <strong>Raptor</strong> (2) and the <strong>Skysear</strong> (3). <strong>Plasma pistol</strong> and <strong>plasma gun</strong> are multi-profile weapons (standard / supercharge) and carry both profiles in a nested array. Two builds have <strong>no ranged weapon</strong>: the Chaos Lord's relic lightning claws option and the Warp Talon.<br><br><strong>Stats.</strong> All operatives are APL 3, Move 6\", Save 3+. The Chaos Lord is Wounds 15; every other operative is Wounds 14.<br><br><strong>Team selection.</strong> 1 CHAOS LORD (leader) + 5 operatives chosen from Champion, Curseclaw, Depredator, Huntmaster, Raptor, Shrieker, Skysear and Warp Talon. Other than RAPTOR operatives, each operative on that list can only be included once — the Raptor is the only repeatable model.<br><br><strong>Special weapon cap.</strong> You cannot select more than two operatives with these weapons combined: <em>plasma pistol</em> (Chaos Lord, Champion, Raptor), <em>meltagun</em> and <em>plasma gun</em> (Skysear). Affected loadouts carry a note in the table.<br><br><strong>Weapon notes.</strong> Three different claw profiles share similar names: the Chaos Lord's <em>lightning claw</em> (4/5, Lethal 5+, Rending), the Chaos Lord's <em>relic lightning claws</em> (4/6, Ceaseless, Lethal 5+, Rending), and the Warp Talon's <em>lightning claws</em> (4/5, Ceaseless, Lethal 5+, Rending). The Chaos Lord's relic lightning claws option replaces <em>both</em> of the other choices, so that build has no pistol. The Skysear's meltagun is Dmg 6/3 — the critical value is genuinely lower than the normal value, offset by Devastating 4.<br><br><strong>Faction rules.</strong> <em>Jump Pack</em> — during Charge, Fall Back or Reposition, an operative not under Vantage terrain can BOOST for a straight-line increment, being removed and set back up within <em>x</em>\" horizontally (added to the move distance; move allowance capped at 6\" if boosting during a Charge). <em>Boost Actions</em> — actions performed during another action when a BOOST is used, limited to one per activation, mostly affecting enemies in the operative's BOOST ZONE (the horizontal area between where it boosted from and where it landed). <em>Astartes</em> — each operative can perform two <strong>Shoot</strong> or two <strong>Fight</strong> actions per activation (if two Shoot, a bolt pistol must be selected for at least one), and can counteract regardless of order.<br><br><strong>Strategy ploys.</strong> Predators Above (Balanced when 2\" higher than the killzone floor or after a BOOST), Cull the Weak (Punishing against lower, APL-reduced or wounded targets), Nightmare on High (defence dice re-roll when elevated or after boosting), Instil Fear (Normal Dmg of 3+ inflicts 1 less when fighting).<br><br><strong>Firefight ploys.</strong> Malicious Narcissism (delay a sole ready operative's activation), Murderous Descent (interrupt and free Charge on an enemy ending a move below you), Long Forgotten Honour (trade a critical success for a free 3\" Fall Back), Wings of Darkness (+3\" on a BOOST, but no Shoot / Fight / Carving Blow until the next turning point; not usable in turning point 1).<br><br><strong>Equipment.</strong> Bladefins (Slice from Above, 1AP BOOST action, D3+1 damage in the BOOST ZONE), Clawed Armour (Clawed Charge, 0AP BOOST action, 1 damage then the Charge ends), Warp Fuel (once per TP, free 3\" Reposition or Charge when an enemy falls back out of control range), Vox-casters (Vox-Cry, 1AP, stun test on each enemy within 2\").<br><br><strong>Tokens.</strong> Damnation Points, Warp marker, Challenge Token, Warp Fuel token, Vox-casters token.<br><br><span class=\"marker\">*</span> <strong>Extraction note.</strong> The Warp Talon's <em>Slice the Veil</em> text (marked * in its operative details) is transcribed verbatim from the operative card in this document. The Previous Erratas page of the same document gives a different wording for that passage (\"you cannot spend more than 2AP for it\", with the obscured sentence struck out). The card text and the errata text disagree; verify against the current online rules before relying on it.",
+  "max_shooting": 2,
+  "max_melee": 1,
+  "loadouts": [
+    {
+      "operative": "Chaos Lord",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Lightning claw",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Lethal 5+", "Rending"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Chaos Lord",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 5, "crit_dmg": 7, "rules": ["Brutal", "Shock"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Chaos Lord",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Lethal 5+"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Chaos Lord",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Rng 8\"", "Piercing 1"], "name": "Standard" },
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Rng 8\"", "Hot", "Lethal 5+", "Piercing 1"], "name": "Supercharge" }
+          ]
+        },
+        {
+          "name": "Lightning claw",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Lethal 5+", "Rending"] }
+          ]
+        }
+      ],
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Chaos Lord",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Rng 8\"", "Piercing 1"], "name": "Standard" },
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Rng 8\"", "Hot", "Lethal 5+", "Piercing 1"], "name": "Supercharge" }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 5, "crit_dmg": 7, "rules": ["Brutal", "Shock"] }
+          ]
+        }
+      ],
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Chaos Lord",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Rng 8\"", "Piercing 1"], "name": "Standard" },
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Rng 8\"", "Hot", "Lethal 5+", "Piercing 1"], "name": "Supercharge" }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Lethal 5+"] }
+          ]
+        }
+      ],
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Chaos Lord",
+      "weapons": [
+        {
+          "name": "Relic lightning claws",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Ceaseless", "Lethal 5+", "Rending"] }
+          ]
+        }
+      ],
+      "note": "Replaces both weapon choices — no ranged weapon on this build."
+    },
+    {
+      "operative": "Champion",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 5, "crit_dmg": 7, "rules": ["Brutal", "Shock"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Champion",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Lethal 5+"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Champion",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Rng 8\"", "Piercing 1"], "name": "Standard" },
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Rng 8\"", "Hot", "Lethal 5+", "Piercing 1"], "name": "Supercharge" }
+          ]
+        },
+        {
+          "name": "Power fist",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 5, "crit_dmg": 7, "rules": ["Brutal", "Shock"] }
+          ]
+        }
+      ],
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Champion",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Rng 8\"", "Piercing 1"], "name": "Standard" },
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Rng 8\"", "Hot", "Lethal 5+", "Piercing 1"], "name": "Supercharge" }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Lethal 5+"] }
+          ]
+        }
+      ],
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Curseclaw",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Mutated claws",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Rending"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Depredator",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Great chainaxe",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 4, "normal_dmg": 5, "crit_dmg": 7, "rules": ["Brutal"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Huntmaster",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Power weapon",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Lethal 5+"] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Raptor",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Raptor",
+      "weapons": [
+        {
+          "name": "Plasma pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 5, "rules": ["Rng 8\"", "Piercing 1"], "name": "Standard" },
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Rng 8\"", "Hot", "Lethal 5+", "Piercing 1"], "name": "Supercharge" }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": [] }
+          ]
+        }
+      ],
+      "note": "Plasma pistol counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Shrieker",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Chainsword",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Skysear",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Flamer",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 2, "normal_dmg": 3, "crit_dmg": 3, "rules": ["Rng 8\"", "Saturate", "Torrent 2\""] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "operative": "Skysear",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Meltagun",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 6, "crit_dmg": 3, "rules": ["Rng 6\"", "Devastating 4", "Piercing 2"] }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ],
+      "note": "Meltagun counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Skysear",
+      "weapons": [
+        {
+          "name": "Bolt pistol",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": ["Rng 8\""] }
+          ]
+        },
+        {
+          "name": "Plasma gun",
+          "type": "shooting",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 4, "crit_dmg": 6, "rules": ["Piercing 1"], "name": "Standard" },
+            { "atk": 4, "hit": 3, "normal_dmg": 5, "crit_dmg": 6, "rules": ["Hot", "Lethal 5+", "Piercing 1"], "name": "Supercharge" }
+          ]
+        },
+        {
+          "name": "Fists",
+          "type": "melee",
+          "profiles": [
+            { "atk": 4, "hit": 3, "normal_dmg": 3, "crit_dmg": 4, "rules": [] }
+          ]
+        }
+      ],
+      "note": "Plasma gun counts towards the two-operative special weapon cap."
+    },
+    {
+      "operative": "Warp Talon",
+      "weapons": [
+        {
+          "name": "Lightning claws",
+          "type": "melee",
+          "profiles": [
+            { "atk": 5, "hit": 3, "normal_dmg": 4, "crit_dmg": 5, "rules": ["Ceaseless", "Lethal 5+", "Rending"] }
+          ]
+        }
+      ],
+      "note": "No ranged weapon on this operative."
+    }
+  ],
+  "operatives": {
+    "Chaos Lord": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 15,
+      "abilities": [
+        {
+          "name": "Path to Damnation",
+          "text": "This operative starts the battle with 1 Damnation point. Once per action, you can attempt to use one Boon of Damnation when it specifies (see right). If you do, roll one D6 and compare the result to the number of Damnation points this operative has; if the result is:<ul><li><strong>Higher:</strong> Resolve the rule, then this operative gains 1 Damnation point.</li><li><strong>Equal:</strong> Do not resolve the rule.</li><li><strong>Less:</strong> Inflict damage on this operative equal to its number of Damnation points and do not resolve the rule.</li></ul>If this operative has 6 Damnation points, resolve the rule without rolling. Note that you cannot make an attempt more than once per action, regardless of the D6 result."
+        },
+        {
+          "name": "Boons of Damnation",
+          "text": "Boons of Damnation are as follows (resolved with a D6 roll, see opposite):<ul><li>When an attack dice inflicts damage of 3 or more on this operative, you can ignore an amount of damage equal to this operative's Damnation points.</li><li>When this operative is fighting or retaliating and you strike with an attack dice, you can inflict an amount of additional damage equal to this operative's Damnation points.</li></ul>"
+        }
+      ]
+    },
+    "Champion": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Chaos Champion",
+          "tag": "STRATEGIC GAMBIT",
+          "text": "Remove your Challenge token from the enemy operative that has it (if any), then select one enemy operative to gain your Challenge token. Whenever this operative is fighting against or retaliating against an enemy operative that has your Challenge token, in the Select Weapons step, you can select one of the following weapon rules for this operative's melee weapons to have until the end of the sequence: Balanced, Brutal, Punishing, Severe, Shock."
+        },
+        {
+          "name": "Path to Glory",
+          "text": "Whenever this operative incapacitates an enemy operative that has your Challenge token, you gain 1CP."
+        }
+      ]
+    },
+    "Curseclaw": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Frenzied Attack",
+          "text": "If this operative is incapacitated during the <strong>Fight</strong> action, you can strike the enemy operative in that sequence with one of your unresolved successes before this operative is removed from the killzone."
+        },
+        {
+          "name": "Snatch",
+          "tag": "1AP",
+          "text": "<strong>BOOST</strong> action. Select one enemy operative within this operative's <strong>BOOST ZONE</strong>. Both players roll one D6 and add their respective operative's Wounds stat to their result. If your result is higher, remove that enemy operative from the killzone and set it back up within this operative's <strong>BOOST ZONE</strong> or control range. It must be set up in a location it can be placed and cannot be set up further away from this operative than where it began. If that enemy operative is set up within this operative's control range, the <strong>Fall Back</strong> or <strong>Reposition</strong> action ends (allowing this operative to end that action within control range of enemy operatives).<br><br>This operative cannot perform this action normally. Instead, it performs this action during the <strong>Fall Back</strong> or <strong>Reposition</strong> action after setting up from a <strong>BOOST</strong>."
+        }
+      ]
+    },
+    "Depredator": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Horrifying Dismemberment",
+          "text": "Whenever this operative incapacitates an enemy operative while fighting or retaliating, select one other enemy operative visible to and within 3\" of either this operative or the incapacitated enemy operative. Subtract 1 from that enemy operative's APL stat until the end of its next activation."
+        },
+        {
+          "name": "Carving Blow",
+          "tag": "1AP",
+          "text": "Inflict 2D3 damage on each other operative visible to and within 2\" of this operative in an order of your choice (roll separately for each).<br><br>This operative cannot perform this action while it has a Conceal order, or during the same activation in which it performed the <strong>Slice from Above</strong> action (see Bladefins faction equipment), the <strong>Clawed Charge</strong> action (see Clawed Armour faction equipment) or two <strong>Fight</strong> actions (and vice versa)."
+        }
+      ]
+    },
+    "Huntmaster": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Pinned Prey",
+          "text": "Whenever an enemy operative would perform the <strong>Fall Back</strong> action while within control range of this operative, if no other enemy operatives are within this operative's control range, you can use this rule. If you do, roll two D6, or one D6 if that enemy operative has a higher Wounds stat than this operative. If any result is a 4+, that enemy operative cannot perform that action during that activation/counteraction (no AP are spent on it)."
+        },
+        {
+          "name": "Strike from Above",
+          "tag": "1AP",
+          "text": "<strong>BOOST</strong> action. Inflict 2D3+1 damage on one enemy operative within this operative's <strong>BOOST ZONE</strong>.<br><br>This operative cannot perform this action normally. Instead, it performs this action during the <strong>Fall Back</strong> or <strong>Reposition</strong> action after setting up from a <strong>BOOST</strong>."
+        }
+      ]
+    },
+    "Raptor": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Thrill of Flight",
+          "text": "Whenever this operative does a <strong>BOOST</strong> during its activation:<ul><li>You can remove any changes to its APL stat.</li><li>You can ignore any changes to its stats from being injured (including its weapons' stats) until the end of the activation.</li></ul>"
+        }
+      ]
+    },
+    "Shrieker": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Modified Vox-casters",
+          "text": "Whenever an enemy operative is within 3\" of this operative, your opponent must spend 1 additional AP for that enemy operative to perform the <strong>Pick Up Marker</strong> and mission actions.<br><br>Whenever determining control of a marker, treat the total APL stat of enemy operatives that contest it as 1 lower if at least one of those enemy operatives is within 3\" of this operative. Note this isn't a change to the APL stat, so any changes are cumulative with this."
+        },
+        {
+          "name": "Shriek",
+          "tag": "1AP",
+          "text": "Select one enemy operative that's visible to and within 6\" of this operative. Alternatively, select one enemy operative within this operative's <strong>BOOST ZONE</strong> (at which point this becomes a <strong>BOOST</strong> action). If enemy operatives are within control range of this operative, you cannot select an enemy operative that isn't. Inflict D3 damage on the selected operative and subtract 1 from its APL stat until the end of its next activation.<br><br>This operative cannot perform this action while it has a Conceal order. If you're selecting an enemy operative within this operative's <strong>BOOST ZONE</strong>, this operative cannot perform this action normally. Instead, it performs this action during the <strong>Fall Back</strong> or <strong>Reposition</strong> action after setting up from a <strong>BOOST</strong>."
+        }
+      ]
+    },
+    "Skysear": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": []
+    },
+    "Warp Talon": {
+      "apl": 3,
+      "move": 6,
+      "save": 3,
+      "wounds": 14,
+      "abilities": [
+        {
+          "name": "Slice the Veil*",
+          "text": "When setting up this operative before the battle, you can set it up in the warp instead: place it to one side instead of in the killzone. In the first Firefight phase, when this operative is activated, place one of your Warp markers wholly within your territory, then expend this operative.<br><br>In the second Firefight phase, when this operative is activated, set it up with an order of your choice in a location it can be placed either wholly within your drop zone, or wholly within your territory contesting your Warp marker. Continue its activation as normal, but during that activation it cannot perform more than two actions and cannot use more than 4\" of move distance. Until the Ready step of the next Strategy phase, this operative is obscured to operatives more than 3\" from it.<br><br>Whenever this operative is in the warp, it cannot be the ready friendly <strong>MURDERWING</strong> operative for the Malicious Narcissism firefight ploy."
+        }
+      ]
+    }
+  }
+}
