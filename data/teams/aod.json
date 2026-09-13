@@ -48,7 +48,7 @@
               "normal_dmg": 3,
               "crit_dmg": 5,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing 1"
               ],
               "name": "Standard"
@@ -59,7 +59,7 @@
               "normal_dmg": 4,
               "crit_dmg": 5,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Hot",
                 "Lethal 5+",
                 "Piercing 1"
@@ -98,7 +98,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing Crits 1"
               ]
             }
@@ -132,7 +132,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing Crits 1"
               ]
             }
@@ -168,7 +168,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing Crits 1"
               ]
             }
@@ -204,7 +204,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing Crits 1"
               ]
             }
@@ -241,7 +241,7 @@
               "normal_dmg": 3,
               "crit_dmg": 3,
               "rules": [
-                "Rng 6\"",
+                "Range 6\"",
                 "Saturate",
                 "Torrent 1\""
               ]
@@ -276,7 +276,7 @@
               "normal_dmg": 3,
               "crit_dmg": 3,
               "rules": [
-                "Rng 6\"",
+                "Range 6\"",
                 "Saturate",
                 "Torrent 1\""
               ]
@@ -313,7 +313,7 @@
               "normal_dmg": 3,
               "crit_dmg": 3,
               "rules": [
-                "Rng 6\"",
+                "Range 6\"",
                 "Saturate",
                 "Torrent 1\""
               ]
@@ -350,7 +350,7 @@
               "normal_dmg": 3,
               "crit_dmg": 3,
               "rules": [
-                "Rng 6\"",
+                "Range 6\"",
                 "Saturate",
                 "Torrent 1\""
               ]
@@ -388,7 +388,7 @@
               "normal_dmg": 3,
               "crit_dmg": 5,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing 1"
               ],
               "name": "Standard"
@@ -399,7 +399,7 @@
               "normal_dmg": 4,
               "crit_dmg": 5,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Hot",
                 "Lethal 5+",
                 "Piercing 1"
@@ -1007,7 +1007,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing Crits 1"
               ]
             }
@@ -1041,7 +1041,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\"",
+                "Range 8\"",
                 "Piercing Crits 1"
               ]
             }
@@ -1070,7 +1070,7 @@
               "normal_dmg": 2,
               "crit_dmg": 4,
               "rules": [
-                "Rng 6\"",
+                "Range 6\"",
                 "Blast 2\"",
                 "Saturate"
               ],
@@ -1082,7 +1082,7 @@
               "normal_dmg": 4,
               "crit_dmg": 5,
               "rules": [
-                "Rng 6\"",
+                "Range 6\"",
                 "Piercing 1",
                 "Saturate"
               ],
@@ -1453,7 +1453,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\""
+                "Range 8\""
               ]
             }
           ]
@@ -1513,7 +1513,7 @@
               "normal_dmg": 3,
               "crit_dmg": 4,
               "rules": [
-                "Rng 8\""
+                "Range 8\""
               ]
             }
           ]
