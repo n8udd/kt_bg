@@ -131,7 +131,7 @@
   }
   @media print {
     body { background: white !important; color: black !important; padding: 8px !important; font-size: 8.5pt !important; }
-    .selector-row, .theme-toggle { display: none !important; }
+    .selector-row, .theme-toggle, .roster-bar, .roster-col { display: none !important; }
     .team-section { display: block !important; page-break-before: always; }
     .team-section:first-of-type { page-break-before: auto; }
     tbody td, thead th { border-color: #ccc !important; color: black !important; }
@@ -180,17 +180,36 @@
     <div class="text-ink-dim mb-4 text-xs tracking-[0.08em] uppercase" x-text="team.subtitle"></div>
     <div class="intro bg-panel border-l-[3px] border-accent py-[14px] px-5 mb-7 text-[13px] text-ink-dim" x-show="team.intro" x-text="team.intro"></div>
 
-    <div class="overflow-x-auto border border-rule-strong">
-      <table :style="tableStyle(team)" class="w-full border-collapse bg-panel text-[12.5px]">
+    <div class="roster-bar flex flex-wrap items-center gap-3 mb-4">
+      <div class="flex border border-rule-strong font-display uppercase text-[11px] tracking-[0.1em]" role="group" aria-label="Table view">
+        <button type="button" class="px-3 py-1.5 cursor-pointer transition-colors duration-150"
+                :class="view === 'all' ? 'bg-accent text-on-accent' : 'bg-panel text-ink-dim hover:text-accent'"
+                :aria-pressed="view === 'all'" @click="setView('all')">All loadouts</button>
+        <button type="button" class="px-3 py-1.5 cursor-pointer transition-colors duration-150"
+                :class="view === 'roster' ? 'bg-accent text-on-accent' : 'bg-panel text-ink-dim hover:text-accent'"
+                :aria-pressed="view === 'roster'" @click="setView('roster')"
+                x-text="'My roster (' + rosterFor(team).length + ')'"></button>
+      </div>
+      <button type="button" class="font-display uppercase text-[11px] tracking-[0.1em] px-3 py-1.5 border border-rule-strong text-ink-dim hover:text-danger hover:border-danger cursor-pointer transition-colors duration-150"
+              x-show="rosterFor(team).length" @click="clearRoster(team.key)">Clear roster</button>
+    </div>
+
+    <div class="bg-panel border-l-[3px] border-rule-strong py-[14px] px-5 mb-7 text-[13px] text-ink-dim"
+         x-show="view === 'roster' && !viewTeam(team).loadouts.length">
+      Your roster is empty. Switch to <strong class="text-ink">All loadouts</strong> and use <strong class="text-ink">+ Add</strong> on the builds you're fielding.
+    </div>
+
+    <div class="overflow-x-auto border border-rule-strong" x-show="viewTeam(team).loadouts.length">
+      <table :style="tableStyle(viewTeam(team))" class="w-full border-collapse bg-panel text-[12.5px]">
         <thead>
           <tr>
-            <template x-for="(h, hi) in headerCells(team)" :key="hi">
+            <template x-for="(h, hi) in headerCells(viewTeam(team))" :key="hi">
               <th :class="h.cls" x-text="h.text"></th>
             </template>
           </tr>
         </thead>
         <tbody>
-          <template x-for="(row, rIdx) in allSubRows(team)" :key="rIdx">
+          <template x-for="(row, rIdx) in allSubRows(viewTeam(team))" :key="rIdx">
             <tr :class="row.cls">
               <template x-for="(cell, ci) in row.cells" :key="ci">
                 <td :class="cell.cls" :rowspan="cell.rowspan" x-html="cell.html"></td>

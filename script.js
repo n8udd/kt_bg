@@ -17,6 +17,8 @@ document.addEventListener('alpine:init', () => {
     openOperative: null,
     openWeapon: null,
     theme: 'system',
+    view: 'all',
+    rosters: {},
 
     async init() {
       this.initTheme();
@@ -42,8 +44,11 @@ document.addEventListener('alpine:init', () => {
           return r.json();
         }));
 
+        fetched.forEach(t => this.assignLoadoutIds(t));
         this.data = { teams: fetched };
         this.selectedKey = fetched[0]?.key || '';
+        this.restoreFromUrl();
+        this.$watch('selectedKey', () => this.syncUrl());
       } catch (e) {
         this.error = e.message || String(e);
       } finally {
@@ -51,8 +56,12 @@ document.addEventListener('alpine:init', () => {
       }
     },
 
-    // Modal handling — event delegation off the team section.
+    // Table clicks (roster buttons, ⓘ pop-ups) — event delegation off the team section.
     handleOpClick(e) {
+      const addBtn = e.target.closest('.roster-add');
+      if (addBtn) { this.addToRoster(this.selectedKey, addBtn.dataset.loadout); return; }
+      const removeBtn = e.target.closest('.roster-remove');
+      if (removeBtn) { this.removeFromRoster(this.selectedKey, Number(removeBtn.dataset.entry)); return; }
       const opLabel = e.target.closest('.op-label');
       if (opLabel) {
         const team = this.data.teams.find(t => t.key === this.selectedKey);
@@ -102,6 +111,103 @@ document.addEventListener('alpine:init', () => {
       document.documentElement.classList.toggle('dark', dark);
     },
 
+    // Roster: per team, an ordered list of loadout ids (repeats allowed, one entry per model).
+    // Ids are derived from operative + weapon names, so saved links survive reordering a team file.
+    assignLoadoutIds(team) {
+      const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      const seen = {};
+      (team.loadouts || []).forEach(l => {
+        const base = [l.operative, ...(l.weapons || []).map(w => w.name)].map(slug).join('.');
+        seen[base] = (seen[base] || 0) + 1;
+        l._id = seen[base] > 1 ? base + '-' + seen[base] : base;
+      });
+    },
+
+    rosterFor(team) {
+      return this.rosters[team.key] || [];
+    },
+
+    addToRoster(teamKey, id) {
+      this.rosters = { ...this.rosters, [teamKey]: [...(this.rosters[teamKey] || []), id] };
+      this.syncUrl();
+    },
+
+    removeFromRoster(teamKey, entry) {
+      const next = [...(this.rosters[teamKey] || [])];
+      next.splice(entry, 1);
+      this.rosters = { ...this.rosters, [teamKey]: next };
+      this.syncUrl();
+    },
+
+    clearRoster(teamKey) {
+      this.rosters = { ...this.rosters, [teamKey]: [] };
+      this.syncUrl();
+    },
+
+    setView(view) {
+      this.view = view;
+      this.syncUrl();
+    },
+
+    // Consecutive loadouts share an operative cell while this key matches. Roster entries each
+    // get their own key, so two Raptors show as two separate operatives.
+    groupKey(loadout) {
+      return loadout._group ?? loadout.operative;
+    },
+
+    // The team as the table should show it: every loadout, or in roster view only the rostered
+    // loadouts (team-file order) with the weapon columns narrowed to fit them.
+    viewTeam(team) {
+      if (this.view !== 'roster') return team;
+      const index = new Map(team.loadouts.map((l, i) => [l._id, i]));
+      const entries = this.rosterFor(team)
+        .map((id, entry) => ({ id, entry }))
+        .filter(e => index.has(e.id))
+        .sort((a, b) => index.get(a.id) - index.get(b.id) || a.entry - b.entry);
+      const loadouts = entries.map((e, i) => ({ ...team.loadouts[index.get(e.id)], _entry: e.entry, _group: i }));
+      const widest = melee => Math.max(0, ...loadouts.map(l => (l.weapons || []).filter(w => (w.type === 'melee') === melee).length));
+      return { ...team, loadouts, max_shooting: widest(false), max_melee: widest(true), _roster: true };
+    },
+
+    // "+ Add" (all loadouts) or "× Remove" (roster view) for one loadout's roster cell.
+    rosterButtonHtml(team, loadout) {
+      const base = 'font-display uppercase text-[10px] tracking-[0.08em] px-2 py-1 border whitespace-nowrap cursor-pointer transition-colors duration-150';
+      if (team._roster) {
+        return '<button type="button" class="roster-remove ' + base + ' border-rule-strong text-ink-dim hover:border-danger hover:text-danger"'
+          + ' data-entry="' + loadout._entry + '" aria-label="Remove from roster">× Remove</button>';
+      }
+      const count = this.rosterFor(team).filter(id => id === loadout._id).length;
+      return '<button type="button" class="roster-add ' + base + ' border-accent-dim text-accent hover:bg-accent hover:text-on-accent"'
+        + ' data-loadout="' + this.htmlEscape(loadout._id) + '" aria-label="Add to roster">+ Add'
+        + (count ? ' ×' + count : '')
+        + '</button>';
+    },
+
+    // URL holds the state: ?team=<key>&roster=<id>,<id>&view=roster, so links and reloads restore it.
+    restoreFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const team = this.data.teams.find(t => t.key === params.get('team'));
+      if (team) this.selectedKey = team.key;
+      const current = this.data.teams.find(t => t.key === this.selectedKey);
+      const ids = (params.get('roster') || '').split(',').filter(Boolean);
+      if (current && ids.length) {
+        const valid = new Set(current.loadouts.map(l => l._id));
+        this.rosters = { ...this.rosters, [current.key]: ids.filter(id => valid.has(id)) };
+      }
+      if (params.get('view') === 'roster') this.view = 'roster';
+    },
+
+    syncUrl() {
+      const parts = [];
+      if (this.selectedKey) parts.push('team=' + encodeURIComponent(this.selectedKey));
+      const current = this.data.teams.find(t => t.key === this.selectedKey);
+      const ids = current ? this.rosterFor(current) : [];
+      if (ids.length) parts.push('roster=' + ids.map(id => encodeURIComponent(id)).join(','));
+      if (this.view === 'roster') parts.push('view=roster');
+      const query = parts.length ? '?' + parts.join('&') : '';
+      history.replaceState(null, '', window.location.pathname + query + window.location.hash);
+    },
+
     closeOperative() { this.openOperative = null; },
     closeWeapon() { this.openWeapon = null; },
 
@@ -115,16 +221,16 @@ document.addEventListener('alpine:init', () => {
         .replace(/'/g, '&#039;');
     },
 
-    // Approx 200px for the operative column + 590px per weapon column group
+    // Approx 200px for the operative column + 84px roster column + 640px per weapon column group
     // (name + profile + atk + dmg + rules).
     tableStyle(team) {
       const cols = (team.max_shooting || 0) + (team.max_melee || 0);
-      return `min-width: ${200 + cols * 640}px`;
+      return `min-width: ${284 + cols * 640}px`;
     },
 
     // Build header cells from per-team max counts.
     headerCells(team) {
-      const cells = [{ text: 'Operative', cls: '' }];
+      const cells = [{ text: 'Operative', cls: '' }, { text: '', cls: 'roster-col w-[84px]' }];
       for (let i = 0; i < (team.max_shooting || 0); i++) {
         cells.push({ text: 'Shooting ' + (i + 1), cls: 'border-l border-l-accent-dim pl-[14px]' });
         cells.push({ text: 'Profile',             cls: 'text-left w-[100px]' });
@@ -192,9 +298,9 @@ document.addEventListener('alpine:init', () => {
     // Total profile sub-rows for all consecutive loadouts of this operative starting at idx.
     operativeSubrowSpan(team, idx) {
       const loadouts = team.loadouts;
-      const op = loadouts[idx].operative;
+      const key = this.groupKey(loadouts[idx]);
       let total = 0;
-      for (let i = idx; i < loadouts.length && loadouts[i].operative === op; i++) {
+      for (let i = idx; i < loadouts.length && this.groupKey(loadouts[i]) === key; i++) {
         total += this.loadoutHeight(loadouts[i]);
       }
       return total;
@@ -229,7 +335,7 @@ document.addEventListener('alpine:init', () => {
 
       const N = this.loadoutHeight(loadout);
       const isFirstOfOperative = loadoutIdx === 0
-        || loadouts[loadoutIdx - 1].operative !== loadout.operative;
+        || this.groupKey(loadouts[loadoutIdx - 1]) !== this.groupKey(loadout);
       const opRowspan = isFirstOfOperative ? this.operativeSubrowSpan(team, loadoutIdx) : 0;
 
       // Note attaches to whichever weapon was last in the original loadout.weapons array.
@@ -243,6 +349,7 @@ document.addEventListener('alpine:init', () => {
       const whitCls   = 'font-mono font-semibold text-center text-ink w-[50px]';
       const wdmgCls   = 'font-mono font-semibold text-center text-ink w-[60px]';
       const wrulesCls = 'text-ink-dim text-xs';
+      const rosterCellCls = 'roster-col text-center w-[84px]';
 
       const emptyBase = 'font-mono text-ink-empty text-center';
       const wnameEmptyCls   = emptyBase + ' text-xs border-l border-l-rule pl-[14px] whitespace-nowrap';
@@ -276,6 +383,11 @@ document.addEventListener('alpine:init', () => {
             html: opHtml,
             rowspan: opRowspan,
           });
+        }
+
+        // Roster button on the first sub-row of every loadout, spanning the whole loadout.
+        if (i === 0) {
+          cells.push({ cls: rosterCellCls, html: this.rosterButtonHtml(team, loadout), rowspan: N });
         }
 
         for (let s = 0; s < slots.length; s++) {
