@@ -16,8 +16,11 @@ document.addEventListener('alpine:init', () => {
     error: '',
     openOperative: null,
     openWeapon: null,
+    theme: 'system',
 
     async init() {
+      this.initTheme();
+
       // ESC closes the modal.
       window.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
@@ -75,6 +78,30 @@ document.addEventListener('alpine:init', () => {
       }
     },
 
+    // Theme: 'light' | 'dark' | 'system'. The inline <head> script applies the saved
+    // choice before first paint; these keep the toggle and the <html> class in sync.
+    initTheme() {
+      let saved = 'system';
+      try { saved = localStorage.getItem('kt-theme') || 'system'; } catch (e) {}
+      this.theme = ['light', 'dark', 'system'].includes(saved) ? saved : 'system';
+      this.applyTheme();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if (this.theme === 'system') this.applyTheme();
+      });
+    },
+
+    setTheme(theme) {
+      this.theme = theme;
+      try { localStorage.setItem('kt-theme', theme); } catch (e) {}
+      this.applyTheme();
+    },
+
+    applyTheme() {
+      const dark = this.theme === 'dark'
+        || (this.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', dark);
+    },
+
     closeOperative() { this.openOperative = null; },
     closeWeapon() { this.openWeapon = null; },
 
@@ -107,7 +134,7 @@ document.addEventListener('alpine:init', () => {
         cells.push({ text: 'Rules',               cls: '' });
       }
       for (let i = 0; i < (team.max_melee || 0); i++) {
-        cells.push({ text: 'Melee ' + (i + 1), cls: 'text-melee border-l border-l-[rgba(184,176,160,0.4)] pl-[14px]' });
+        cells.push({ text: 'Melee ' + (i + 1), cls: 'text-melee border-l border-l-melee/40 pl-[14px]' });
         cells.push({ text: 'Profile',          cls: 'text-left w-[100px]' });
         cells.push({ text: 'Atk',              cls: 'text-center w-[50px]' });
         cells.push({ text: 'Hit',              cls: 'text-center w-[50px]' });
@@ -123,8 +150,8 @@ document.addEventListener('alpine:init', () => {
       const badge = type === 'melee' ? 'M' : 'S';
       const badgeBase = 'inline-block font-display text-[9px] tracking-[0.1em] uppercase py-px px-[5px] rounded-sm mr-2 align-[1px] min-w-[14px] text-center';
       const badgeCls = type === 'melee'
-        ? badgeBase + ' bg-[rgba(184,176,160,0.12)] text-melee'
-        : badgeBase + ' bg-[rgba(232,90,28,0.18)] text-accent';
+        ? badgeBase + ' bg-melee/[0.12] text-melee'
+        : badgeBase + ' bg-accent/[0.18] text-accent';
       const badgeHtml = '<span class="' + badgeCls + '" title="' + type + '">' + badge + '</span>';
       const nameEscaped = this.htmlEscape(weapon.name);
       if (weapon.abilities && weapon.abilities.length) {
@@ -209,7 +236,7 @@ document.addEventListener('alpine:init', () => {
       const note = loadout.note || null;
       const noteOnIdx = weapons.length - 1;
 
-      const opCellCls = 'bg-black border-r-2 border-r-accent font-display text-[14px] tracking-[0.04em] uppercase text-ink whitespace-nowrap w-[200px]';
+      const opCellCls = 'bg-head border-r-2 border-r-accent font-display text-[14px] tracking-[0.04em] uppercase text-ink whitespace-nowrap w-[200px]';
       const wnameCls  = 'font-mono text-xs text-ink border-l border-l-rule pl-[14px] font-medium whitespace-nowrap';
       const wprofileCls = 'font-sans text-xs text-ink font-medium w-[100px]';
       const wattkCls  = 'font-mono font-semibold text-center text-ink w-[50px]';
@@ -283,7 +310,7 @@ document.addEventListener('alpine:init', () => {
             const profileName = profile.name ? this.htmlEscape(profile.name) : '—';
             let rulesHtml = this.rulesForProfile(profile);
             if (note && entry.origIdx === noteOnIdx && i === X - 1) {
-              rulesHtml += '<div class="mt-1 py-1 px-2 border-l-2 border-l-accent bg-[rgba(232,90,28,0.06)] text-ink text-[11.5px] italic">↳ ' + this.htmlEscape(note) + '</div>';
+              rulesHtml += '<div class="mt-1 py-1 px-2 border-l-2 border-l-accent bg-accent/[0.06] text-ink text-[11.5px] italic">↳ ' + this.htmlEscape(note) + '</div>';
             }
             const dmgHtml = this.htmlEscape(profile.normal_dmg) + '/' + this.htmlEscape(profile.crit_dmg);
             cells.push({ cls: wprofileCls, html: profileName,                        rowspan: profileRowspan });

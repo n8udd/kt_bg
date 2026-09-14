@@ -4,26 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kill Team — Build Guides</title>
+<script>
+  // Apply the saved theme before first paint (the toggle lives in script.js: setTheme).
+  (function () {
+    var t = 'system';
+    try { t = localStorage.getItem('kt-theme') || 'system'; } catch (e) {}
+    var dark = t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (dark) document.documentElement.classList.add('dark');
+  })();
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
   tailwind.config = {
+    darkMode: 'class',
     theme: {
       extend: {
         colors: {
-          bg:           '#0c0c0e',
-          panel:        '#16161a',
-          'panel-alt':  '#1c1c22',
-          ink:          '#e9e7e2',
-          'ink-dim':    '#8a8780',
-          'ink-empty':  '#3a3a42',
-          rule:         '#25252c',
-          'rule-strong':'#3d3d48',
-          accent:       '#e85a1c',
-          'accent-dim': '#6b2a12',
-          melee:        '#b8b0a0',
+          // Theme tokens: values are RGB channels set per theme in the <style> block below.
+          bg:           'rgb(var(--c-bg) / <alpha-value>)',
+          panel:        'rgb(var(--c-panel) / <alpha-value>)',
+          'panel-alt':  'rgb(var(--c-panel-alt) / <alpha-value>)',
+          head:         'rgb(var(--c-head) / <alpha-value>)',
+          ink:          'rgb(var(--c-ink) / <alpha-value>)',
+          'ink-dim':    'rgb(var(--c-ink-dim) / <alpha-value>)',
+          'ink-empty':  'rgb(var(--c-ink-empty) / <alpha-value>)',
+          rule:         'rgb(var(--c-rule) / <alpha-value>)',
+          'rule-strong':'rgb(var(--c-rule-strong) / <alpha-value>)',
+          accent:       'rgb(var(--c-accent) / <alpha-value>)',
+          'accent-dim': 'rgb(var(--c-accent-dim) / <alpha-value>)',
+          'on-accent':  'rgb(var(--c-on-accent) / <alpha-value>)',
+          melee:        'rgb(var(--c-melee) / <alpha-value>)',
+          danger:       'rgb(var(--c-danger) / <alpha-value>)',
         },
         fontFamily: {
           display: ['Anton', 'sans-serif'],
@@ -37,33 +51,72 @@
 
 <style type="text/tailwindcss">
   @layer base {
+    :root {
+      color-scheme: light;
+      --c-bg: 244 242 238;
+      --c-bg-glow: 255 255 255;
+      --c-panel: 255 255 255;
+      --c-panel-alt: 240 238 233;
+      --c-head: 233 230 223;
+      --c-ink: 27 27 31;
+      --c-ink-dim: 92 90 85;
+      --c-ink-empty: 185 183 176;
+      --c-rule: 226 223 216;
+      --c-rule-strong: 201 197 188;
+      --c-accent: 194 65 12;
+      --c-accent-dim: 240 184 154;
+      --c-on-accent: 255 255 255;
+      --c-melee: 107 100 86;
+      --c-danger: 179 38 30;
+    }
+    .dark {
+      color-scheme: dark;
+      --c-bg: 12 12 14;
+      --c-bg-glow: 26 26 32;
+      --c-panel: 22 22 26;
+      --c-panel-alt: 28 28 34;
+      --c-head: 0 0 0;
+      --c-ink: 233 231 226;
+      --c-ink-dim: 138 135 128;
+      --c-ink-empty: 58 58 66;
+      --c-rule: 37 37 44;
+      --c-rule-strong: 61 61 72;
+      --c-accent: 232 90 28;
+      --c-accent-dim: 107 42 18;
+      --c-on-accent: 0 0 0;
+      --c-melee: 184 176 160;
+      --c-danger: 217 122 106;
+    }
     [x-cloak] { display: none !important; }
     body {
-      background: radial-gradient(ellipse at top, #1a1a20 0%, #0c0c0e 60%) no-repeat, #0c0c0e;
+      background: radial-gradient(ellipse at top, rgb(var(--c-bg-glow)) 0%, rgb(var(--c-bg)) 60%) no-repeat, rgb(var(--c-bg));
       font-size: 13.5px;
       line-height: 1.45;
     }
     tbody td { @apply py-2 px-3 border-b border-rule align-middle; }
-    tr.new-op > td { border-top: 2px solid #3d3d48; }
+    tr.new-op > td { border-top: 2px solid rgb(var(--c-rule-strong)); }
   }
   @layer components {
-    thead th { @apply bg-black text-accent font-display font-normal tracking-[0.1em] uppercase text-[11.5px] py-[11px] px-3 text-left border-b-2 border-b-accent whitespace-nowrap; }
+    thead th { @apply bg-head text-accent font-display font-normal tracking-[0.1em] uppercase text-[11.5px] py-[11px] px-3 text-left border-b-2 border-b-accent whitespace-nowrap; }
     .team-selector {
       appearance: none;
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23e85a1c' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23c2410c' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
       background-repeat: no-repeat;
       background-position: right 14px center;
       background-size: 12px 8px;
     }
+    .dark .team-selector {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23e85a1c' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>");
+    }
     .team-selector:hover, .team-selector:focus { @apply border-accent outline-none; }
-    .team-selector option { background-color: #000; color: #e9e7e2; }
+    .team-selector option { background-color: rgb(var(--c-head)); color: rgb(var(--c-ink)); }
     .intro strong { @apply text-ink; }
-    .intro code { @apply font-mono text-ink text-xs bg-white/[0.04] px-1 rounded-sm; }
-    .op-modal { border: 1px solid #3d3d48; border-top: 3px solid #e85a1c; }
+    .intro code { @apply font-mono text-ink text-xs bg-ink/[0.06] px-1 rounded-sm; }
+    .op-modal { border: 1px solid rgb(var(--c-rule-strong)); border-top: 3px solid rgb(var(--c-accent)); }
     .footnotes strong { @apply text-ink; }
     .footnotes .marker { @apply text-accent font-semibold; }
-    .error-banner strong { color: #d97a6a; }
+    .error-banner strong { @apply text-danger; }
     .ability-text ul { @apply mt-1.5 pl-[18px] list-disc; }
     .ability-text li { @apply mb-1; }
     .op-label, .weapon-label {
@@ -78,7 +131,7 @@
   }
   @media print {
     body { background: white !important; color: black !important; padding: 8px !important; font-size: 8.5pt !important; }
-    .selector-row { display: none !important; }
+    .selector-row, .theme-toggle { display: none !important; }
     .team-section { display: block !important; page-break-before: always; }
     .team-section:first-of-type { page-break-before: auto; }
     tbody td, thead th { border-color: #ccc !important; color: black !important; }
@@ -93,13 +146,20 @@
 
 <div class="mx-auto">
 
-<header class="border-b-2 border-accent pb-4 mb-6">
+<header class="border-b-2 border-accent pb-4 mb-6 flex flex-wrap items-end justify-between gap-4">
   <h1 class="font-display text-[56px] font-normal tracking-[0.04em] m-0 uppercase leading-none">Kill Team <span class="text-accent">— Build Guides</span></h1>
+  <div class="theme-toggle flex border border-rule-strong font-display uppercase text-[11px] tracking-[0.1em]" role="group" aria-label="Colour theme">
+    <template x-for="opt in ['light', 'dark', 'system']" :key="opt">
+      <button type="button" class="px-3 py-1.5 cursor-pointer transition-colors duration-150"
+              :class="theme === opt ? 'bg-accent text-on-accent' : 'bg-panel text-ink-dim hover:text-accent'"
+              :aria-pressed="theme === opt" @click="setTheme(opt)" x-text="opt"></button>
+    </template>
+  </div>
 </header>
 
 <div class="py-[60px] px-5 text-center text-ink-dim text-[13px] tracking-[0.06em]" x-show="loading">Loading team data…</div>
 
-<div class="error-banner bg-panel border-l-[3px] border-[#b94a3a] text-ink py-[14px] px-5 mb-6 font-mono text-xs" x-show="error" x-cloak>
+<div class="error-banner bg-panel border-l-[3px] border-danger text-ink py-[14px] px-5 mb-6 font-mono text-xs" x-show="error" x-cloak>
   <strong>Couldn't load team data.</strong>
   <span x-text="error"></span>
 </div>
@@ -107,7 +167,7 @@
 <template x-if="!loading && !error && data.teams.length">
   <div class="selector-row flex items-center gap-4 mb-8 py-[14px] px-[18px] bg-panel border-l-[3px] border-accent">
     <label class="font-display uppercase text-accent text-[14px] tracking-[0.12em]" for="team-select">Kill Team</label>
-    <select id="team-select" class="team-selector bg-black text-ink border border-accent-dim py-[9px] pr-10 pl-[14px] font-display uppercase text-base tracking-[0.06em] cursor-pointer transition-colors duration-150" x-model="selectedKey">
+    <select id="team-select" class="team-selector bg-head text-ink border border-accent-dim py-[9px] pr-10 pl-[14px] font-display uppercase text-base tracking-[0.06em] cursor-pointer transition-colors duration-150" x-model="selectedKey">
       <template x-for="team in data.teams" :key="team.key">
         <option :value="team.key" x-text="team.name"></option>
       </template>
@@ -208,7 +268,7 @@
           <div class="flex items-center flex-wrap gap-[10px] mb-1.5">
             <span class="font-display text-[15px] text-ink uppercase tracking-[0.04em]" x-text="ability.name"></span>
             <template x-if="ability.tag">
-              <span class="font-display text-[10px] bg-accent text-black px-1.5 py-0.5 tracking-[0.08em] uppercase" x-text="ability.tag"></span>
+              <span class="font-display text-[10px] bg-accent text-on-accent px-1.5 py-0.5 tracking-[0.08em] uppercase" x-text="ability.tag"></span>
             </template>
           </div>
           <div class="ability-text text-[12.5px] text-ink-dim leading-[1.55]" x-html="ability.text"></div>
@@ -229,7 +289,7 @@
           <div class="flex items-center flex-wrap gap-[10px] mb-1.5">
             <span class="font-display text-[15px] text-ink uppercase tracking-[0.04em]" x-text="ability.name"></span>
             <template x-if="ability.tag">
-              <span class="font-display text-[10px] bg-accent text-black px-1.5 py-0.5 tracking-[0.08em] uppercase" x-text="ability.tag"></span>
+              <span class="font-display text-[10px] bg-accent text-on-accent px-1.5 py-0.5 tracking-[0.08em] uppercase" x-text="ability.tag"></span>
             </template>
           </div>
           <div class="ability-text text-[12.5px] text-ink-dim leading-[1.55]" x-html="ability.text"></div>
