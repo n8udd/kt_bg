@@ -22,6 +22,8 @@ PDF tools (pdftotext, pdfplumber) live in the `tools` container and run on deman
 
 `index.html` loads Alpine.js and the Tailwind Play CDN (theme config is inline in `index.html`) and mounts a single `x-data="kt"` component defined in `script.js`. On init, the component fetches `data/teams.json` (an index of team shortcode keys), then fetches each `data/teams/<key>.json` in parallel. All rendering is done client-side via Alpine.js directives — there is no server-side logic.
 
+**Theming.** Colours are theme tokens. `tailwind.config` maps each colour name (`bg`, `panel`, `panel-alt`, `head`, `ink`, `ink-dim`, `ink-empty`, `rule`, `rule-strong`, `accent`, `accent-dim`, `on-accent`, `melee`, `danger`) to an `rgb(var(--c-*) / <alpha-value>)` CSS variable, with light values on `:root` and dark values under `.dark` in the `<style>` block. The Light / Dark / System toggle in the header (`setTheme` in `script.js`) sets the `dark` class on `<html>` and saves the choice to `localStorage` as `kt-theme`; an inline `<head>` script applies it before first paint. Use the token classes (e.g. `bg-panel`, `text-ink`, `bg-accent/[0.18]`) rather than hex or `black`/`white` so both themes work.
+
 ### Data model
 
 **`data/teams.json`** — index file listing which team JSON files to load (array of filenames without `.json`, in dropdown order).
