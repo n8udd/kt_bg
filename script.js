@@ -22,7 +22,8 @@ document.addEventListener('alpine:init', () => {
     view: 'all',
     rosters: {},
     ruleGlossary: [],
-    collapsed: {},
+    collapseAll: true,
+    groupOverride: {},
     tip: null,
     tipStyle: TIP_OFFSCREEN,
 
@@ -77,7 +78,11 @@ document.addEventListener('alpine:init', () => {
         this.data = { teams: fetched };
         this.selectedKey = fetched[0]?.key || '';
         this.restoreFromUrl();
-        this.$watch('selectedKey', () => this.syncUrl());
+        this.$watch('selectedKey', () => {
+          // Slot indices and column counts differ per team, so start each team compact.
+          this.resetColumns();
+          this.syncUrl();
+        });
       } catch (e) {
         this.error = e.message || String(e);
       } finally {
@@ -199,10 +204,18 @@ document.addEventListener('alpine:init', () => {
 
     setView(view) {
       this.view = view;
-      // Slot indices are per-view (roster view narrows the columns), so a slot
-      // collapsed in one view would point at a different weapon in the other.
-      this.collapsed = {};
+      // Slot indices are per-view (roster view narrows the columns), so a per-slot
+      // exception would point at a different weapon in the other view.
+      this.groupOverride = {};
       this.syncUrl();
+    },
+
+    // Columns start compact, and each team starts fresh. Collapse state is a default
+    // plus per-slot exceptions rather than a list of collapsed slots, so it doesn't
+    // depend on how many column groups the current team happens to have.
+    resetColumns() {
+      this.collapseAll = true;
+      this.groupOverride = {};
     },
 
     // How many weapon-column groups the table has (shooting slots then melee slots).
@@ -212,38 +225,35 @@ document.addEventListener('alpine:init', () => {
 
     // A collapsed group shows only its weapon-name column, hiding Profile/Atk/Hit/Dmg/Rules.
     groupExpanded(slot) {
-      return !this.collapsed[slot];
+      const flipped = !!this.groupOverride[slot];
+      return this.collapseAll ? flipped : !flipped;
     },
 
     allCollapsed(team) {
       const n = this.groupCount(team);
-      if (!n) return false;
+      if (!n) return this.collapseAll;
       for (let s = 0; s < n; s++) if (this.groupExpanded(s)) return false;
       return true;
     },
 
     toggleGroup(slot) {
-      const next = { ...this.collapsed };
+      const next = { ...this.groupOverride };
       if (next[slot]) delete next[slot];
       else next[slot] = true;
-      this.collapsed = next;
+      this.groupOverride = next;
       this.syncUrl();
     },
 
-    // The header button: collapse every group, or expand them all again.
+    // The header button: collapse every group, or expand them all again. Either way
+    // the per-slot exceptions clear, so the new default applies to every column.
     toggleAllColumns(team) {
-      if (this.allCollapsed(team)) {
-        this.collapsed = {};
-      } else {
-        const next = {};
-        for (let s = 0; s < this.groupCount(team); s++) next[s] = true;
-        this.collapsed = next;
-      }
+      this.collapseAll = !this.allCollapsed(team);
+      this.groupOverride = {};
       this.syncUrl();
     },
 
-    collapsedList() {
-      return Object.keys(this.collapsed).filter(k => this.collapsed[k]).map(Number).sort((a, b) => a - b);
+    overrideList() {
+      return Object.keys(this.groupOverride).filter(k => this.groupOverride[k]).map(Number).sort((a, b) => a - b);
     },
 
     // Consecutive loadouts share an operative cell while this key matches. Roster entries each
@@ -309,11 +319,17 @@ document.addEventListener('alpine:init', () => {
         this.rosters = { ...this.rosters, [current.key]: ids.filter(id => valid.has(id)) };
       }
       if (params.get('view') === 'roster') this.view = 'roster';
-      const cols = (params.get('cols') || '').split(',').filter(Boolean);
-      if (cols.length) {
+      // cols=<base>:<exceptions>. Base "min" (compact) is the default and is omitted
+      // unless there are exceptions to hang off it, e.g. cols=full, cols=1,3, cols=full:0.
+      const cols = params.get('cols');
+      if (cols) {
+        const [head, tail] = cols.includes(':') ? cols.split(':') : [cols, ''];
+        const base = (head === 'full' || head === 'min') ? head : null;
+        if (base) this.collapseAll = base === 'min';
+        const list = (base ? tail : cols).split(',').filter(Boolean);
         const next = {};
-        cols.forEach(c => { const n = Number(c); if (Number.isInteger(n) && n >= 0) next[n] = true; });
-        this.collapsed = next;
+        list.forEach(c => { const n = Number(c); if (Number.isInteger(n) && n >= 0) next[n] = true; });
+        this.groupOverride = next;
       }
     },
 
@@ -324,8 +340,9 @@ document.addEventListener('alpine:init', () => {
       const ids = current ? this.rosterFor(current) : [];
       if (ids.length) parts.push('roster=' + ids.map(id => encodeURIComponent(id)).join(','));
       if (this.view === 'roster') parts.push('view=roster');
-      const cols = this.collapsedList();
-      if (cols.length) parts.push('cols=' + cols.join(','));
+      const overrides = this.overrideList();
+      if (!this.collapseAll) parts.push('cols=' + ['full', ...(overrides.length ? [overrides.join(',')] : [])].join(':'));
+      else if (overrides.length) parts.push('cols=' + overrides.join(','));
       const query = parts.length ? '?' + parts.join('&') : '';
       history.replaceState(null, '', window.location.pathname + query + window.location.hash);
     },

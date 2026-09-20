@@ -252,7 +252,7 @@
     </div>
 
     <div class="table-pane overflow-auto border border-rule-strong" x-show="viewTeam(team).loadouts.length"
-         x-effect="selectedKey; viewTeam(team).loadouts.length; collapsedList().length; $nextTick(() => syncStickyOffsets($el))">
+         x-effect="selectedKey; viewTeam(team).loadouts.length; collapseAll; overrideList().length; $nextTick(() => syncStickyOffsets($el))">
       <table :style="tableStyle(viewTeam(team))" class="w-full border-collapse bg-panel text-[12.5px]">
         <thead>
           <tr>

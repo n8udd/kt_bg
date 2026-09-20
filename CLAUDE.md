@@ -63,10 +63,12 @@ Loadout fields:
 
 Each weapon-column group can hide its Profile / Atk / Hit / Dmg / Rules columns, leaving just the weapon name.
 
-- `collapsed` is a map of slot index → `true`. `groupExpanded(slot)` is the single check both `headerCells` and `subRowsFor` consult, so they always emit the same number of columns — keep any change to one in step with the other.
-- The **Minimise columns** / **Expand columns** button (`toggleAllColumns`) collapses or expands every group at once; clicking a group header (`.group-toggle`) collapses just that one.
+- **Columns start compact.** The state is a default plus exceptions — `collapseAll` (a boolean, `true` by default) and `groupOverride` (a map of slot index → `true` meaning "the opposite of the default") — deliberately *not* a list of collapsed slots. A list is sized to one team's column count, so switching to a team with more weapon groups would leave the extra ones expanded.
+- `groupExpanded(slot)` is the single check both `headerCells` and `subRowsFor` consult, so they always emit the same number of columns — keep any change to one in step with the other.
+- The **Minimise columns** / **Expand columns** button (`toggleAllColumns`) flips `collapseAll` and clears the exceptions; clicking a group header (`.group-toggle`) toggles just that slot's exception.
 - Collapsing every group drops each loadout to a single row, so the table gets shorter as well as narrower.
-- State lives in the URL as `cols=<slot>,<slot>` and is reset when switching between All loadouts and My roster, because roster view recomputes `max_shooting`/`max_melee` and so renumbers the slots.
+- `resetColumns()` returns to the compact default. It runs on every team change, since slot indices and column counts are per team. Switching between All loadouts and My roster clears only the exceptions, because roster view recomputes `max_shooting`/`max_melee` and so renumbers the slots.
+- URL state is `cols=<base>:<exceptions>`, where the base is `min` (compact, the default, omitted) or `full` — e.g. `cols=1,3` (compact but slots 1 and 3 open), `cols=full`, `cols=full:0`.
 
 ### Rule tooltips (`script.js`)
 
