@@ -111,6 +111,23 @@
     }
     .team-selector:hover, .team-selector:focus { @apply border-accent outline-none; }
     .team-selector option { background-color: rgb(var(--c-head)); color: rgb(var(--c-ink)); }
+    /* Table lives in its own scroll pane so the horizontal scrollbar stays on
+       screen, with a sticky header row and sticky Operative column. Collapsed
+       borders don't travel with sticky cells, so their edges are inset shadows. */
+    .table-pane { max-height: calc(100vh - 2rem); }
+    .table-pane thead th {
+      position: sticky; top: 0; z-index: 20;
+      box-shadow: inset 0 -2px 0 rgb(var(--c-accent));
+    }
+    .table-pane td.op-cell, .table-pane th.op-cell {
+      position: sticky; left: 0;
+      box-shadow: inset -2px 0 0 rgb(var(--c-accent));
+    }
+    .table-pane td.op-cell { z-index: 10; }
+    .table-pane th.op-cell {
+      z-index: 30;
+      box-shadow: inset -2px 0 0 rgb(var(--c-accent)), inset 0 -2px 0 rgb(var(--c-accent));
+    }
     .intro strong { @apply text-ink; }
     .intro code { @apply font-mono text-ink text-xs bg-ink/[0.06] px-1 rounded-sm; }
     .op-modal { border: 1px solid rgb(var(--c-rule-strong)); border-top: 3px solid rgb(var(--c-accent)); }
@@ -137,6 +154,10 @@
     tbody td, thead th { border-color: #ccc !important; color: black !important; }
     thead th { background: #eee !important; }
     table { min-width: 0 !important; }
+    .table-pane { max-height: none !important; overflow: visible !important; }
+    .table-pane thead th, .table-pane td.op-cell, .table-pane th.op-cell {
+      position: static !important; box-shadow: none !important;
+    }
   }
 </style>
 <script src="script.js" defer></script>
@@ -199,7 +220,7 @@
       Your roster is empty. Switch to <strong class="text-ink">All loadouts</strong> and use <strong class="text-ink">+ Add</strong> on the builds you're fielding.
     </div>
 
-    <div class="overflow-x-auto border border-rule-strong" x-show="viewTeam(team).loadouts.length">
+    <div class="table-pane overflow-auto border border-rule-strong" x-show="viewTeam(team).loadouts.length">
       <table :style="tableStyle(viewTeam(team))" class="w-full border-collapse bg-panel text-[12.5px]">
         <thead>
           <tr>

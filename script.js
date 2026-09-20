@@ -230,7 +230,7 @@ document.addEventListener('alpine:init', () => {
 
     // Build header cells from per-team max counts.
     headerCells(team) {
-      const cells = [{ text: 'Operative', cls: '' }, { text: '', cls: 'roster-col w-[84px]' }];
+      const cells = [{ text: 'Operative', cls: 'op-cell' }, { text: '', cls: 'roster-col w-[84px]' }];
       for (let i = 0; i < (team.max_shooting || 0); i++) {
         cells.push({ text: 'Shooting ' + (i + 1), cls: 'border-l border-l-accent-dim pl-[14px]' });
         cells.push({ text: 'Profile',             cls: 'text-left w-[100px]' });
@@ -342,7 +342,7 @@ document.addEventListener('alpine:init', () => {
       const note = loadout.note || null;
       const noteOnIdx = weapons.length - 1;
 
-      const opCellCls = 'bg-head border-r-2 border-r-accent font-display text-[14px] tracking-[0.04em] uppercase text-ink whitespace-nowrap w-[200px]';
+      const opCellCls = 'op-cell bg-head border-r-2 border-r-accent font-display text-[14px] tracking-[0.04em] uppercase text-ink whitespace-nowrap w-[200px]';
       const wnameCls  = 'font-mono text-xs text-ink border-l border-l-rule pl-[14px] font-medium whitespace-nowrap';
       const wprofileCls = 'font-sans text-xs text-ink font-medium w-[100px]';
       const wattkCls  = 'font-mono font-semibold text-center text-ink w-[50px]';
