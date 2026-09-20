@@ -111,6 +111,32 @@
     }
     .team-selector:hover, .team-selector:focus { @apply border-accent outline-none; }
     .team-selector option { background-color: rgb(var(--c-head)); color: rgb(var(--c-ink)); }
+    /* Table lives in its own scroll pane so the horizontal scrollbar stays on
+       screen, with a sticky header row and sticky Operative + roster columns.
+       The roster column freezes flush against the Operative one, whose real
+       width arrives as --op-w from syncStickyOffsets() in script.js. Collapsed
+       borders don't travel with sticky cells, so their edges are inset shadows. */
+    .table-pane { max-height: calc(100vh - 2rem); --op-w: 200px; }
+    .table-pane thead th {
+      position: sticky; top: 0; z-index: 20;
+      box-shadow: inset 0 -2px 0 rgb(var(--c-accent));
+    }
+    .table-pane td.op-cell, .table-pane th.op-cell {
+      position: sticky; left: 0;
+      box-shadow: inset -2px 0 0 rgb(var(--c-accent));
+    }
+    .table-pane td.roster-col, .table-pane th.roster-col {
+      position: sticky; left: var(--op-w);
+      box-shadow: inset -1px 0 0 rgb(var(--c-rule-strong));
+    }
+    .table-pane td.op-cell, .table-pane td.roster-col { z-index: 10; }
+    .table-pane th.op-cell, .table-pane th.roster-col { z-index: 30; }
+    .table-pane th.op-cell {
+      box-shadow: inset -2px 0 0 rgb(var(--c-accent)), inset 0 -2px 0 rgb(var(--c-accent));
+    }
+    .table-pane th.roster-col {
+      box-shadow: inset -1px 0 0 rgb(var(--c-rule-strong)), inset 0 -2px 0 rgb(var(--c-accent));
+    }
     .intro strong { @apply text-ink; }
     .intro code { @apply font-mono text-ink text-xs bg-ink/[0.06] px-1 rounded-sm; }
     .op-modal { border: 1px solid rgb(var(--c-rule-strong)); border-top: 3px solid rgb(var(--c-accent)); }
@@ -131,12 +157,17 @@
   }
   @media print {
     body { background: white !important; color: black !important; padding: 8px !important; font-size: 8.5pt !important; }
-    .selector-row, .theme-toggle { display: none !important; }
+    .selector-row, .theme-toggle, .roster-bar, .roster-col { display: none !important; }
     .team-section { display: block !important; page-break-before: always; }
     .team-section:first-of-type { page-break-before: auto; }
     tbody td, thead th { border-color: #ccc !important; color: black !important; }
     thead th { background: #eee !important; }
     table { min-width: 0 !important; }
+    .table-pane { max-height: none !important; overflow: visible !important; }
+    .table-pane thead th, .table-pane td.op-cell, .table-pane th.op-cell,
+    .table-pane td.roster-col, .table-pane th.roster-col {
+      position: static !important; box-shadow: none !important;
+    }
   }
 </style>
 <script src="script.js" defer></script>
@@ -167,7 +198,7 @@
 <template x-if="!loading && !error && data.teams.length">
   <div class="selector-row flex items-center gap-4 mb-8 py-[14px] px-[18px] bg-panel border-l-[3px] border-accent">
     <label class="font-display uppercase text-accent text-[14px] tracking-[0.12em]" for="team-select">Kill Team</label>
-    <select id="team-select" class="team-selector bg-head text-ink border border-accent-dim py-[9px] pr-10 pl-[14px] font-display uppercase text-base tracking-[0.06em] cursor-pointer transition-colors duration-150" x-model="selectedKey">
+    <select id="team-select" x-ref="teamSelect" class="team-selector bg-head text-ink border border-accent-dim py-[9px] pr-10 pl-[14px] font-display uppercase text-base tracking-[0.06em] cursor-pointer transition-colors duration-150" x-model="selectedKey">
       <template x-for="team in data.teams" :key="team.key">
         <option :value="team.key" x-text="team.name"></option>
       </template>
@@ -180,17 +211,37 @@
     <div class="text-ink-dim mb-4 text-xs tracking-[0.08em] uppercase" x-text="team.subtitle"></div>
     <div class="intro bg-panel border-l-[3px] border-accent py-[14px] px-5 mb-7 text-[13px] text-ink-dim" x-show="team.intro" x-text="team.intro"></div>
 
-    <div class="overflow-x-auto border border-rule-strong">
-      <table :style="tableStyle(team)" class="w-full border-collapse bg-panel text-[12.5px]">
+    <div class="roster-bar flex flex-wrap items-center gap-3 mb-4">
+      <div class="flex border border-rule-strong font-display uppercase text-[11px] tracking-[0.1em]" role="group" aria-label="Table view">
+        <button type="button" class="px-3 py-1.5 cursor-pointer transition-colors duration-150"
+                :class="view === 'all' ? 'bg-accent text-on-accent' : 'bg-panel text-ink-dim hover:text-accent'"
+                :aria-pressed="view === 'all'" @click="setView('all')">All loadouts</button>
+        <button type="button" class="px-3 py-1.5 cursor-pointer transition-colors duration-150"
+                :class="view === 'roster' ? 'bg-accent text-on-accent' : 'bg-panel text-ink-dim hover:text-accent'"
+                :aria-pressed="view === 'roster'" @click="setView('roster')"
+                x-text="'My roster (' + rosterFor(team).length + ')'"></button>
+      </div>
+      <button type="button" class="font-display uppercase text-[11px] tracking-[0.1em] px-3 py-1.5 border border-rule-strong text-ink-dim hover:text-danger hover:border-danger cursor-pointer transition-colors duration-150"
+              x-show="rosterFor(team).length" @click="clearRoster(team.key)">Clear roster</button>
+    </div>
+
+    <div class="bg-panel border-l-[3px] border-rule-strong py-[14px] px-5 mb-7 text-[13px] text-ink-dim"
+         x-show="view === 'roster' && !viewTeam(team).loadouts.length">
+      Your roster is empty. Switch to <strong class="text-ink">All loadouts</strong> and use <strong class="text-ink">+ Add</strong> on the builds you're fielding.
+    </div>
+
+    <div class="table-pane overflow-auto border border-rule-strong" x-show="viewTeam(team).loadouts.length"
+         x-effect="selectedKey; viewTeam(team).loadouts.length; $nextTick(() => syncStickyOffsets($el))">
+      <table :style="tableStyle(viewTeam(team))" class="w-full border-collapse bg-panel text-[12.5px]">
         <thead>
           <tr>
-            <template x-for="(h, hi) in headerCells(team)" :key="hi">
+            <template x-for="(h, hi) in headerCells(viewTeam(team))" :key="hi">
               <th :class="h.cls" x-text="h.text"></th>
             </template>
           </tr>
         </thead>
         <tbody>
-          <template x-for="(row, rIdx) in allSubRows(team)" :key="rIdx">
+          <template x-for="(row, rIdx) in allSubRows(viewTeam(team))" :key="rIdx">
             <tr :class="row.cls">
               <template x-for="(cell, ci) in row.cells" :key="ci">
                 <td :class="cell.cls" :rowspan="cell.rowspan" x-html="cell.html"></td>

@@ -57,6 +57,16 @@ Loadout fields:
 - The operative name cell rowspans across all consecutive loadouts that share the same `operative` string (`operativeSubrowSpan`).
 - The `note` field on a loadout renders as a `↳` annotation inside the rules cell of the last profile of the weapon declared last in `weapons[]` (declaration order, not column order).
 
+### Roster (`script.js`)
+
+Players add loadouts to a per-team roster with the **+ Add** button in each loadout's roster column, then switch the table between **All loadouts** and **My roster**.
+
+- Each loadout gets a derived `_id` at load time (`assignLoadoutIds`): the slugged operative and weapon names joined with `.`, e.g. `raptor.plasma-pistol.chainsword`, plus `-2`, `-3` for exact duplicates. There is no `id` field in the data, so renaming an operative or weapon changes its id and saved roster links drop that entry.
+- A roster is an ordered list of ids per team (`rosters[teamKey]`). Repeats are allowed, one entry per model.
+- `viewTeam(team)` returns the team unchanged, or in roster view a derived team: only the rostered loadouts (in team-file order), recomputed `max_shooting`/`max_melee`, and a per-entry `_group` so repeated operatives get separate operative cells (`groupKey`).
+- The URL holds the state (`?team=<key>&roster=<id>,<id>&view=roster`, via `restoreFromUrl` / `syncUrl`), so links and reloads restore the roster.
+- Selection rules (leader, team size, weapon caps) aren't enforced.
+
 ### Adding a new team
 
 1. Create `data/teams/<shortcode>.json` using `data/teams/template_team.json` as the schema.
