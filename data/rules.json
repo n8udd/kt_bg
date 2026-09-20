@@ -1,0 +1,27 @@
+{
+  "rules": [
+    { "key": "accurate",        "name": "Accurate x",        "text": "Retain x of your attack dice as normal successes without rolling them. Accurate stacks up to a maximum of 2." },
+    { "key": "balanced",        "name": "Balanced",          "text": "You can re-roll one of your attack dice." },
+    { "key": "blast",           "name": "Blast x",           "text": "After resolving the attack against the primary target, resolve it against every other operative visible to and within x of that target, using the same cover and obscured state." },
+    { "key": "brutal",          "name": "Brutal",            "text": "Your opponent can only block your successes with critical successes." },
+    { "key": "ceaseless",       "name": "Ceaseless",         "text": "You can re-roll any of your attack dice that share the same result." },
+    { "key": "devastating",     "name": "Devastating x",     "text": "Each critical success immediately inflicts x damage on the target, before any other attack dice are resolved." },
+    { "key": "heavy",           "name": "Heavy (x)",         "text": "This weapon cannot be used if the operative has already moved this activation, and the operative cannot move after using it — except for the move type named in brackets." },
+    { "key": "hot",             "name": "Hot",               "text": "Before the attack, roll a D6. If the result is less than the weapon's Hit stat, the operative suffers damage equal to twice the roll." },
+    { "key": "lethal",          "name": "Lethal x+",         "text": "This weapon scores critical successes on x+ instead of 6+." },
+    { "key": "limited",         "name": "Limited x",         "text": "This weapon can only be used x times per battle." },
+    { "key": "piercing crits",  "name": "Piercing Crits x",  "text": "If you retain any critical successes, the defender rolls x fewer defence dice." },
+    { "key": "piercing",        "name": "Piercing x",        "text": "The defender rolls x fewer defence dice." },
+    { "key": "punishing",       "name": "Punishing",         "text": "If you retain any critical successes, retain one of your failed dice as a normal success." },
+    { "key": "range",           "name": "Range x",           "text": "Only operatives within x of the attacker are valid targets for this weapon." },
+    { "key": "relentless",      "name": "Relentless",        "text": "You can re-roll any or all of your attack dice." },
+    { "key": "rending",         "name": "Rending",           "text": "If you retain any critical successes, you can retain one of your normal successes as a critical success instead." },
+    { "key": "saturate",        "name": "Saturate",          "text": "The defender cannot retain cover saves against this weapon." },
+    { "key": "seek",            "name": "Seek x",            "text": "Ignore terrain of the named type when checking visibility and obscuring — the target is treated as visible. It can still retain a cover save." },
+    { "key": "severe",          "name": "Severe",            "text": "If you do not retain any critical successes, you can change one of your normal successes into a critical success. No effect alongside Punishing or Rending." },
+    { "key": "shock",           "name": "Shock",             "text": "The first critical success you resolve in each sequence also discards one of the target's unresolved normal successes (or a critical success if it has none)." },
+    { "key": "silent",          "name": "Silent",            "text": "This weapon can be used to shoot while the operative is in Conceal order." },
+    { "key": "stun",            "name": "Stun",              "text": "Each critical success reduces the target's APL by 1 until the end of its next activation." },
+    { "key": "torrent",         "name": "Torrent x",         "text": "Select a primary target, then select any other valid targets within x of it, and resolve the attack against each of them." }
+  ]
+}
