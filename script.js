@@ -23,6 +23,8 @@ document.addEventListener('alpine:init', () => {
     async init() {
       this.initTheme();
 
+      window.addEventListener('resize', () => this.syncAllStickyOffsets());
+
       // ESC closes the modal.
       window.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
@@ -181,6 +183,23 @@ document.addEventListener('alpine:init', () => {
         + ' data-loadout="' + this.htmlEscape(loadout._id) + '" aria-label="Add to roster">+ Add'
         + (count ? ' ×' + count : '')
         + '</button>';
+    },
+
+    // The roster column sticks to the right edge of the Operative column, whose
+    // real width is set by the widest operative name/stat row, not by its w-[200px]
+    // hint (the table uses auto layout). Measure it and hand it to the CSS.
+    syncStickyOffsets(pane) {
+      const op = pane.querySelector('td.op-cell, th.op-cell');
+      if (!op) return;
+      const w = op.getBoundingClientRect().width;
+      if (w > 0) pane.style.setProperty('--op-w', w + 'px');
+    },
+
+    // Column widths shift with the viewport, so re-measure every visible pane.
+    syncAllStickyOffsets() {
+      document.querySelectorAll('.table-pane').forEach(pane => {
+        if (pane.offsetParent !== null) this.syncStickyOffsets(pane);
+      });
     },
 
     // URL holds the state: ?team=<key>&roster=<id>,<id>&view=roster, so links and reloads restore it.
@@ -349,7 +368,7 @@ document.addEventListener('alpine:init', () => {
       const whitCls   = 'font-mono font-semibold text-center text-ink w-[50px]';
       const wdmgCls   = 'font-mono font-semibold text-center text-ink w-[60px]';
       const wrulesCls = 'text-ink-dim text-xs';
-      const rosterCellCls = 'roster-col text-center w-[84px]';
+      const rosterCellCls = 'roster-col bg-panel text-center w-[84px]';
 
       const emptyBase = 'font-mono text-ink-empty text-center';
       const wnameEmptyCls   = emptyBase + ' text-xs border-l border-l-rule pl-[14px] whitespace-nowrap';
