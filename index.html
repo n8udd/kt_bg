@@ -137,6 +137,15 @@
     .table-pane th.roster-col {
       box-shadow: inset -1px 0 0 rgb(var(--c-rule-strong)), inset 0 -2px 0 rgb(var(--c-accent));
     }
+    /* Weapon-group headers double as the per-column collapse toggle. */
+    .group-toggle { @apply inline-flex items-center gap-2 cursor-pointer select-none; }
+    .group-toggle:hover, .group-toggle:focus { @apply text-ink outline-none; }
+    .group-chevron {
+      @apply inline-flex items-center justify-center w-4 h-4 shrink-0 font-mono text-[13px] leading-none
+             border border-current opacity-60 transition-opacity duration-150;
+    }
+    .group-toggle:hover .group-chevron, .group-toggle:focus .group-chevron { @apply opacity-100; }
+
     /* Rules-column keywords that have a glossary entry. */
     .rule-kw {
       @apply cursor-help text-ink underline decoration-dotted decoration-accent-dim underline-offset-2 transition-colors duration-150;
@@ -229,6 +238,10 @@
                 :aria-pressed="view === 'roster'" @click="setView('roster')"
                 x-text="'My roster (' + rosterFor(team).length + ')'"></button>
       </div>
+      <button type="button" class="font-display uppercase text-[11px] tracking-[0.1em] px-3 py-1.5 border border-rule-strong text-ink-dim hover:text-accent hover:border-accent cursor-pointer transition-colors duration-150"
+              @click="toggleAllColumns(viewTeam(team))"
+              x-text="allCollapsed(viewTeam(team)) ? 'Expand columns' : 'Minimise columns'"></button>
+
       <button type="button" class="font-display uppercase text-[11px] tracking-[0.1em] px-3 py-1.5 border border-rule-strong text-ink-dim hover:text-danger hover:border-danger cursor-pointer transition-colors duration-150"
               x-show="rosterFor(team).length" @click="clearRoster(team.key)">Clear roster</button>
     </div>
@@ -239,12 +252,12 @@
     </div>
 
     <div class="table-pane overflow-auto border border-rule-strong" x-show="viewTeam(team).loadouts.length"
-         x-effect="selectedKey; viewTeam(team).loadouts.length; $nextTick(() => syncStickyOffsets($el))">
+         x-effect="selectedKey; viewTeam(team).loadouts.length; collapseAll; overrideList().length; $nextTick(() => syncStickyOffsets($el))">
       <table :style="tableStyle(viewTeam(team))" class="w-full border-collapse bg-panel text-[12.5px]">
         <thead>
           <tr>
             <template x-for="(h, hi) in headerCells(viewTeam(team))" :key="hi">
-              <th :class="h.cls" x-text="h.text"></th>
+              <th :class="h.cls" x-html="h.html"></th>
             </template>
           </tr>
         </thead>

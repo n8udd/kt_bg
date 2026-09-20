@@ -22,6 +22,8 @@ document.addEventListener('alpine:init', () => {
     view: 'all',
     rosters: {},
     ruleGlossary: [],
+    collapseAll: true,
+    groupOverride: {},
     tip: null,
     tipStyle: TIP_OFFSCREEN,
 
@@ -32,6 +34,14 @@ document.addEventListener('alpine:init', () => {
       window.addEventListener('scroll', () => this.hideRuleTip(), true);
 
       // ESC closes the modal.
+      document.addEventListener('keydown', e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const group = e.target.closest?.('.group-toggle');
+        if (!group) return;
+        e.preventDefault();
+        this.toggleGroup(Number(group.dataset.group));
+      });
+
       window.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
           if (this.openOperative) this.openOperative = null;
@@ -68,7 +78,11 @@ document.addEventListener('alpine:init', () => {
         this.data = { teams: fetched };
         this.selectedKey = fetched[0]?.key || '';
         this.restoreFromUrl();
-        this.$watch('selectedKey', () => this.syncUrl());
+        this.$watch('selectedKey', () => {
+          // Slot indices and column counts differ per team, so start each team compact.
+          this.resetColumns();
+          this.syncUrl();
+        });
       } catch (e) {
         this.error = e.message || String(e);
       } finally {
@@ -100,6 +114,8 @@ document.addEventListener('alpine:init', () => {
         return;
       }
       this.hideRuleTip();
+      const group = e.target.closest('.group-toggle');
+      if (group) { this.toggleGroup(Number(group.dataset.group)); return; }
       const addBtn = e.target.closest('.roster-add');
       if (addBtn) { this.addToRoster(this.selectedKey, addBtn.dataset.loadout); return; }
       const removeBtn = e.target.closest('.roster-remove');
@@ -188,7 +204,56 @@ document.addEventListener('alpine:init', () => {
 
     setView(view) {
       this.view = view;
+      // Slot indices are per-view (roster view narrows the columns), so a per-slot
+      // exception would point at a different weapon in the other view.
+      this.groupOverride = {};
       this.syncUrl();
+    },
+
+    // Columns start compact, and each team starts fresh. Collapse state is a default
+    // plus per-slot exceptions rather than a list of collapsed slots, so it doesn't
+    // depend on how many column groups the current team happens to have.
+    resetColumns() {
+      this.collapseAll = true;
+      this.groupOverride = {};
+    },
+
+    // How many weapon-column groups the table has (shooting slots then melee slots).
+    groupCount(team) {
+      return (team.max_shooting || 0) + (team.max_melee || 0);
+    },
+
+    // A collapsed group shows only its weapon-name column, hiding Profile/Atk/Hit/Dmg/Rules.
+    groupExpanded(slot) {
+      const flipped = !!this.groupOverride[slot];
+      return this.collapseAll ? flipped : !flipped;
+    },
+
+    allCollapsed(team) {
+      const n = this.groupCount(team);
+      if (!n) return this.collapseAll;
+      for (let s = 0; s < n; s++) if (this.groupExpanded(s)) return false;
+      return true;
+    },
+
+    toggleGroup(slot) {
+      const next = { ...this.groupOverride };
+      if (next[slot]) delete next[slot];
+      else next[slot] = true;
+      this.groupOverride = next;
+      this.syncUrl();
+    },
+
+    // The header button: collapse every group, or expand them all again. Either way
+    // the per-slot exceptions clear, so the new default applies to every column.
+    toggleAllColumns(team) {
+      this.collapseAll = !this.allCollapsed(team);
+      this.groupOverride = {};
+      this.syncUrl();
+    },
+
+    overrideList() {
+      return Object.keys(this.groupOverride).filter(k => this.groupOverride[k]).map(Number).sort((a, b) => a - b);
     },
 
     // Consecutive loadouts share an operative cell while this key matches. Roster entries each
@@ -254,6 +319,18 @@ document.addEventListener('alpine:init', () => {
         this.rosters = { ...this.rosters, [current.key]: ids.filter(id => valid.has(id)) };
       }
       if (params.get('view') === 'roster') this.view = 'roster';
+      // cols=<base>:<exceptions>. Base "min" (compact) is the default and is omitted
+      // unless there are exceptions to hang off it, e.g. cols=full, cols=1,3, cols=full:0.
+      const cols = params.get('cols');
+      if (cols) {
+        const [head, tail] = cols.includes(':') ? cols.split(':') : [cols, ''];
+        const base = (head === 'full' || head === 'min') ? head : null;
+        if (base) this.collapseAll = base === 'min';
+        const list = (base ? tail : cols).split(',').filter(Boolean);
+        const next = {};
+        list.forEach(c => { const n = Number(c); if (Number.isInteger(n) && n >= 0) next[n] = true; });
+        this.groupOverride = next;
+      }
     },
 
     syncUrl() {
@@ -263,6 +340,9 @@ document.addEventListener('alpine:init', () => {
       const ids = current ? this.rosterFor(current) : [];
       if (ids.length) parts.push('roster=' + ids.map(id => encodeURIComponent(id)).join(','));
       if (this.view === 'roster') parts.push('view=roster');
+      const overrides = this.overrideList();
+      if (!this.collapseAll) parts.push('cols=' + ['full', ...(overrides.length ? [overrides.join(',')] : [])].join(':'));
+      else if (overrides.length) parts.push('cols=' + overrides.join(','));
       const query = parts.length ? '?' + parts.join('&') : '';
       history.replaceState(null, '', window.location.pathname + query + window.location.hash);
     },
@@ -283,30 +363,57 @@ document.addEventListener('alpine:init', () => {
     // Approx 200px for the operative column + 84px roster column + 640px per weapon column group
     // (name + profile + atk + dmg + rules).
     tableStyle(team) {
-      const cols = (team.max_shooting || 0) + (team.max_melee || 0);
-      return `min-width: ${284 + cols * 640}px`;
+      let width = 284;
+      for (let sl = 0; sl < this.groupCount(team); sl++) {
+        width += this.groupExpanded(sl) ? 640 : 220;
+      }
+      return `min-width: ${width}px`;
     },
 
-    // Build header cells from per-team max counts.
-    headerCells(team) {
-      const cells = [{ text: 'Operative', cls: 'op-cell' }, { text: '', cls: 'roster-col w-[84px]' }];
+    // Label and styling for each weapon-column group, shooting slots then melee.
+    groupLabels(team) {
+      const out = [];
       for (let i = 0; i < (team.max_shooting || 0); i++) {
-        cells.push({ text: 'Shooting ' + (i + 1), cls: 'border-l border-l-accent-dim pl-[14px]' });
-        cells.push({ text: 'Profile',             cls: 'text-left w-[100px]' });
-        cells.push({ text: 'Atk',                 cls: 'text-center w-[50px]' });
-        cells.push({ text: 'Hit',                 cls: 'text-center w-[50px]' });
-        cells.push({ text: 'Dmg',                 cls: 'text-center w-[60px]' });
-        cells.push({ text: 'Rules',               cls: '' });
+        out.push({ label: 'Shooting ' + (i + 1), cls: 'border-l border-l-accent-dim pl-[14px]' });
       }
       for (let i = 0; i < (team.max_melee || 0); i++) {
-        cells.push({ text: 'Melee ' + (i + 1), cls: 'text-melee border-l border-l-melee/40 pl-[14px]' });
-        cells.push({ text: 'Profile',          cls: 'text-left w-[100px]' });
-        cells.push({ text: 'Atk',              cls: 'text-center w-[50px]' });
-        cells.push({ text: 'Hit',              cls: 'text-center w-[50px]' });
-        cells.push({ text: 'Dmg',              cls: 'text-center w-[60px]' });
-        cells.push({ text: 'Rules',            cls: '' });
+        out.push({ label: 'Melee ' + (i + 1), cls: 'text-melee border-l border-l-melee/40 pl-[14px]' });
       }
+      return out;
+    },
+
+    // Group headers double as the per-column collapse toggle.
+    groupHeaderHtml(group, slot) {
+      const expanded = this.groupExpanded(slot);
+      const chevron = '<span class="group-chevron" aria-hidden="true">' + (expanded ? '−' : '+') + '</span>';
+      return '<span class="group-toggle" role="button" tabindex="0" data-group="' + slot + '"'
+        + ' aria-expanded="' + expanded + '"'
+        + ' aria-label="' + this.htmlEscape(group.label) + (expanded ? ' — hide stats' : ' — show stats') + '">'
+        + this.htmlEscape(group.label) + chevron
+        + '</span>';
+    },
+
+    // Build header cells from per-team max counts. A collapsed group contributes
+    // only its name column, so this must stay in step with subRowsFor.
+    headerCells(team) {
+      const cells = [{ html: 'Operative', cls: 'op-cell' }, { html: '', cls: 'roster-col w-[84px]' }];
+      this.groupLabels(team).forEach((group, slot) => {
+        cells.push({ html: this.groupHeaderHtml(group, slot), cls: group.cls });
+        if (!this.groupExpanded(slot)) return;
+        cells.push({ html: 'Profile', cls: 'text-left w-[100px]' });
+        cells.push({ html: 'Atk',     cls: 'text-center w-[50px]' });
+        cells.push({ html: 'Hit',     cls: 'text-center w-[50px]' });
+        cells.push({ html: 'Dmg',     cls: 'text-center w-[60px]' });
+        cells.push({ html: 'Rules',   cls: '' });
+      });
       return cells;
+    },
+
+    // The "↳" loadout note. whitespace-normal so it still wraps when it lands in
+    // the nowrap weapon-name cell of a collapsed group.
+    noteHtml(note) {
+      return '<div class="mt-1 py-1 px-2 border-l-2 border-l-accent bg-accent/[0.06] text-ink text-[11.5px] italic whitespace-normal max-w-[260px]">↳ '
+        + this.htmlEscape(note) + '</div>';
     },
 
     // Name cell with shooting/melee type badge.
@@ -348,10 +455,28 @@ document.addEventListener('alpine:init', () => {
         + '</div>';
     },
 
-    // Max profile count across the weapons in this loadout (min 1).
-    loadoutHeight(loadout) {
-      const profileCounts = (loadout.weapons || []).map(w => (w.profiles || []).length || 1);
-      return profileCounts.length ? Math.max(1, ...profileCounts) : 1;
+    // Weapons split by type and padded with nulls up to the team's max slot counts,
+    // so slot order is always all shooting then all melee.
+    slotsFor(team, loadout) {
+      const shooting = [];
+      const melee = [];
+      (loadout.weapons || []).forEach((w, i) => {
+        const entry = { weapon: w, origIdx: i };
+        if (w.type === 'melee') melee.push(entry);
+        else shooting.push(entry);
+      });
+      while (shooting.length < (team.max_shooting || 0)) shooting.push(null);
+      while (melee.length < (team.max_melee || 0)) melee.push(null);
+      return [...shooting, ...melee];
+    },
+
+    // Max profile count across the weapons in this loadout (min 1). Collapsed groups
+    // render no profile cells, so they don't make the loadout any taller — collapsing
+    // every group brings each loadout down to a single row.
+    loadoutHeight(team, loadout) {
+      const counts = this.slotsFor(team, loadout).map((entry, slot) =>
+        (entry && this.groupExpanded(slot)) ? ((entry.weapon.profiles || []).length || 1) : 1);
+      return counts.length ? Math.max(1, ...counts) : 1;
     },
 
     // Total profile sub-rows for all consecutive loadouts of this operative starting at idx.
@@ -360,7 +485,7 @@ document.addEventListener('alpine:init', () => {
       const key = this.groupKey(loadouts[idx]);
       let total = 0;
       for (let i = idx; i < loadouts.length && this.groupKey(loadouts[i]) === key; i++) {
-        total += this.loadoutHeight(loadouts[i]);
+        total += this.loadoutHeight(team, loadouts[i]);
       }
       return total;
     },
@@ -436,20 +561,10 @@ document.addEventListener('alpine:init', () => {
       const loadouts = team.loadouts;
       const loadout = loadouts[loadoutIdx];
 
-      // Split weapons by type and pad with nulls up to the team's max slot counts.
       const weapons = loadout.weapons || [];
-      const shooting = [];
-      const melee = [];
-      weapons.forEach((w, i) => {
-        const entry = { weapon: w, origIdx: i };
-        if (w.type === 'melee') melee.push(entry);
-        else shooting.push(entry);
-      });
-      while (shooting.length < (team.max_shooting || 0)) shooting.push(null);
-      while (melee.length < (team.max_melee || 0)) melee.push(null);
-      const slots = [...shooting, ...melee];
+      const slots = this.slotsFor(team, loadout);
 
-      const N = this.loadoutHeight(loadout);
+      const N = this.loadoutHeight(team, loadout);
       const isFirstOfOperative = loadoutIdx === 0
         || this.groupKey(loadouts[loadoutIdx - 1]) !== this.groupKey(loadout);
       const opRowspan = isFirstOfOperative ? this.operativeSubrowSpan(team, loadoutIdx) : 0;
@@ -509,15 +624,19 @@ document.addEventListener('alpine:init', () => {
         for (let s = 0; s < slots.length; s++) {
           const entry = slots[s];
 
+          const expanded = this.groupExpanded(s);
+
           if (!entry) {
-            // Empty weapon slot: emit 5 dashes on the first sub-row, rowspanned to fill.
+            // Empty weapon slot: dashes on the first sub-row, rowspanned to fill.
             if (i === 0) {
-              cells.push({ cls: wnameEmptyCls,    html: '—', rowspan: N });
-              cells.push({ cls: wprofileEmptyCls, html: '—', rowspan: N });
-              cells.push({ cls: wattkEmptyCls,    html: '—', rowspan: N });
-              cells.push({ cls: whitEmptyCls,     html: '—', rowspan: N });
-              cells.push({ cls: wdmgEmptyCls,     html: '—', rowspan: N });
-              cells.push({ cls: wrulesEmptyCls,   html: '—', rowspan: N });
+              cells.push({ cls: wnameEmptyCls, html: '—', rowspan: N });
+              if (expanded) {
+                cells.push({ cls: wprofileEmptyCls, html: '—', rowspan: N });
+                cells.push({ cls: wattkEmptyCls,    html: '—', rowspan: N });
+                cells.push({ cls: whitEmptyCls,     html: '—', rowspan: N });
+                cells.push({ cls: wdmgEmptyCls,     html: '—', rowspan: N });
+                cells.push({ cls: wrulesEmptyCls,   html: '—', rowspan: N });
+              }
             }
             continue;
           }
@@ -525,10 +644,17 @@ document.addEventListener('alpine:init', () => {
           const weapon = entry.weapon;
           const X = (weapon.profiles || []).length || 1;
 
+          const carriesNote = note && entry.origIdx === noteOnIdx;
+
           // Weapon NAME cell on first sub-row only, rowspanning all profile sub-rows.
           if (i === 0) {
-            cells.push({ cls: wnameCls, html: this.nameCellHtml(weapon), rowspan: N });
+            // Collapsed groups have no rules cell, so the note rides under the name.
+            const nameHtml = this.nameCellHtml(weapon)
+              + ((!expanded && carriesNote) ? this.noteHtml(note) : '');
+            cells.push({ cls: wnameCls, html: nameHtml, rowspan: N });
           }
+
+          if (!expanded) continue;
 
           // Emit profile cells if profile i exists for this weapon.
           if (i < X) {
@@ -537,9 +663,7 @@ document.addEventListener('alpine:init', () => {
             const profileRowspan = (i === X - 1) ? (N - i) : 1;
             const profileName = profile.name ? this.htmlEscape(profile.name) : '—';
             let rulesHtml = this.rulesForProfile(profile);
-            if (note && entry.origIdx === noteOnIdx && i === X - 1) {
-              rulesHtml += '<div class="mt-1 py-1 px-2 border-l-2 border-l-accent bg-accent/[0.06] text-ink text-[11.5px] italic">↳ ' + this.htmlEscape(note) + '</div>';
-            }
+            if (carriesNote && i === X - 1) rulesHtml += this.noteHtml(note);
             const dmgHtml = this.htmlEscape(profile.normal_dmg) + '/' + this.htmlEscape(profile.crit_dmg);
             cells.push({ cls: wprofileCls, html: profileName,                        rowspan: profileRowspan });
             cells.push({ cls: wattkCls,    html: this.htmlEscape(profile.atk),       rowspan: profileRowspan });
