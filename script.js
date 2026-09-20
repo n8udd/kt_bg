@@ -8,6 +8,8 @@ const INFO_ICON = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="
   + '<path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />'
   + '</svg>';
 
+const TIP_OFFSCREEN = 'top: -9999px; left: -9999px';
+
 document.addEventListener('alpine:init', () => {
   Alpine.data('kt', () => ({
     data: { teams: [] },
@@ -19,17 +21,22 @@ document.addEventListener('alpine:init', () => {
     theme: 'system',
     view: 'all',
     rosters: {},
+    ruleGlossary: [],
+    tip: null,
+    tipStyle: TIP_OFFSCREEN,
 
     async init() {
       this.initTheme();
 
       window.addEventListener('resize', () => this.syncAllStickyOffsets());
+      window.addEventListener('scroll', () => this.hideRuleTip(), true);
 
       // ESC closes the modal.
       window.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
           if (this.openOperative) this.openOperative = null;
           if (this.openWeapon) this.openWeapon = null;
+          if (this.tip) this.hideRuleTip();
         }
       });
 
@@ -45,6 +52,17 @@ document.addEventListener('alpine:init', () => {
           if (!r.ok) throw new Error(`data/teams/${k}.json → HTTP ${r.status}`);
           return r.json();
         }));
+
+        // Optional: the site still works without it, just with no rule tooltips.
+        try {
+          const rulesRes = await fetch('data/rules.json', { cache: 'no-cache' });
+          if (rulesRes.ok) {
+            const parsed = await rulesRes.json();
+            // Longest key first so "Piercing Crits 1" matches before "Piercing".
+            this.ruleGlossary = (parsed.rules || []).slice()
+              .sort((a, b) => b.key.length - a.key.length);
+          }
+        } catch (_) { /* no glossary, no tooltips */ }
 
         fetched.forEach(t => this.assignLoadoutIds(t));
         this.data = { teams: fetched };
@@ -75,6 +93,13 @@ document.addEventListener('alpine:init', () => {
 
     // Table clicks (roster buttons, ⓘ pop-ups) — event delegation off the team section.
     handleOpClick(e) {
+      const kw = e.target.closest('.rule-kw');
+      if (kw) {
+        if (this.tip && this.tip.key === kw.dataset.rule) this.hideRuleTip();
+        else this.showRuleTip(kw);
+        return;
+      }
+      this.hideRuleTip();
       const addBtn = e.target.closest('.roster-add');
       if (addBtn) { this.addToRoster(this.selectedKey, addBtn.dataset.loadout); return; }
       const removeBtn = e.target.closest('.roster-remove');
@@ -341,9 +366,66 @@ document.addEventListener('alpine:init', () => {
     },
 
     // Render one profile's rules cell content (single profile, not stacked).
+    // Longest-first match of a rule string against the glossary. The keyword must be
+    // followed by end of string, a space or "(" so "Seek" doesn't match "Seeker".
+    ruleLookup(text) {
+      const lower = text.toLowerCase();
+      return this.ruleGlossary.find(rule => {
+        if (!lower.startsWith(rule.key)) return false;
+        const next = lower.charAt(rule.key.length);
+        return next === '' || next === ' ' || next === '(';
+      }) || null;
+    },
+
     rulesForProfile(profile) {
       const r = profile.rules || [];
-      return r.length ? r.map(x => this.htmlEscape(x)).join(', ') : '—';
+      if (!r.length) return '—';
+      return r.map(x => {
+        const escaped = this.htmlEscape(x);
+        const rule = this.ruleLookup(x);
+        // Team-specific rules (Neutron Fragment*, Shield, …) aren't in the glossary
+        // and stay as plain text — they're covered by the team's footnotes.
+        if (!rule) return escaped;
+        return '<span class="rule-kw" tabindex="0" role="button" aria-label="'
+          + escaped + ' — what does this do?" data-rule="' + this.htmlEscape(rule.key) + '">'
+          + escaped + '</span>';
+      }).join(', ');
+    },
+
+    // Tooltips are rendered at body level and positioned fixed, because the table
+    // scrolls inside .table-pane and anything absolute inside it would be clipped.
+    showRuleTip(el) {
+      const rule = this.ruleGlossary.find(r => r.key === el.dataset.rule);
+      if (!rule) return;
+      this.tip = rule;
+      this.$nextTick(() => this.positionRuleTip(el));
+    },
+
+    hideRuleTip() {
+      this.tip = null;
+      this.tipStyle = TIP_OFFSCREEN;
+    },
+
+    positionRuleTip(el) {
+      const tipEl = this.$refs.ruleTip;
+      if (!tipEl) return;
+      const r = el.getBoundingClientRect();
+      const t = tipEl.getBoundingClientRect();
+      const margin = 8;
+      // Above the keyword by default, below it when there isn't room.
+      let top = r.top - t.height - margin;
+      if (top < margin) top = r.bottom + margin;
+      // Centred, then clamped so it never hangs off either edge.
+      let left = r.left + (r.width / 2) - (t.width / 2);
+      left = Math.max(margin, Math.min(left, window.innerWidth - t.width - margin));
+      this.tipStyle = `top: ${Math.round(top)}px; left: ${Math.round(left)}px`;
+    },
+
+    // Delegated off the team section, like the click handlers.
+    handleRuleOver(e) {
+      const kw = e.target.closest('.rule-kw');
+      if (kw) this.showRuleTip(kw);
+      else if (this.tip) this.hideRuleTip();
     },
 
     // Generate sub-rows for one loadout. Each weapon's profiles get their own sub-row; the

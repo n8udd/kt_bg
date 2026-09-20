@@ -137,6 +137,12 @@
     .table-pane th.roster-col {
       box-shadow: inset -1px 0 0 rgb(var(--c-rule-strong)), inset 0 -2px 0 rgb(var(--c-accent));
     }
+    /* Rules-column keywords that have a glossary entry. */
+    .rule-kw {
+      @apply cursor-help text-ink underline decoration-dotted decoration-accent-dim underline-offset-2 transition-colors duration-150;
+    }
+    .rule-kw:hover, .rule-kw:focus { @apply text-accent decoration-accent outline-none; }
+    .rule-tip { border: 1px solid rgb(var(--c-rule-strong)); border-top: 2px solid rgb(var(--c-accent)); }
     .intro strong { @apply text-ink; }
     .intro code { @apply font-mono text-ink text-xs bg-ink/[0.06] px-1 rounded-sm; }
     .op-modal { border: 1px solid rgb(var(--c-rule-strong)); border-top: 3px solid rgb(var(--c-accent)); }
@@ -207,7 +213,9 @@
 </template>
 
 <template x-for="team in data.teams" :key="team.key">
-  <section class="team-section" x-show="team.key === selectedKey" @click="handleOpClick($event)">
+  <section class="team-section" x-show="team.key === selectedKey" @click="handleOpClick($event)"
+           @mouseover="handleRuleOver($event)" @mouseleave="hideRuleTip()"
+           @focusin="handleRuleOver($event)" @focusout="hideRuleTip()">
     <div class="text-ink-dim mb-4 text-xs tracking-[0.08em] uppercase" x-text="team.subtitle"></div>
     <div class="intro bg-panel border-l-[3px] border-accent py-[14px] px-5 mb-7 text-[13px] text-ink-dim" x-show="team.intro" x-text="team.intro"></div>
 
@@ -307,6 +315,14 @@
     <div class="footnotes mt-6 py-3 px-[18px] bg-panel border-l-[3px] border-accent-dim text-ink-dim text-[11.5px] leading-[1.7]" x-show="team.footnotes_html" x-html="team.footnotes_html"></div>
   </section>
 </template>
+
+<!-- Rule tooltip. Lives at body level and is positioned fixed by positionRuleTip(),
+     because the table scrolls inside .table-pane and would clip an absolute one. -->
+<div x-ref="ruleTip" x-show="tip" x-cloak :style="tipStyle" role="tooltip" aria-live="polite"
+     class="rule-tip fixed z-[1100] max-w-[320px] bg-panel py-2.5 px-3.5 pointer-events-none shadow-lg">
+  <div class="font-display uppercase text-accent text-[11px] tracking-[0.1em] mb-1" x-text="tip && tip.name"></div>
+  <div class="text-ink text-[12px] leading-[1.5]" x-text="tip && tip.text"></div>
+</div>
 
 <!-- Operative modal -->
 <div class="fixed inset-0 bg-black/[0.78] flex items-center justify-center z-[1000] p-5" x-show="openOperative" x-cloak @click="closeOperative()">

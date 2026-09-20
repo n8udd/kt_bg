@@ -28,6 +28,8 @@ PDF tools (pdftotext, pdfplumber) live in the `tools` container and run on deman
 
 **`data/teams.json`** — index file listing which team JSON files to load (array of filenames without `.json`, in dropdown order).
 
+**`data/rules.json`** — glossary of universal weapon rules, `{rules: [{key, name, text}]}`. `key` is the lowercase keyword matched against the start of each rule string (`"lethal"` matches `"Lethal 5+"`), `name` is the heading shown in the tooltip (`"Lethal x+"`), `text` the definition. Matching is longest-key-first, so `piercing crits` wins over `piercing`; the keyword must be followed by end of string, a space or `(`. Rules with no entry (team-specific ones like `Neutron Fragment*`) render as plain text and rely on the team's `footnotes_html`. The file is optional — if it fails to load the site works without tooltips.
+
 **`data/teams/<key>.json`** — one file per kill team. Top-level fields:
 - `key` — unique team id; the dropdown `<option>` value and the selector for which section is visible. Should match the filename.
 - `name` — label shown in the dropdown
@@ -56,6 +58,10 @@ Loadout fields:
 - A weapon's name cell rowspans the full loadout height; its profile cells rowspan from their index to the bottom of the loadout (the last profile expands to fill remaining sub-rows).
 - The operative name cell rowspans across all consecutive loadouts that share the same `operative` string (`operativeSubrowSpan`).
 - The `note` field on a loadout renders as a `↳` annotation inside the rules cell of the last profile of the weapon declared last in `weapons[]` (declaration order, not column order).
+
+### Rule tooltips (`script.js`)
+
+Rule strings in the Rules column that match `data/rules.json` are wrapped in a `.rule-kw` span by `rulesForProfile`, with hover, keyboard focus and tap all opening a definition tooltip. The tooltip is a single element at body level using `position: fixed`, positioned by `positionRuleTip` — it can't live inside the cell because the table scrolls inside `.table-pane` and `overflow` would clip it. It flips below the keyword when there's no room above, clamps to the viewport edges, and hides on scroll or ESC.
 
 ### Roster (`script.js`)
 
