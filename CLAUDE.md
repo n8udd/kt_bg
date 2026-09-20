@@ -53,11 +53,20 @@ Loadout fields:
 
 `allSubRows(team)` flattens all loadouts into a single array of `{cells, cls}` objects consumed by the `x-for` in the template. The key complexity:
 
-- Weapons are split into shooting/melee slots and padded with `null` up to `max_shooting`/`max_melee`. This means slot order is always all shooting then all melee, regardless of declaration order in `weapons[]`.
-- Within a loadout, the number of sub-rows (`loadoutHeight`) equals the max profile count across all weapons in that loadout.
+- Weapons are split into shooting/melee slots and padded with `null` up to `max_shooting`/`max_melee` (`slotsFor`). This means slot order is always all shooting then all melee, regardless of declaration order in `weapons[]`. A slot's index is its column-group id, used as the key for collapsing.
+- Within a loadout, the number of sub-rows (`loadoutHeight(team, loadout)`) equals the max profile count across the weapons in *expanded* groups — a collapsed group renders no profile cells and so can't make the loadout taller.
 - A weapon's name cell rowspans the full loadout height; its profile cells rowspan from their index to the bottom of the loadout (the last profile expands to fill remaining sub-rows).
 - The operative name cell rowspans across all consecutive loadouts that share the same `operative` string (`operativeSubrowSpan`).
-- The `note` field on a loadout renders as a `↳` annotation inside the rules cell of the last profile of the weapon declared last in `weapons[]` (declaration order, not column order).
+- The `note` field on a loadout renders as a `↳` annotation (`noteHtml`) inside the rules cell of the last profile of the weapon declared last in `weapons[]` (declaration order, not column order). If that weapon's group is collapsed there is no rules cell, so the note renders under the weapon name instead.
+
+### Column collapse (`script.js`)
+
+Each weapon-column group can hide its Profile / Atk / Hit / Dmg / Rules columns, leaving just the weapon name.
+
+- `collapsed` is a map of slot index → `true`. `groupExpanded(slot)` is the single check both `headerCells` and `subRowsFor` consult, so they always emit the same number of columns — keep any change to one in step with the other.
+- The **Minimise columns** / **Expand columns** button (`toggleAllColumns`) collapses or expands every group at once; clicking a group header (`.group-toggle`) collapses just that one.
+- Collapsing every group drops each loadout to a single row, so the table gets shorter as well as narrower.
+- State lives in the URL as `cols=<slot>,<slot>` and is reset when switching between All loadouts and My roster, because roster view recomputes `max_shooting`/`max_melee` and so renumbers the slots.
 
 ### Rule tooltips (`script.js`)
 
