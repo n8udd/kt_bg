@@ -55,7 +55,22 @@ document.addEventListener('alpine:init', () => {
         this.error = e.message || String(e);
       } finally {
         this.loading = false;
+        this.$nextTick(() => this.syncTeamSelect());
       }
+    },
+
+    // The dropdown's <option>s come from an x-for that renders after x-model has
+    // already pushed selectedKey onto the <select>, so with no matching option yet
+    // the browser falls back to the first one. A team restored from ?team=… left the
+    // dropdown showing AoD while the table showed the right team; re-assert the value
+    // once the options exist.
+    syncTeamSelect(tries = 0) {
+      const sel = this.$refs.teamSelect;
+      if (sel && sel.options.length) {
+        sel.value = this.selectedKey;
+        return;
+      }
+      if (tries < 5) requestAnimationFrame(() => this.syncTeamSelect(tries + 1));
     },
 
     // Table clicks (roster buttons, ⓘ pop-ups) — event delegation off the team section.

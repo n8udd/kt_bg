@@ -198,7 +198,7 @@
 <template x-if="!loading && !error && data.teams.length">
   <div class="selector-row flex items-center gap-4 mb-8 py-[14px] px-[18px] bg-panel border-l-[3px] border-accent">
     <label class="font-display uppercase text-accent text-[14px] tracking-[0.12em]" for="team-select">Kill Team</label>
-    <select id="team-select" class="team-selector bg-head text-ink border border-accent-dim py-[9px] pr-10 pl-[14px] font-display uppercase text-base tracking-[0.06em] cursor-pointer transition-colors duration-150" x-model="selectedKey">
+    <select id="team-select" x-ref="teamSelect" class="team-selector bg-head text-ink border border-accent-dim py-[9px] pr-10 pl-[14px] font-display uppercase text-base tracking-[0.06em] cursor-pointer transition-colors duration-150" x-model="selectedKey">
       <template x-for="team in data.teams" :key="team.key">
         <option :value="team.key" x-text="team.name"></option>
       </template>
